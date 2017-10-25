@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jamesMont.View.RegisterPage"
+             Title="Register">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="First Name" x:Name="Fname" />
+            <Entry Placeholder="Surname" x:Name="Sname" />
+            <Entry Placeholder="Email " Keyboard="Email" x:Name="email" />
+            <Entry Placeholder="Password" x:Name="pass" IsPassword="True"/>
+            <Entry Placeholder="Confirm Password" x:Name="conf_Pass" IsPassword="True"/>
+            <Entry Placeholder="Phone Number"  x:Name="phone" />
+
+
+            <Button Text="Make Account" Clicked="createAccount"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

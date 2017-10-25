@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+            NavigationPage.HasNavigationBar="False" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:jamesMont"
+             x:Class="jamesMont.MainPage"
+             Title="Login">
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Entry Placeholder="Email" x:Name="email" Keyboard="Email" x:FieldModifier="public"/>
+            <Entry Placeholder="Password" x:Name="pass" IsPassword="True"/>
+
+            <Button Text="Login" Clicked="Login_Method"/>
+            <Button Text="Make Account" Clicked="makeAccount"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

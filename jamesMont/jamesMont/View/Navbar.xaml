@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            
+             x:Class="jamesMont.View.Navbar">
+    <ContentPage.Content>
+        
+        
+        
+        <Grid ColumnSpacing="0" RowSpacing="0" x:Name="Michael">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="44"/>
+        </Grid.RowDefinitions>
+        <ContentView x:Name="PlaceHolder" Grid.Row="0"/>
+        <BoxView BackgroundColor="#DCDCDC" Grid.Row="1"/>
+
+
+
+        <Grid ColumnSpacing="0" RowSpacing="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--this is the tab items-->
+
+            <StackLayout Spacing="0" Grid.Column="0" BackgroundColor="White">
+                <Image HeightRequest="30" Source="Home.png"/>
+                <Label Text="Home" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon1_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+            <StackLayout Spacing="0" Grid.Column="1" BackgroundColor="White">
+                <Image HeightRequest="30" Source="ShoppingCart.png"/>
+                <Label Text="Shop" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon2_Tapped" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+            <StackLayout Spacing="0" Grid.Column="2" BackgroundColor="White">
+                <Image HeightRequest="30" Source="AccountCircle.png"/>
+                <Label Text="Me" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon3_Tapped"/>
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+            <StackLayout Spacing="0" Grid.Column="3" BackgroundColor="White">
+                <Image HeightRequest="30" Source="Team.png"/>
+                <Label Text="Our Team" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon4_Tapped"/>
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+            <StackLayout Spacing="0" Grid.Column="4" BackgroundColor="White">
+                <Image HeightRequest="30" Source="/ContactUs.png"/>
+                <Label Text="Contact Us" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon5_Tapped"/>
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+
+
+        </Grid>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
