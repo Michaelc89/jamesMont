@@ -53,22 +53,39 @@ namespace jamesMont.Services
 
             await Initialize();
             await SyncBookings();
+            
             string answer = "false";
             //MMMM dd, yyyy
-            DateTime d = new DateTime(10-28-2017);
+           // DateTime d = new DateTime(10-28-2017);
+            await DisplayAlert("Alert", message: "made it to load bookings", cancel: "Ok");
             try
             {
+                DateTime d = new DateTime(10 - 28 - 2017);
                 //put stylist in the where && stylist == Amber
                 List<TheBookingTable> item = await BookingsTable
+             .Where(todoItem => todoItem.Date.Date == d.Date)
+             .ToListAsync();
+
+                await DisplayAlert("Alert", "passed linq", "Ok");
+
+              /*  foreach (var itemboio in item)
+                {
+                    await DisplayAlert("Alert",itemboio.ToString(),"Ok");
+                }
+                */
+                
+                /*
+                   List<TheBookingTable> item = await BookingsTable
              .Where(todoItem => todoItem.Date == d.Date)
              .ToListAsync();
-                
-                foreach (var x in item)
+                 */
+
+             /*   foreach (var x in item)
                 {
                     await DisplayAlert("Alert", "Dates: "+x.Date.ToString(), "Ok");
                     TakenSlots.Add(x.Slot);
                     answer = "true";
-                }
+                }*/
                 int y = 1;
                 //TimesPage.Holder.Clear();
                 for (int i = 1; i <= 8; i++)

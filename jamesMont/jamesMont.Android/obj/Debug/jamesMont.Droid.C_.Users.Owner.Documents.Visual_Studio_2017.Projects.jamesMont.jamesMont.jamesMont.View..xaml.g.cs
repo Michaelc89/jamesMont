@@ -12,7 +12,7 @@ namespace jamesMont.View {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Documents\\Visual Studio 2017\\Projects\\jamesMont\\jamesMont\\jamesMon" +
-        "t\\View\\Navbar.xaml")]
+        "t\\View\\.xaml")]
     public partial class Navbar : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

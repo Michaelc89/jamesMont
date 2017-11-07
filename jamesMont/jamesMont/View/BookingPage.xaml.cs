@@ -35,8 +35,10 @@ namespace jamesMont.View
 
             try
             {
+                
                 azureService2.LoadBookings();
                 
+
             }
             catch (Exception er)
             {

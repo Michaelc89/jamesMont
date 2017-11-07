@@ -13,8 +13,8 @@ namespace jamesMont
 		{
 			InitializeComponent();
 
-            //MainPage = new NavigationPage (new jamesMont.MainPage());
-            MainPage = new jamesMont.View.Navbar();
+            MainPage = new NavigationPage (new jamesMont.MainPage());
+            //MainPage = new jamesMont.View.Navbar();
 		}
 
 		protected override void OnStart ()

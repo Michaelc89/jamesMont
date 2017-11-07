@@ -86,7 +86,6 @@ C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMo
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.BookingPage.xaml.g.cs
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.TimesPage.xaml.g.cs
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csprojResolveAssemblyReference.cache
-C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.Navbar.xaml.g.cs
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\res\drawable\team.png
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\res\drawable\accountcircle.png
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\res\drawable\contactus.png
