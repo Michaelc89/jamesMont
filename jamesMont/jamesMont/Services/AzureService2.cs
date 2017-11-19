@@ -73,7 +73,7 @@ namespace jamesMont.Services
                 }
 
                 AvailableSlots.Clear();
-                for (int i = 1; i <= 8; i++)
+                for (int i = 1; i <= 9; i++)
                 {
                     if (!(TakenSlots.Contains(i)))
                     {
@@ -178,5 +178,46 @@ namespace jamesMont.Services
             }
         }
 
-    }
+        public async Task<string> EditBookings()
+        {
+            await Initialize();
+            await SyncBookings();
+
+            string answer = "false", email="";
+
+            foreach (var item in MainPage.UserEmail)
+            {
+                email = item;
+            }
+
+            try
+            {
+                List<Booking> item = new List<Booking>();
+               
+
+                item = await BookingsTable2
+              .Where(todoItem => todoItem.Email == email && todoItem.Date >= DateTime.Now)
+                 .ToListAsync();
+
+
+                foreach (var x in item)
+                {
+                    //await DisplayAlert("","Name: "+x.BookingName+" Date: "+x.Date.ToString("dd/M/yyyy"),"Ok");
+                    // EditBookingPage.Bookings.Add("Name: " + x.BookingName + " Date: " + x.Date.ToString("dd/M/yyyy"));
+                    EditBookingPage.Bookings.Add(x);
+                }
+                return answer;
+            }
+
+
+            catch (Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+                return answer;
+
+            }
+
+        }
+
+        }
 }

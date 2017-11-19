@@ -25,11 +25,17 @@ namespace jamesMont.View
             {
                 await DisplayAlert("Alert", "da error: "+er, "Ok");
             }
-           
         }
         async void EditABooking(object sender, System.EventArgs e)
         {
-            await DisplayAlert("Alert", "Edit A Booking", "Ok");
+            try
+            {
+                await Navigation.PushAsync(new EditBookingPage());
+            }
+            catch (System.Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+            }
         }
 
         async void Shop(object sender, System.EventArgs e)

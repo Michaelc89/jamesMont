@@ -13,6 +13,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Booking.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\BookingDetails.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Categories.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TheBookingTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService2.cs" />
@@ -35,6 +36,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CoffeesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\EditBookingPage.xaml.cs">
+      <DependentUpon>EditBookingPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -100,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\BookingConfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\EditBookingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
