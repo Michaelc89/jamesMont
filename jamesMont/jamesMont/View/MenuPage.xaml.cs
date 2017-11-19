@@ -8,18 +8,18 @@ namespace jamesMont.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        
+        string clientName;
         public MenuPage(string Name)
         {
             InitializeComponent();
-            
+            clientName = Name;
             HiLabel.Text = "Hi, "+Name;
         }
         async void MakeABooking(object sender, System.EventArgs e)
         {
             try
             {
-                 await Navigation.PushAsync(new CategoriesPage());
+                 await Navigation.PushAsync(new CategoriesPage(clientName));
             }
             catch (System.Exception er)
             {

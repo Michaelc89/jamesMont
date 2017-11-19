@@ -11,17 +11,19 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using jamesMont.View;
 
+
 namespace jamesMont.Services
 {
     public class AzureService2 : ContentPage
     {
         MobileServiceClient client = null;
 
-        IMobileServiceSyncTable<TheBookingTable> BookingsTable;
+        IMobileServiceSyncTable<Booking> BookingsTable2;
         bool isInitialised;
         public ObservableCollection<int> TakenSlots { get; } = new ObservableCollection<int>();
-        
-        ObservableCollection<int> AvailableSlots = new ObservableCollection<int>();
+        public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
+        public static ObservableCollection<int> AvailableSlots { get; } = new ObservableCollection<int>();
+       
         public async Task Initialize()
         {
             // var mainPage = new MainPage();
@@ -39,63 +41,94 @@ namespace jamesMont.Services
             var store = new MobileServiceSQLiteStore(path);
 
 
-            store.DefineTable<TheBookingTable>();
+            store.DefineTable<Booking>();
 
             await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
-            BookingsTable = this.client.GetSyncTable<TheBookingTable>();
+            BookingsTable2 = this.client.GetSyncTable<Booking>();
 
             isInitialised = true;
         }
 
-        public async Task<string> LoadBookings()
+        public async Task<string> LoadBookings(DateTime xyz)
         {
-
             await Initialize();
             await SyncBookings();
-            
+           
             string answer = "false";
-            //MMMM dd, yyyy
-           // DateTime d = new DateTime(10-28-2017);
-            await DisplayAlert("Alert", message: "made it to load bookings", cancel: "Ok");
+
             try
             {
-                DateTime d = new DateTime(10 - 28 - 2017);
-                //put stylist in the where && stylist == Amber
-                List<TheBookingTable> item = await BookingsTable
-             .Where(todoItem => todoItem.Date.Date == d.Date)
-             .ToListAsync();
+                List<Booking> item = new List<Booking>();
+                //item.Clear();
 
-                await DisplayAlert("Alert", "passed linq", "Ok");
+                 item =  await BookingsTable2
+               .Where(todoItem => todoItem.Date == xyz)
+                  .ToListAsync();
 
-              /*  foreach (var itemboio in item)
+                TakenSlots.Clear();
+                foreach (var x in item)
                 {
-                    await DisplayAlert("Alert",itemboio.ToString(),"Ok");
-                }
-                */
-                
-                /*
-                   List<TheBookingTable> item = await BookingsTable
-             .Where(todoItem => todoItem.Date == d.Date)
-             .ToListAsync();
-                 */
-
-             /*   foreach (var x in item)
-                {
-                    await DisplayAlert("Alert", "Dates: "+x.Date.ToString(), "Ok");
                     TakenSlots.Add(x.Slot);
-                    answer = "true";
-                }*/
-                int y = 1;
-                //TimesPage.Holder.Clear();
+                }
+
+                AvailableSlots.Clear();
                 for (int i = 1; i <= 8; i++)
                 {
                     if (!(TakenSlots.Contains(i)))
                     {
-                        TimesPage.Holder.Add(i);
+                        AvailableSlots.Add(i);
                     }
-                   
                 }
+
+                foreach (var xy in AvailableSlots)
+                {
+                     if (xy == 1)
+                       {
+                           TimesPage.Holder.Add("9AM");
+                       }
+                       else if (xy == 2)
+                       {
+                           TimesPage.Holder.Add("10AM");
+                       }
+                       else if (xy == 3)
+                       {
+                           TimesPage.Holder.Add("11AM");
+                       }
+                       else if (xy == 4)
+                       {
+                           TimesPage.Holder.Add("12PM");
+                       }
+                       else if (xy == 5)
+                       {
+                           TimesPage.Holder.Add("1PM");
+                       }
+
+                       else if (xy == 6)
+                       {
+                           TimesPage.Holder.Add("2PM");
+                           
+                       }
+                       else if (xy == 7)
+                       {
+                           TimesPage.Holder.Add("3PM");
+                           
+                       }
+                       else if (xy == 8)
+                       {
+                           TimesPage.Holder.Add("4PM");
+                       }
+                       else if (xy == 9)
+                       {
+                           TimesPage.Holder.Add("5PM");
+                       }
+                       else
+                       {
+                           TimesPage.Holder.Add("Sorry, No times are available for this date.");
+                       }
+                       
+                }
+
                 return answer;
             }
 
@@ -108,11 +141,35 @@ namespace jamesMont.Services
             }
         }
 
+        public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email)
+        {
+            await Initialize();
+            Random rnd = new Random();
+            int Id = rnd.Next(1, 10000);
+
+            var coffee = new Booking()
+            {
+                Id = Id.ToString(),
+                BookingName = clientName,
+                Date = picked,
+                Slot = slot,
+                Procedure = pro,
+                Email = email
+            };
+
+
+            await BookingsTable2.InsertAsync(coffee);
+
+            await SyncBookings();
+            await DisplayAlert("Alert", "Booking is complete", "ok");
+            return coffee;
+        }
+
         public async Task SyncBookings()
         {
             try
             {
-                await BookingsTable.PullAsync("allusers3", BookingsTable.CreateQuery());
+                await BookingsTable2.PullAsync("allusers3", BookingsTable2.CreateQuery());
                 await client.SyncContext.PushAsync();
             }
             catch (Exception ex)

@@ -14,10 +14,13 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookingPage : ContentPage
 	{
-       // public static ObservableCollection<BookingTBL> ListBookings { get; } = new ObservableCollection<BookingTBL>();
-        public BookingPage (string category)
+        string clientName3, procedure;
+        public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
+        public BookingPage (string category, string clientName)
 		{
 			InitializeComponent ();
+            procedure = category;
+            clientName3 = clientName;
             //loadBookings();
             Title = category;
             datez.MinimumDate = DateTime.Now;
@@ -36,16 +39,19 @@ namespace jamesMont.View
             try
             {
                 
-                azureService2.LoadBookings();
+                azureService2.LoadBookings(picked);
                 
+                Navigation.PushAsync(new TimesPage(styler, clientName3, picked,procedure));
 
             }
             catch (Exception er)
             {
                 DisplayAlert("Alert", "Could not load bookings" + er, "Ok");
             }
-            Navigation.PushAsync(new TimesPage(styler, picked));
+            
         }
+
+
         
     }
 }

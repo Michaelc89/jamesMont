@@ -12,15 +12,15 @@ namespace jamesMont
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoriesPage : ContentPage
     {
+        string clientName2;
         public static ObservableCollection<Categories> ListViewItems2 { get; } = new ObservableCollection<Categories>();
-        public CategoriesPage()
+        public CategoriesPage(string clientName)
         {
             InitializeComponent();
+            clientName2 = clientName;
             loadCategories();
-
-            // var listView = new ListView();
+            
             listView.ItemsSource = ListViewItems2;
-           // Content = listView;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -29,7 +29,7 @@ namespace jamesMont
             {
                 var selection = e.SelectedItem as Categories;
                
-                await Navigation.PushAsync(new BookingPage(selection.CategoryName));
+                await Navigation.PushAsync(new BookingPage(selection.CategoryName, clientName2));
             }
         }
 

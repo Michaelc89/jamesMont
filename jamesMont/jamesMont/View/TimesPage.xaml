@@ -4,7 +4,7 @@
              x:Class="jamesMont.View.TimesPage"
              Title="Choose Time">
     <ContentPage.Content>
-        <ListView x:Name="listView2" >
+        <ListView x:Name="listView2" ItemSelected="OnItemSelected" >
           
         </ListView>
     </ContentPage.Content>

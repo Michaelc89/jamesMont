@@ -3,16 +3,20 @@ using Xamarin.Forms;
 using jamesMont.Services;
 using System.Diagnostics;
 using jamesMont.View;
+using System.Collections.ObjectModel;
 
 namespace jamesMont
 {
     public partial class MainPage : ContentPage
     {
+        public static ObservableCollection<string> UserEmail { get; } = new ObservableCollection<string>();
+        public static string emailBoi;
         public MainPage()
         {
             InitializeComponent();
             email.Text = "";
             pass.Text = "";
+            UserEmail.Clear();
         }
 
         async private void Login_Method(object sender, EventArgs e)
@@ -46,7 +50,7 @@ namespace jamesMont
 
                 if (login == true)
                 {
-                    
+                    UserEmail.Add(enteredEmail);
                     await Navigation.PushAsync(new MenuPage(Name));
                     pass.Text = "";
                 }
