@@ -23,7 +23,8 @@ namespace jamesMont.Services
         public ObservableCollection<int> TakenSlots { get; } = new ObservableCollection<int>();
         public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
         public static ObservableCollection<int> AvailableSlots { get; } = new ObservableCollection<int>();
-       
+        public static ObservableCollection<string> Bookings3 { get; } = new ObservableCollection<string>();
+
         public async Task Initialize()
         {
             // var mainPage = new MainPage();
@@ -198,14 +199,14 @@ namespace jamesMont.Services
                 item = await BookingsTable2
               .Where(todoItem => todoItem.Email == email && todoItem.Date >= DateTime.Now)
                  .ToListAsync();
-
+                Bookings3.Clear();
 
                 foreach (var x in item)
                 {
-                    //await DisplayAlert("","Name: "+x.BookingName+" Date: "+x.Date.ToString("dd/M/yyyy"),"Ok");
-                    // EditBookingPage.Bookings.Add("Name: " + x.BookingName + " Date: " + x.Date.ToString("dd/M/yyyy"));
-                    EditBookingPage.Bookings.Add(x);
+                    EditBookingPage.Bookings2.Add(x.Date.ToString("yyyy/MM/dd")+"\t\t\t"+x.Procedure);
+
                 }
+               
                 return answer;
             }
 

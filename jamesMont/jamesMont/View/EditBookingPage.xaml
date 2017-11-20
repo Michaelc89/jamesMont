@@ -7,7 +7,7 @@
             <ListView x:Name="BookingsList" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell  TextColor="Blue"  Text="{Binding Procedure}"/>
+                        <TextCell  TextColor="Blue"  Text="{Binding .}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

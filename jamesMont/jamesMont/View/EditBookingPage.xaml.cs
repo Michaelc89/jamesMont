@@ -15,21 +15,27 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditBookingPage : ContentPage
 	{
-        public static ObservableCollection<Booking> Bookings { get; } = new ObservableCollection<Booking>();
-        public static ObservableCollection<BookingDetails> BookingDetails { get; } = new ObservableCollection<BookingDetails>();
-
+        public static ObservableCollection<string> Bookings2 { get; } = new ObservableCollection<string>();
+       
         public EditBookingPage ()
 		{
 			InitializeComponent ();
-            Bookings.Clear();
+            Bookings2.Clear();
             loadBookings();
-           
-
-
-
-            BookingsList.ItemsSource = Bookings;
             
+            BookingsList.ItemsSource = Bookings2;
 		}
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                var selection = e.SelectedItem as Categories;
+
+                await Navigation.PushAsync(new ChangeBooking());
+            }
+        }
+
         public async void loadBookings()
         {
             AzureService2 azureService;

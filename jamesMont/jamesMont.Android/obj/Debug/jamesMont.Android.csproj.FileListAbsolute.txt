@@ -99,3 +99,4 @@ C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMo
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.EditBookingPage.xaml.g.cs
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\jamesMont\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.ChangeBooking.xaml.g.cs
