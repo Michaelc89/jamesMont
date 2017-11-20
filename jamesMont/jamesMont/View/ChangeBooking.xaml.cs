@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jamesMont.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,14 @@ namespace jamesMont.View
 		{
 			InitializeComponent ();
 		}
-	}
+        AzureService2 azureService;
+        async private void deleteBooking(object sender, EventArgs e)
+        {
+            azureService = new AzureService2();
+            await azureService.DeleteBooking();
+
+            await DisplayAlert("Alert", "Booking Deleted", "Ok");
+            await Navigation.PushAsync(new MenuPage("Mick"));
+        }
+    }
 }

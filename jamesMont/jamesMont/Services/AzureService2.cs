@@ -179,6 +179,33 @@ namespace jamesMont.Services
             }
         }
 
+        public async Task<string> DeleteBooking()
+        {
+            string answer = "no";
+            await Initialize();
+            await SyncBookings();
+
+            try
+            {
+               
+
+               var item = await BookingsTable2
+              .Where(todoItem => todoItem.Email == "shamable@hotmail.com" && todoItem.Slot == 9)
+                 .ToListAsync();
+
+                if (item != null)
+                {
+                    //BookingsTable2.Remove(item);
+                }
+            }
+            catch( Exception er)
+            {
+                await DisplayAlert("Alert","Da Error: "+ er,"Ok");
+            }
+
+                return answer;
+        }
+
         public async Task<string> EditBookings()
         {
             await Initialize();
@@ -209,8 +236,7 @@ namespace jamesMont.Services
                
                 return answer;
             }
-
-
+            
             catch (Exception er)
             {
                 await DisplayAlert("Alert", "da error: " + er, "Ok");

@@ -4,7 +4,7 @@
              x:Class="jamesMont.View.EditBookingPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="BookingsList" >
+            <ListView x:Name="BookingsList" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell  TextColor="Blue"  Text="{Binding .}"/>

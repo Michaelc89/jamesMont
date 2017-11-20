@@ -4,9 +4,7 @@
              x:Class="jamesMont.View.ChangeBooking">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Delete Booking" Clicked="deleteBooking"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
