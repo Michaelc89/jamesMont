@@ -13,9 +13,14 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ChangeBooking : ContentPage
 	{
-		public ChangeBooking ()
+        string name;
+        public ChangeBooking ()
 		{
 			InitializeComponent ();
+            foreach (var x in MainPage.UserName)
+            {
+                name = x;
+            }
 		}
         AzureService2 azureService;
         async private void deleteBooking(object sender, EventArgs e)
@@ -24,7 +29,7 @@ namespace jamesMont.View
             await azureService.DeleteBooking();
 
             await DisplayAlert("Alert", "Booking Deleted", "Ok");
-            await Navigation.PushAsync(new MenuPage("Mick"));
+            await Navigation.PushAsync(new MenuPage(name));
         }
     }
 }

@@ -10,6 +10,7 @@ namespace jamesMont
     public partial class MainPage : ContentPage
     {
         public static ObservableCollection<string> UserEmail { get; } = new ObservableCollection<string>();
+        public static ObservableCollection<string> UserName { get; } = new ObservableCollection<string>();
         public static string emailBoi;
         public MainPage()
         {
@@ -17,6 +18,7 @@ namespace jamesMont
             email.Text = "";
             pass.Text = "";
             UserEmail.Clear();
+            UserName.Clear();
         }
 
         async private void Login_Method(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace jamesMont
             {
                 login = await azureService.GetCoffee(enteredEmail, enteredPassword);
                 Name = await azureService.GetUserName(enteredEmail, enteredPassword);
-
+                UserName.Add(Name);
                 if (login == true)
                 {
                     UserEmail.Add(enteredEmail);

@@ -67,6 +67,8 @@ namespace jamesMont.Services
                .Where(todoItem => todoItem.Date == xyz)
                   .ToListAsync();
 
+
+
                 TakenSlots.Clear();
                 foreach (var x in item)
                 {
@@ -187,16 +189,17 @@ namespace jamesMont.Services
 
             try
             {
-               
 
-               var item = await BookingsTable2
-              .Where(todoItem => todoItem.Email == "shamable@hotmail.com" && todoItem.Slot == 9)
-                 .ToListAsync();
+                List<Booking> item = new List<Booking>();
+                 item = await BookingsTable2
+                .Where(todoItem => todoItem.Id == "122" )
+                   .ToListAsync();
 
-                if (item != null)
+                foreach (var xyz in item)
                 {
-                    //BookingsTable2.Remove(item);
+                    await BookingsTable2.DeleteAsync(xyz);
                 }
+                
             }
             catch( Exception er)
             {
@@ -213,6 +216,7 @@ namespace jamesMont.Services
 
             string answer = "false", email="";
 
+            //make sure it only loads the bookings matched with the user's email
             foreach (var item in MainPage.UserEmail)
             {
                 email = item;
@@ -230,8 +234,7 @@ namespace jamesMont.Services
 
                 foreach (var x in item)
                 {
-                    EditBookingPage.Bookings2.Add(x.Date.ToString("yyyy/MM/dd")+"\t\t\t"+x.Procedure);
-
+                    EditBookingPage.Bookings2.Add(x.Date.ToString("dd/MM/yyyy")+"\t\t\t"+x.Procedure);
                 }
                
                 return answer;

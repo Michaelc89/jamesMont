@@ -16,7 +16,7 @@ namespace jamesMont.View
 	public partial class EditBookingPage : ContentPage
 	{
         public static ObservableCollection<string> Bookings2 { get; } = new ObservableCollection<string>();
-       
+
         public EditBookingPage ()
 		{
 			InitializeComponent ();

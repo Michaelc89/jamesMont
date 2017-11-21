@@ -4,7 +4,7 @@
              x:Class="jamesMont.View.ChangeBooking">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Delete Booking" Clicked="deleteBooking"/>
+            <Button Text="Cancel Booking" Clicked="deleteBooking"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
