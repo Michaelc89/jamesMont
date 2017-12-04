@@ -181,7 +181,7 @@ namespace jamesMont.Services
             }
         }
 
-        public async Task<string> DeleteBooking()
+        public async Task<string> DeleteBooking(string idz)
         {
             string answer = "no";
             await Initialize();
@@ -192,7 +192,7 @@ namespace jamesMont.Services
 
                 List<Booking> item = new List<Booking>();
                  item = await BookingsTable2
-                .Where(todoItem => todoItem.Id == "122" )
+                .Where(todoItem => todoItem.Id == idz)
                    .ToListAsync();
 
                 foreach (var xyz in item)
@@ -234,7 +234,8 @@ namespace jamesMont.Services
 
                 foreach (var x in item)
                 {
-                    EditBookingPage.Bookings2.Add(x.Date.ToString("dd/MM/yyyy")+"\t\t\t"+x.Procedure);
+                    EditBookingPage.Bookings2.Add(x.Date.ToString(x.Id + " " + "dd/MM/yyyy") + "\t\t\t" + x.Procedure);
+                   // EditBookingPage.BookingID.Add(x.Id);
                 }
                
                 return answer;

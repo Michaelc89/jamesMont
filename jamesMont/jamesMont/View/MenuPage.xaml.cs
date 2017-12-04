@@ -30,7 +30,7 @@ namespace jamesMont.View
         {
             try
             {
-                await Navigation.PushAsync(new EditBookingPage());
+                await Navigation.PushAsync(new EditBookingPage(clientName));
             }
             catch (System.Exception er)
             {

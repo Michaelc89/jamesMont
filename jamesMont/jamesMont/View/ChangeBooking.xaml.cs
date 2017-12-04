@@ -1,6 +1,7 @@
 ﻿using jamesMont.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,12 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ChangeBooking : ContentPage
 	{
-        string name;
-        public ChangeBooking ()
+        string clientname, id, procedure;
+        public ChangeBooking (string ID, string name, string pro)
 		{
+             id = ID;
+            clientname = name;
+            procedure = pro;
 			InitializeComponent ();
             foreach (var x in MainPage.UserName)
             {
@@ -26,10 +30,40 @@ namespace jamesMont.View
         async private void deleteBooking(object sender, EventArgs e)
         {
             azureService = new AzureService2();
-            await azureService.DeleteBooking();
+            await azureService.DeleteBooking(id);
 
             await DisplayAlert("Alert", "Booking Deleted", "Ok");
-            await Navigation.PushAsync(new MenuPage(name));
+            await Navigation.PushAsync(new MenuPage(clientname));   
+    }
+
+        async private void changeBooking(object sender, EventArgs e)
+        {
+            try
+            {
+
+            
+            //var answer = await DisplayAlert("Are you sure?", "If you continue your booking will be changed", "Continue", "Cancel");
+
+            //await DisplayAlert("Alert", answer.ToString(), "ok");
+
+            //if (answer.ToString() == "True")
+            //{
+                await azureService.DeleteBooking(id);
+                await Navigation.PushAsync(new EditTimes(clientname, procedure));
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            //}
+            //else
+            //{
+            // await DisplayAlert("Alert", "Cancelled", "Ok");
+            //}
+
+
         }
     }
 }

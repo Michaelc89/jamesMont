@@ -16,13 +16,15 @@ namespace jamesMont.View
 	public partial class EditBookingPage : ContentPage
 	{
         public static ObservableCollection<string> Bookings2 { get; } = new ObservableCollection<string>();
-
-        public EditBookingPage ()
+        public static ObservableCollection<string> BookingID { get; } = new ObservableCollection<string>();
+        string clientName;
+        public EditBookingPage (string name)
 		{
 			InitializeComponent ();
             Bookings2.Clear();
             loadBookings();
-            
+
+            clientName = name;
             BookingsList.ItemsSource = Bookings2;
 		}
 
@@ -30,9 +32,37 @@ namespace jamesMont.View
         {
             if (e.SelectedItem != null)
             {
-                var selection = e.SelectedItem as Categories;
 
-                await Navigation.PushAsync(new ChangeBooking());
+                try
+                {
+
+                string boom;
+                string[] words;
+                string[] words2;
+                string IdNumber="";
+                string pro = "";
+
+                boom = e.SelectedItem.ToString();
+
+                words = boom.Split(' ');
+
+                IdNumber = words[0].ToString();
+                    pro = words[1].ToString();
+
+                    
+                    words2 = pro.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries);
+                    
+                    pro = words2[1];
+
+                   
+                    var selection = e.SelectedItem as Categories;
+
+                await Navigation.PushAsync(new ChangeBooking(IdNumber, clientName, pro));
+                }
+                catch (Exception er)
+                {
+                    Console.Write("Blah: "+er.ToString());
+                }
             }
         }
 
