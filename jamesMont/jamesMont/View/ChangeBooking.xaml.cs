@@ -40,16 +40,21 @@ namespace jamesMont.View
         {
             try
             {
+                var answer = await DisplayAlert("Are you sure?", "If you continue your booking will be changed", "Continue", "Cancel");
 
-            
-            //var answer = await DisplayAlert("Are you sure?", "If you continue your booking will be changed", "Continue", "Cancel");
+                //await DisplayAlert("Alert", answer.ToString(), "ok");
 
-            //await DisplayAlert("Alert", answer.ToString(), "ok");
+                if (answer.ToString() == "True")
+                {
 
-            //if (answer.ToString() == "True")
-            //{
-                await azureService.DeleteBooking(id);
-                await Navigation.PushAsync(new EditTimes(clientname, procedure));
+                    azureService = new AzureService2();
+                    await azureService.DeleteBooking(id);
+                    await Navigation.PushAsync(new EditTimes(clientname, procedure));
+                }
+                else
+                {
+                    await DisplayAlert("Alert", "Cancelled", "Ok");
+                }
 
             }
             catch (Exception)
@@ -57,11 +62,7 @@ namespace jamesMont.View
 
                 throw;
             }
-            //}
-            //else
-            //{
-            // await DisplayAlert("Alert", "Cancelled", "Ok");
-            //}
+          
 
 
         }
