@@ -40,7 +40,14 @@ namespace jamesMont.View
 
         async void Shop(object sender, System.EventArgs e)
         {
-            await DisplayAlert("Alert", "Shop", "Ok");
+            try
+            {
+                await Navigation.PushAsync(new Shop());
+            }
+            catch (System.Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+            }
         }
 
         async void logOut(object sender, System.EventArgs e)

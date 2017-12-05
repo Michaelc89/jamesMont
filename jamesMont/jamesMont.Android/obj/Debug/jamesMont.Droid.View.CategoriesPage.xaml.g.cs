@@ -11,7 +11,7 @@
 namespace jamesMont {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont4\\jamesMont\\jamesMont\\View\\CategoriesPage.xa" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont5\\jamesMont\\jamesMont\\View\\CategoriesPage.xa" +
         "ml")]
     public partial class CategoriesPage : global::Xamarin.Forms.ContentPage {
         
