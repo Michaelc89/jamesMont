@@ -3,32 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using jamesMont.Model;
 using jamesMont.Services;
 using jamesMont.View;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+
 
 namespace jamesMont.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Shop : ContentPage
+	public partial class Shop : ContentPage
 	{
-        public static ObservableCollection<ShoppingCategory> ShopCategories { get; } = new ObservableCollection<ShoppingCategory>();
+
+        public static ObservableCollection<ShopTBL> ListViewItems2 { get; } = new ObservableCollection<ShopTBL>();
         public Shop ()
 		{
 			InitializeComponent ();
-            listView.ItemsSource = ShopCategories;
+            ListViewItems2.Clear();
             loadCategories();
 
+
+            listView.ItemsSource = ListViewItems2;
         }
 
         public void loadCategories()
         {
-            AzureService2 azureService;
-            azureService = new AzureService2();
-
+            AzureService3 azureService;
+            azureService = new AzureService3();
             try
             {
                 azureService.LoadCategories();
@@ -38,6 +42,15 @@ namespace jamesMont.View
                 DisplayAlert("Alert", "Could not load categories" + er, "Ok");
             }
 
+        }
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                var selection = e.SelectedItem as ShopTBL;
+
+                await Navigation.PushAsync(new ProductPage(selection.ProductName));
+            }
         }
     }
 }

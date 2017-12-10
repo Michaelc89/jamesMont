@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jamesMont.View.Shop">
     <ContentPage.Content>
-        <ListView x:Name="listView">
+        <ListView x:Name="listView" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell  TextColor="Blue"  Text="{Binding ProductName}"/>

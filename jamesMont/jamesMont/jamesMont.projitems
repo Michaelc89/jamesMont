@@ -14,9 +14,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Booking.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Categories.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\ShoppingCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ShopTBL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TheBookingTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\BookingConfirm.xaml.cs">
       <DependentUpon>BookingConfirm.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -54,6 +55,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\ProductPage.xaml.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\RegisterPage.xaml.cs">
@@ -141,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\Shop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\ProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

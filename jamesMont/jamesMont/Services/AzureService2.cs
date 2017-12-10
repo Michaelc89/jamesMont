@@ -18,7 +18,7 @@ namespace jamesMont.Services
     {
         MobileServiceClient client = null;
         public MobileServiceClient MobileService { get; set; } = null;
-        IMobileServiceSyncTable<ShoppingCategory> ShopList;
+   
         IMobileServiceSyncTable<Booking> BookingsTable2;
         bool isInitialised;
         public ObservableCollection<int> TakenSlots { get; } = new ObservableCollection<int>();
@@ -55,34 +55,7 @@ namespace jamesMont.Services
             isInitialised = true;
         }
 
-        public async Task InitializeShop()
-        {
-            // var mainPage = new MainPage();
-
-            if (isInitialised)
-            {
-                return;
-            }
-            MobileService = new MobileServiceClient("http://commtest1996.azurewebsites.net");
-            MobileServiceClient client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
-
-            // const string path = "syncstore.db";
-            const string path = "user.db";
-
-            var store = new MobileServiceSQLiteStore(path);
-
-            store.DefineTable<ShoppingCategory>();
-            //store.DefineTable<TheBookingTable>();
-
-            await DisplayAlert("alerrt", "inital", "Ok");
-            await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
-
-            ShopList = MobileService.GetSyncTable<ShoppingCategory>();
-            
-            // BookTable = MobileService.GetSyncTable<TheBookingTable>();
-
-            isInitialised = true;
-        }
+       
 
         public async Task<string> LoadBookings(DateTime xyz)
         {
@@ -283,64 +256,7 @@ namespace jamesMont.Services
 
         }
 
-        public async Task<string> LoadCategories()
-        {
-           
-
-            string answer = "false";
-         
-            await InitializeShop();
-            await DisplayAlert("Alert", "WEll", "Ok");
-            return answer;
-            /*
-            await SyncCoffee();
-            return answer;
-           /*
-            
-            try
-            {
-                await DisplayAlert("Alert", "ProductName", "Ok");
-                List<ShoppingCategory> item = await ShopList
-             .Where(todoItem => todoItem.ProductName != null)
-             .ToListAsync();
-                Shop.ShopCategories.Clear();
-                return answer;
-                foreach (var x in item)
-                {
-                    ShoppingCategory one = new ShoppingCategory(x.ProductName);
-                    Shop.ShopCategories.Add(one);
-
-
-                    await DisplayAlert("Alert", one.ProductName, "Ok");
-                    answer = "true";
-                }
-
-                return answer;
-            }
-
-            catch (Exception er)
-            {
-                await DisplayAlert("Alert", "da error: " + er, "Ok");
-                return answer;
-
-            }*/
-
-
-        }
-
-        public async Task SyncCoffee()
-        {
-            await DisplayAlert("Alert", "well 2", "Ok");
-            try
-            {
-                
-                await ShopList.PullAsync("allusers", ShopList.CreateQuery());
-                await client.SyncContext.PushAsync();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
-            }
-        }
+       
+      
     }
 }
