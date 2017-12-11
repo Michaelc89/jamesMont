@@ -406,10 +406,3 @@ C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\res
 C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\res\drawable\shoppingcart.png
 C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\R.cs.flag
 C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\uploadflags.txt
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csprojResolveAssemblyReference.cache
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\android\assets\jamesMont.Android.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont6\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb

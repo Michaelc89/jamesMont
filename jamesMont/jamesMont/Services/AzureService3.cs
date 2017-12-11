@@ -44,6 +44,8 @@ namespace jamesMont.Services
             isInitialised = true;
         }
 
+
+
         public async Task SyncBookings()
         {
             try
@@ -54,6 +56,8 @@ namespace jamesMont.Services
                 await shopz.PullAsync("allusers", shopz.CreateQuery());
                 await DisplayAlert("Alert", "it", "Ok");
                 await client.SyncContext.PushAsync();
+
+
 
             }
             catch (Exception ex)
