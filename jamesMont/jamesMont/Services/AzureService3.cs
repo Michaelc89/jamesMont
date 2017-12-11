@@ -15,9 +15,10 @@ namespace jamesMont.Services
 {
     public class AzureService3:ContentPage
     {
-        MobileServiceClient client = null;
+        public MobileServiceClient client { get; set; } = null;
 
-        IMobileServiceSyncTable<Shop_TBL> BookingsTable2;
+        IMobileServiceSyncTable<Shop_Two> shopz;
+
         bool isInitialised;
        
         public async Task Initialize()
@@ -35,11 +36,11 @@ namespace jamesMont.Services
             var store = new MobileServiceSQLiteStore(path);
 
 
-            store.DefineTable<Shop_TBL>();
+            store.DefineTable<Shop_Two>();
             
             await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
-            BookingsTable2 = this.client.GetSyncTable<Shop_TBL>();
+            shopz = this.client.GetSyncTable<Shop_Two>();
             isInitialised = true;
         }
 
@@ -47,14 +48,21 @@ namespace jamesMont.Services
         {
             try
             {
-                await BookingsTable2.PullAsync("allusers3", BookingsTable2.CreateQuery());
+                await DisplayAlert("Alert", "Made", "Ok");
+
+
+                await shopz.PullAsync("allusers", shopz.CreateQuery());
+                await DisplayAlert("Alert", "it", "Ok");
                 await client.SyncContext.PushAsync();
+
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
             }
         }
+
+
 
 
         public async Task<string> LoadCategories()
@@ -67,13 +75,13 @@ namespace jamesMont.Services
 
             try
             {
-                 List<Shop_TBL> item = await BookingsTable2
+                 List<Shop_Two> item = await shopz
               .Where(todoItem => todoItem.ProductName != null)
               .ToListAsync();
                  CategoriesPage.ListViewItems2.Clear();
                  foreach (var x in item)
                  {
-                     Shop_TBL one = new Shop_TBL( x.ProductName);
+                    Shop_Two one = new Shop_Two( x.ProductName);
                      Shop.ListViewItems2.Add(one);
 
                      answer = "true";
@@ -99,23 +107,25 @@ namespace jamesMont.Services
             await SyncBookings();
             try
             {
-
-                List<Shop_TBL> item = await BookingsTable2
+              List<Shop_Two> item = await shopz
              .Where(todoItem => todoItem.ProductName == productname)
              
              .ToListAsync();
                 
-
                 foreach (var x in item)
                 {
-                    await DisplayAlert("Alert", "Name: "+ x.ProductName +" "+x.Quantity, "Ok");
-                }
+                    x.Quantity = 8;
 
+                    await shopz.UpdateAsync(x);
+                    await SyncBookings();
+                    await DisplayAlert("Alert", "Done", "Ok");
+                }
+                
             }
             catch (Exception er)
             {
-                await DisplayAlert("Alert", "da error: "+er , "Ok");
-               
+                await DisplayAlert("Alert", "Error: "+er, "Ok");
+
             }
 
             

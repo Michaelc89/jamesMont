@@ -4,7 +4,7 @@ using System.Text;
 
 namespace jamesMont.Model
 {
-    public class Shop_TBL
+    public class Shop_Two
     {
         [Newtonsoft.Json.JsonProperty("Id")]
         public string Id { get; set; }
@@ -15,16 +15,18 @@ namespace jamesMont.Model
         [Newtonsoft.Json.JsonProperty("Quantity")]
         public float Quantity { get; set; }
 
-        public Shop_TBL()
+        public Shop_Two()
         {
 
         }
-        public Shop_TBL(string prod)
+        public Shop_Two(string prod)
         {
             this.ProductName = prod;
         }
     }
 }
+
+
 
 
 
