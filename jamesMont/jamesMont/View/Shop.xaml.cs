@@ -18,7 +18,7 @@ namespace jamesMont.View
 	public partial class Shop : ContentPage
 	{
 
-        public static ObservableCollection<ShopTBL> ListViewItems2 { get; } = new ObservableCollection<ShopTBL>();
+        public static ObservableCollection<Shop_TBL> ListViewItems2 { get; } = new ObservableCollection<Shop_TBL>();
         public Shop ()
 		{
 			InitializeComponent ();
@@ -47,7 +47,7 @@ namespace jamesMont.View
         {
             if (e.SelectedItem != null)
             {
-                var selection = e.SelectedItem as ShopTBL;
+                var selection = e.SelectedItem as Shop_TBL;
 
                 await Navigation.PushAsync(new ProductPage(selection.ProductName));
             }

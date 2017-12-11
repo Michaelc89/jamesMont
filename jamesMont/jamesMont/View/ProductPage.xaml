@@ -7,6 +7,7 @@
             <Label  x:Name="product" Text=""
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button Text="Buy me" Clicked="Buy_Product"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

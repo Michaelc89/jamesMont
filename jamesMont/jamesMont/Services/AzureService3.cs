@@ -16,9 +16,8 @@ namespace jamesMont.Services
     public class AzureService3:ContentPage
     {
         MobileServiceClient client = null;
-        public MobileServiceClient MobileService { get; set; } = null;
 
-        IMobileServiceSyncTable<ShopTBL> BookingsTable2;
+        IMobileServiceSyncTable<Shop_TBL> BookingsTable2;
         bool isInitialised;
        
         public async Task Initialize()
@@ -36,11 +35,11 @@ namespace jamesMont.Services
             var store = new MobileServiceSQLiteStore(path);
 
 
-            store.DefineTable<ShopTBL>();
+            store.DefineTable<Shop_TBL>();
             
             await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
-            BookingsTable2 = this.client.GetSyncTable<ShopTBL>();
+            BookingsTable2 = this.client.GetSyncTable<Shop_TBL>();
             isInitialised = true;
         }
 
@@ -68,25 +67,18 @@ namespace jamesMont.Services
 
             try
             {
-                 List<ShopTBL> item = await BookingsTable2
+                 List<Shop_TBL> item = await BookingsTable2
               .Where(todoItem => todoItem.ProductName != null)
               .ToListAsync();
                  CategoriesPage.ListViewItems2.Clear();
                  foreach (var x in item)
                  {
-                     ShopTBL one = new ShopTBL( x.ProductName);
+                     Shop_TBL one = new Shop_TBL( x.ProductName);
                      Shop.ListViewItems2.Add(one);
 
                      answer = "true";
                  }
-
-
-
-                 /*foreach (var x in ListViewItems)
-                 {
-                     await DisplayAlert("Alert", "The Catagory boi: " +x , "Ok");
-                 }*/
-
+                 
                 return answer;
             }
 
@@ -100,7 +92,36 @@ namespace jamesMont.Services
 
         }
 
+        public async void BuyProducts(string Pname)
+        {
+            string productname = Pname;
+            await Initialize();
+            await SyncBookings();
+            try
+            {
+
+                List<Shop_TBL> item = await BookingsTable2
+             .Where(todoItem => todoItem.ProductName == productname)
+             
+             .ToListAsync();
+                
+
+                foreach (var x in item)
+                {
+                    await DisplayAlert("Alert", "Name: "+ x.ProductName +" "+x.Quantity, "Ok");
+                }
+
+            }
+            catch (Exception er)
+            {
+                await DisplayAlert("Alert", "da error: "+er , "Ok");
+               
+            }
+
+            
+        }
 
 
-    }
+
+        }
 }
