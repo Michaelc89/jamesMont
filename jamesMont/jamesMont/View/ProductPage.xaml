@@ -8,6 +8,9 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
               <Image x:Name="image"/>
+
+            <Picker Title="Select a Quantity" x:Name="boom" />
+
             <Button Text="Buy me" Clicked="Buy_Product"/>
         </StackLayout>
     </ContentPage.Content>

@@ -98,9 +98,10 @@ namespace jamesMont.Services
 
         }
 
-        public async void BuyProducts(string Pname)
+        public async void BuyProducts(string Pname, int numb)
         {
             string productname = Pname;
+            int number = numb;
             float stock;
             await Initialize();
             await SyncBookings();
@@ -114,12 +115,20 @@ namespace jamesMont.Services
                 foreach (var x in item)
                 {
                     stock = x.Quantity;
-                    stock = stock - 1;
-                    x.Quantity = stock;
+                    if (stock <= 0 || stock - number < 0)
+                    {
+                        await DisplayAlert("Alert", "Not enough stock", "Ok");
+                        //break;
+                    }
+                    else
+                    {
+                        stock = stock - number;
+                        x.Quantity = stock;
 
-                    await shopz.UpdateAsync(x);
-                    await SyncBookings();
-                    await DisplayAlert("Alert", "Done", "Ok");
+                        await shopz.UpdateAsync(x);
+                        await SyncBookings();
+                        await DisplayAlert("Alert", "Done", "Ok");
+                    }
                 }
                 
             }
