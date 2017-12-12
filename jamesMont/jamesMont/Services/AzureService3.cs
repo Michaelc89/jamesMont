@@ -50,16 +50,10 @@ namespace jamesMont.Services
         {
             try
             {
-                await DisplayAlert("Alert", "Made", "Ok");
-
-
                 await shopz.PullAsync("allusers", shopz.CreateQuery());
-                await DisplayAlert("Alert", "it", "Ok");
                 await client.SyncContext.PushAsync();
-
-
-
             }
+
             catch (Exception ex)
             {
                 Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
@@ -107,6 +101,7 @@ namespace jamesMont.Services
         public async void BuyProducts(string Pname)
         {
             string productname = Pname;
+            float stock;
             await Initialize();
             await SyncBookings();
             try
@@ -118,7 +113,9 @@ namespace jamesMont.Services
                 
                 foreach (var x in item)
                 {
-                    x.Quantity = 8;
+                    stock = x.Quantity;
+                    stock = stock - 1;
+                    x.Quantity = stock;
 
                     await shopz.UpdateAsync(x);
                     await SyncBookings();
