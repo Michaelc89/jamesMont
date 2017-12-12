@@ -11,7 +11,7 @@
 namespace jamesMont.View {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont10\\jamesMont\\jamesMont\\View\\RegisterPage.xam" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont11\\jamesMont\\jamesMont\\View\\RegisterPage.xam" +
         "l")]
     public partial class RegisterPage : global::Xamarin.Forms.ContentPage {
         

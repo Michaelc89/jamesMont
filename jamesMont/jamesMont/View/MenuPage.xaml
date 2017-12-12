@@ -12,6 +12,7 @@
             <Button Text="Make A Booking" Clicked="MakeABooking"/>
             <Button Text="Edit A Booking" Clicked="EditABooking"/>
             <Button Text="Shop" Clicked="Shop"/>
+            <Button Text="Contact" Clicked="contact"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

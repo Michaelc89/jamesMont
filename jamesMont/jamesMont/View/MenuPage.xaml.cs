@@ -49,6 +49,18 @@ namespace jamesMont.View
                 await DisplayAlert("Alert", "da error: " + er, "Ok");
             }
         }
+        async void contact(object sender, System.EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new ContactPage());
+            }
+            catch (System.Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+            }
+            }
+        
 
         async void logOut(object sender, System.EventArgs e)
         {
