@@ -11,7 +11,7 @@
 namespace jamesMont.View {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont11\\jamesMont\\jamesMont\\View\\Login.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont15\\jamesMont\\jamesMont\\View\\Login.xaml")]
     public partial class CoffeesPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
