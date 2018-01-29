@@ -4,13 +4,13 @@
              x:Class="jamesMont.View.RegisterPage"
              Title="Register">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry Placeholder="First Name" x:Name="Fname" />
-            <Entry Placeholder="Surname" x:Name="Sname" />
-            <Entry Placeholder="Email " Keyboard="Email" x:Name="email" />
-            <Entry Placeholder="Password" x:Name="pass" IsPassword="True"/>
-            <Entry Placeholder="Confirm Password" x:Name="conf_Pass" IsPassword="True"/>
-            <Entry Placeholder="Phone Number"  x:Name="phone" />
+        <StackLayout BackgroundColor="#3897f0">
+            <Entry Placeholder="First Name" PlaceholderColor="White"  x:Name="Fname" TextColor="White"/>
+            <Entry Placeholder="Surname" PlaceholderColor="White"   x:Name="Sname" TextColor="White"/>
+            <Entry Placeholder="Email "  PlaceholderColor="White"  Keyboard="Email" x:Name="email" TextColor="White" />
+            <Entry Placeholder="Password" x:Name="pass" PlaceholderColor="White"  IsPassword="True" TextColor="White"/>
+            <Entry Placeholder="Confirm Password" PlaceholderColor="White"  x:Name="conf_Pass" IsPassword="True" TextColor="White"/>
+            <Entry Placeholder="Phone Number" PlaceholderColor="White"  x:Name="phone" TextColor="White" />
 
 
             <Button Text="Make Account" Clicked="createAccount"/>

@@ -31,8 +31,8 @@
                 <Entry Grid.Row="1" Placeholder="Email" x:Name="email" TextColor="White" PlaceholderColor="White" FontSize="20" Keyboard="Email" x:FieldModifier="public"/>
                 <Entry Grid.Row="2" Placeholder="Password" TextColor="White" PlaceholderColor="White" FontSize="20" x:Name="pass" IsPassword="True"/>
 
-                <Button Text="Login" Clicked="Login_Method" BackgroundColor="Red" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
-                <Button  Text="Make Account" Clicked="makeAccount" BackgroundColor="Red" TextColor="White" HeightRequest="50" VerticalOptions="End" Grid.Row="4"/>
+                <Button Text="Login" Clicked="Login_Method" BackgroundColor="White" TextColor="Black" HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
+                <Button  Text="Make Account" Clicked="makeAccount" BackgroundColor="White" TextColor="Black" HeightRequest="50" VerticalOptions="End" Grid.Row="4"/>
             </Grid>
 
         </Grid>
