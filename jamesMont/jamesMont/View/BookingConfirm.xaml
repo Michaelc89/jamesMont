@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jamesMont.View.BookingConfirm">
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="LabelBook"></Label>
+        <StackLayout BackgroundColor="#3897f0">
+            <Label x:Name="LabelBook" TextColor="White" FontSize="Large"></Label>
+            <Label x:Name="LabelBook2" TextColor="White" FontSize="Large"></Label>
             <Button Text="Book Now" Clicked="book_method"/>
         </StackLayout>
     </ContentPage.Content>

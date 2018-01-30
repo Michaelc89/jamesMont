@@ -5,11 +5,11 @@
              x:Class="jamesMont.View.MenuPage"
              Title="Menu">
     <ContentPage.Content>
-        <StackLayout>
-            <Label  x:Name="HiLabel" HorizontalOptions="End"/>
+        <StackLayout  BackgroundColor="#3897f0">
+            <Label  x:Name="HiLabel" HorizontalOptions="End" TextColor="White" FontFamily=""/>
             <Button Text="Log Out" HorizontalOptions="End" Clicked="logOut" />
 
-            <Button Text="Make A Booking" Clicked="MakeABooking"/>
+            <Button Text="Make A Booking" Clicked="MakeABooking" x:Name="icon2"/>
             <Button Text="Edit A Booking" Clicked="EditABooking"/>
             <Button Text="Shop" Clicked="Shop"/>
             <Button Text="Contact" Clicked="contact"/>

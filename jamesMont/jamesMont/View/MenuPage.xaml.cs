@@ -14,6 +14,9 @@ namespace jamesMont.View
             InitializeComponent();
             clientName = Name;
             HiLabel.Text = "Hi, "+Name;
+            HiLabel.FontSize =20;
+            icon2.Image = "http://www.clker.com/cliparts/n/5/p/D/9/H/glossy-black-icon-button-hi.png";
+
         }
         async void MakeABooking(object sender, System.EventArgs e)
         {

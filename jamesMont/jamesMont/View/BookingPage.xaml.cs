@@ -24,13 +24,15 @@ namespace jamesMont.View
             //loadBookings();
             Title = category;
             datez.MinimumDate = DateTime.Now;
-            
-    }
+            image.Source = "calandar.png";
+
+        }
 
         DateTime picked;
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
             MainLable.Text = e.NewDate.ToString("MMMM dd, yyyy");
+           
             picked = e.NewDate;
             AzureService2 azureService2;
             azureService2 = new AzureService2();

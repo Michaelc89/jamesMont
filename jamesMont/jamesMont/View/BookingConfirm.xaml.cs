@@ -29,9 +29,9 @@ namespace jamesMont.View
             {
                 email = item;
             }
-
-            DisplayAlert("Alert","Email: "+email,"OK");
             LabelBook.Text = "Booking time: "+ bookingTime;
+            LabelBook2.Text = "Booking Date: " + p.ToString("dd/MM/yyyy");
+
 		}
         AzureService2 azureService;
         async private void book_method(object sender, EventArgs e)

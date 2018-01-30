@@ -685,7 +685,6 @@ C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\bin\Debug\Xa
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.MainPage.xaml.g.cs
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.App.xaml.g.cs
@@ -717,9 +716,12 @@ C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\re
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\shoppingcart.png
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\R.cs.flag
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\uploadflags.txt
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\android\assets\jamesMont.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\hairs.png
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\calandar.png

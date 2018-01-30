@@ -19,7 +19,10 @@ namespace jamesMont
             pass.Text = "";
             UserEmail.Clear();
             UserName.Clear();
-            image.Source = "http://thsthehairsalon.com/wp-content/uploads/2016/04/logo-1-e1461630552354.png";
+            // image.Source = "http://thsthehairsalon.com/wp-content/uploads/2016/04/logo-1-e1461630552354.png";
+            image.Source = "hairs.png";
+          
+            acca.Image = "C:/Users/Owner/Source/Repos/jamesMont15/jamesMont/jamesMont.Android/Resources/Drawable/thumb.png";
         }
 
         async private void Login_Method(object sender, EventArgs e)
