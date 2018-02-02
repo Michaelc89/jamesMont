@@ -21,6 +21,7 @@ namespace jamesMont
             loadCategories();
             
             listView.ItemsSource = ListViewItems2;
+            
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

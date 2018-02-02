@@ -55,9 +55,6 @@ namespace jamesMont.View
         
         async private void Buy_Product(object sender, EventArgs e)
         {
-
-            
-
             var selectedValue = boom.Items[boom.SelectedIndex];
 
             number = Convert.ToInt32(selectedValue);
@@ -65,11 +62,12 @@ namespace jamesMont.View
 
             await DisplayAlert("alert", "Number: "+number, "Ok");
 
-            AzureService3 azureService;
-            azureService = new AzureService3();
+           // AzureService3 azureService;
+           // azureService = new AzureService3();
             try
             {
-                 azureService.BuyProducts(productName, number );
+                // azureService.BuyProducts(productName, number );
+                await Navigation.PushAsync(new CreditCard(productName, number));
             }
             catch (Exception er)
             {

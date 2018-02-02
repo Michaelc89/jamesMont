@@ -4,8 +4,7 @@
              x:Class="jamesMont.View.TimesPage"
              Title="Choose Time">
     <ContentPage.Content>
-        <ListView x:Name="listView2" ItemSelected="OnItemSelected" BackgroundColor="#3897f0" SeparatorColor="White">
-           
+        <ListView x:Name="listView2" ItemSelected="OnItemSelected" BackgroundColor="#3897f0">
         </ListView>
     </ContentPage.Content>
 </ContentPage>

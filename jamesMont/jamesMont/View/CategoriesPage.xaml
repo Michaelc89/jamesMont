@@ -8,7 +8,7 @@
         <ListView BackgroundColor="#3897f0" x:Name="listView" ItemSelected="OnItemSelected" SeparatorColor="White">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell TextColor="White" Text="{Binding CategoryName}"/>
+                    <TextCell TextColor="White"  Text="{Binding CategoryName}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jamesMont.View.CreditCard">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--First Child-->
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="card2.jpg" />
+                </StackLayout>
+                <!--Second Child-->
+                <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"  VerticalOptions="Center">
+                    <Entry Keyboard="Numeric" Text="4000 0566 5566 5556" x:Name="number"  TextColor="White" FontSize="Medium"/>
+                    <Entry Keyboard="Default" Text="04/20" FontSize="Large" TextColor="White"/>
+                </StackLayout >
+            </Grid>
+
+            <Button Text="Shop" Clicked="Shop22"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

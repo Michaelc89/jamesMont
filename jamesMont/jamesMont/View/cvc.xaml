@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jamesMont.View.cvc">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--First Child-->
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="cvc.png" />
+                </StackLayout>
+                <!--Second Child-->
+                <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"  VerticalOptions="End">
+                    <Label Text="CVC"/>
+                    <Entry Keyboard="Default" Text="CVC" FontSize="Large" TextColor="White"/>
+                </StackLayout >
+            </Grid>
+
+            <Button Text="Buy now"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

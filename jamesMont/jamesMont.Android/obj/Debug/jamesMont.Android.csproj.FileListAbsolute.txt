@@ -725,3 +725,7 @@ C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\an
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\hairs.png
 C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\calandar.png
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.CreditCard.xaml.g.cs
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\card2.jpg
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.cvc.xaml.g.cs
+C:\Users\Owner\Source\Repos\jamesMont15\jamesMont\jamesMont.Android\obj\Debug\res\drawable\cvc.png
