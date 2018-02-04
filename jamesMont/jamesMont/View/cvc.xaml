@@ -16,13 +16,13 @@
                     <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="cvc.png" />
                 </StackLayout>
                 <!--Second Child-->
-                <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"  VerticalOptions="End">
-                    <Label Text="CVC"/>
-                    <Entry Keyboard="Default" Text="CVC" FontSize="Large" TextColor="White"/>
+                <StackLayout  Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"  VerticalOptions="End"  Orientation="Horizontal"  >
+                    <Label Text="CVC" TextColor="Black" />
+                    <Entry Keyboard="Numeric" Text="286" FontSize="Large" TextColor="Black"/>
                 </StackLayout >
             </Grid>
 
-            <Button Text="Buy now"  Clicked="SendPayment"  HorizontalOptions="CenterAndExpand"
+            <Button Text="Confirm Payment"  Clicked="SendPayment"  HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Start"/>
                
 

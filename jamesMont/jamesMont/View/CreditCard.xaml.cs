@@ -13,11 +13,12 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CreditCard : ContentPage
 	{
-        string productN;
+        string productN, clientName;
         int numb;
-		public CreditCard (string productName, int number)
+		public CreditCard (string productName, int number, string name)
 		{
 			InitializeComponent ();
+            clientName = name;
             productN = productName;
             numb = number;
 		}
@@ -26,7 +27,7 @@ namespace jamesMont.View
         {
             try
             {
-                await Navigation.PushAsync(new cvc(productN, numb));
+                await Navigation.PushAsync(new cvc(productN, numb, clientName));
             }
             catch (System.Exception er)
             {

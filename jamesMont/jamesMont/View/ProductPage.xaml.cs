@@ -13,13 +13,13 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProductPage : ContentPage
 	{
-        string productName;
+        string productName, clientName;
         int number;
         List<int> listz = new List<int>();
-        public ProductPage (string pName)
+        public ProductPage (string pName, string cName)
 		{
 			InitializeComponent ();
-
+            clientName = cName;
             listz.Add(1);
             listz.Add(2);
             listz.Add(3);
@@ -67,7 +67,7 @@ namespace jamesMont.View
             try
             {
                 // azureService.BuyProducts(productName, number );
-                await Navigation.PushAsync(new CreditCard(productName, number));
+                await Navigation.PushAsync(new CreditCard(productName, number, clientName));
             }
             catch (Exception er)
             {

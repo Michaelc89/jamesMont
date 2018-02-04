@@ -19,13 +19,15 @@ namespace jamesMont.View
 	{
 
         public static ObservableCollection<Shop_Two> ListViewItems2 { get; } = new ObservableCollection<Shop_Two>();
-        public Shop ()
+        string clientName;
+        public Shop (string Name)
 		{
 			InitializeComponent ();
+            clientName = Name;
             ListViewItems2.Clear();
             loadCategories();
 
-
+            DisplayAlert("alert", "name: " + clientName, "Ok");
             listView.ItemsSource = ListViewItems2;
         }
 
@@ -49,7 +51,7 @@ namespace jamesMont.View
             {
                 var selection = e.SelectedItem as Shop_Two;
 
-                await Navigation.PushAsync(new ProductPage(selection.ProductName));
+                await Navigation.PushAsync(new ProductPage(selection.ProductName, clientName));
             }
         }
     }

@@ -15,17 +15,18 @@ namespace jamesMont.View
     {
 
 
-        string productN;
+        string productN, clientName;
         int numb;
-        public cvc(string productName, int number)
+        public cvc(string productName, int number, string name)
         {
             InitializeComponent();
+            clientName = name;
             productN = productName;
             numb = number;
 
 
         }
-         void SendPayment(object sender, System.EventArgs e)
+         async void SendPayment(object sender, System.EventArgs e)
         {
             try
             {
@@ -36,7 +37,7 @@ namespace jamesMont.View
                     Amount = 2000,
                     Currency = "gbp",
                     SourceTokenOrExistingSourceId = "tok_visa",
-                    Description = "thank you and enjoy your new "+productN,
+                    Description = "Thank you and enjoy your new "+productN,
                     ReceiptEmail ="s00164997@mail.itsligo.ie",
                     Metadata = new Dictionary<String, String>()
                     {
@@ -47,7 +48,11 @@ namespace jamesMont.View
 
                 var chargeService = new StripeChargeService();
                 StripeCharge charge = chargeService.Create(chargeOptions);
-            
+
+                DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
+
+                await Navigation.PushAsync(new MenuPage(clientName));
+
             }
             catch (StripeException ex)
             {

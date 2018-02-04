@@ -45,7 +45,7 @@ namespace jamesMont.View
         {
             try
             {
-                await Navigation.PushAsync(new Shop());
+                await Navigation.PushAsync(new Shop(clientName));
             }
             catch (System.Exception er)
             {

@@ -22,7 +22,7 @@
                 </StackLayout >
             </Grid>
 
-            <Button Text="Shop" Clicked="Shop22"/>
+            <Button Text="Continue" Clicked="Shop22"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
