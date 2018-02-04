@@ -22,9 +22,9 @@
                 </StackLayout >
             </Grid>
 
-            <Button Text="Buy now"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Start" />
+            <Button Text="Buy now"  Clicked="SendPayment"  HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start"/>
+               
 
 
         </StackLayout>
