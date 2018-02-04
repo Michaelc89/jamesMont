@@ -16,14 +16,15 @@ namespace jamesMont.View
 
 
         string productN, clientName;
-        int numb;
-        public cvc(string productName, int number, string name)
+        int numb, quan;
+        public cvc(string productName, int number, string name, int quantity)
         {
             InitializeComponent();
             clientName = name;
             productN = productName;
             numb = number;
-
+            quan = quantity;
+            DisplayAlert("ALert","number: "+quan,"Ok");
 
         }
          async void SendPayment(object sender, System.EventArgs e)

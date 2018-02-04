@@ -58,16 +58,13 @@ namespace jamesMont.View
             var selectedValue = boom.Items[boom.SelectedIndex];
 
             number = Convert.ToInt32(selectedValue);
-
-
-            await DisplayAlert("alert", "Number: "+number, "Ok");
-
+            
            // AzureService3 azureService;
            // azureService = new AzureService3();
             try
             {
                 // azureService.BuyProducts(productName, number );
-                await Navigation.PushAsync(new CreditCard(productName, number, clientName));
+                await Navigation.PushAsync(new CreditCard(productName, number, clientName, number));
             }
             catch (Exception er)
             {

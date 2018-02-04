@@ -14,20 +14,22 @@ namespace jamesMont.View
 	public partial class CreditCard : ContentPage
 	{
         string productN, clientName;
-        int numb;
-		public CreditCard (string productName, int number, string name)
+        int numb, quan;
+		public CreditCard (string productName, int number, string name, int quantity)
 		{
 			InitializeComponent ();
             clientName = name;
             productN = productName;
             numb = number;
+            quan = quantity;
+
 		}
 
         async void Shop22(object sender, System.EventArgs e)
         {
             try
             {
-                await Navigation.PushAsync(new cvc(productN, numb, clientName));
+                await Navigation.PushAsync(new cvc(productN, numb, clientName, quan));
             }
             catch (System.Exception er)
             {
