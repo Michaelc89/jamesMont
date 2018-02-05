@@ -50,7 +50,7 @@ namespace jamesMont.View
                 var chargeService = new StripeChargeService();
                 StripeCharge charge = chargeService.Create(chargeOptions);
 
-                DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
+                await DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
 
                 await Navigation.PushAsync(new MenuPage(clientName));
 

@@ -26,8 +26,7 @@ namespace jamesMont.View
             clientName = Name;
             ListViewItems2.Clear();
             loadCategories();
-
-            DisplayAlert("alert", "name: " + clientName, "Ok");
+            
             listView.ItemsSource = ListViewItems2;
         }
 

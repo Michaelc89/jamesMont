@@ -10,7 +10,7 @@
               <Image x:Name="image"/>
 
             <Picker Title="Select a Quantity" x:Name="boom" />
-
+            <Label x:Name="PriceLbl"/>
             <Button Text="Buy me" Clicked="Buy_Product"/>
         </StackLayout>
     </ContentPage.Content>
