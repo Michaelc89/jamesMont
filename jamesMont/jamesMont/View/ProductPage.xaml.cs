@@ -15,7 +15,7 @@ namespace jamesMont.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductPage : ContentPage
     {
-       // public static ObservableCollection<float> Prices3 { get; } = new ObservableCollection<float>();
+        public static ObservableCollection<string> JOhn { get; } = new ObservableCollection<string>();
         string productName, clientName;
         AzureService3 azureService;
         int number;
@@ -62,35 +62,19 @@ namespace jamesMont.View
             try
             {
                 GetPrice();
-                DisplayPrice();
+               
             }
             catch (Exception er)
             {
                 DisplayAlert("Alert", "error: " + er.Message, "Ok");
             }
+
+            Blah.ItemsSource = JOhn;
+
+          
         }
 
-        public void DisplayPrice()
-        {
-            try
-            {
-                //Prices3.Add(16);
-               
-                foreach (var item in AzureService3.Prices3)
-                {
-
-                  
-                    price2 = item;
-                    // price2.ToString();
-                }
-
-                PriceLbl.Text = "Price: " + price2.ToString();
-            }
-            catch (Exception er)
-            {
-                DisplayAlert("Alert", "error: "+er, "Ok");
-            }
-        }
+        
 
         async private void Buy_Product(object sender, EventArgs e)
         {
@@ -115,7 +99,10 @@ namespace jamesMont.View
         private void GetPrice()
         {
              azureService = new AzureService3();
-             azureService.getPrice(productName);
+        
+           azureService.GetPrice(productName);
+
+          
             
         }
     }

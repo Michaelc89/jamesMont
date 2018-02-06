@@ -186,32 +186,53 @@ namespace jamesMont.Services
         }
 
 
-        public async void getPrice(string pname)
+        //  public async void getPrice(string pname)
+        public async Task<string> GetPrice(string pname)
         {
             await Initialize2();
             await SyncBookings2();
             Prices3.Clear();
             string productname;
+            float price4;
+            string answer = "false";
 
             productname = pname;
 
             try
             {
+
+               
                 List<Shop_Two> item = await shopz
              .Where(todoItem => todoItem.ProductName == productname)
              .ToListAsync();
-                
-                foreach (var x in item)
+
+                Prices3.Clear();
+                foreach (var y in item)
                 {
-                    Prices3.Add(x.Price);
+                    Prices3.Add(y.Price);
+                }
+
+                foreach (var x in Prices3)
+                {
+                    ProductPage.JOhn.Clear();
+                    string g = "£"+x.ToString();
+                    ProductPage.JOhn.Add(g);
                 }
             }
 
+
             catch (Exception er)
             {
-                   await DisplayAlert("Alert", "da error: " + er, "Ok");
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+               
             }
+            return answer;
         }
+
+
+
+
+      
 
 
     }
