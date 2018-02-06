@@ -15,10 +15,10 @@ namespace jamesMont.Services
 {
     public class AzureService3:ContentPage
     {
+        public static ObservableCollection<float> Prices3 { get; } = new ObservableCollection<float>();
         public MobileServiceClient client { get; set; } = null;
 
         IMobileServiceSyncTable<Shop_Two> shopz;
-        IMobileServiceSyncTable<Shop_Two> shopz2;
 
         bool isInitialised;
 
@@ -45,30 +45,7 @@ namespace jamesMont.Services
             isInitialised = true;
         }
 
-        public async Task Initialize2()
-        {
-            if (isInitialised)
-            {
-                return;
-            }
-
-            this.client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
-            MobileServiceClient client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
-
-            const string path = "user.db";
-
-            var store = new MobileServiceSQLiteStore(path);
-
-
-            store.DefineTable<Shop_Two>();
-
-            await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
-
-            shopz2 = this.client.GetSyncTable<Shop_Two>();
-            isInitialised = true;
-        }
-
-
+    
 
         public async Task SyncBookings()
         {
@@ -122,19 +99,7 @@ namespace jamesMont.Services
 
         }
 
-        public async Task SyncBookings2()
-        {
-            try
-            {
-                await shopz.PullAsync("allusers", shopz.CreateQuery());
-                await client.SyncContext.PushAsync();
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
-            }
-        }
+      
 
         public async void BuyProducts(string Pname, int numb)
         {
@@ -179,35 +144,75 @@ namespace jamesMont.Services
             
         }
 
+
+        public async Task Initialize2()
+        {
+            if (isInitialised)
+            {
+                return;
+            }
+
+            this.client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
+            MobileServiceClient client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
+
+            const string path = "user.db";
+
+            var store = new MobileServiceSQLiteStore(path);
+
+
+            store.DefineTable<Shop_Two>();
+
+            await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+
+            shopz = this.client.GetSyncTable<Shop_Two>();
+            isInitialised = true;
+
+        }
+
+
+        public async Task SyncBookings2()
+        {
+            try
+            {
+                await shopz.PullAsync("allusers", shopz.CreateQuery());
+                await client.SyncContext.PushAsync();
+                
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
+            }
+        }
+
+
         public async void getPrice(string pname)
         {
             await Initialize2();
             await SyncBookings2();
-            float answer;
-           
+            Prices3.Clear();
+            string productname;
+
+            productname = pname;
+
             try
             {
-                List<Shop_Two> item = await shopz2
-             .Where(todoItem => todoItem.ProductName == pname)
+                List<Shop_Two> item = await shopz
+             .Where(todoItem => todoItem.ProductName == productname)
              .ToListAsync();
                 
                 foreach (var x in item)
                 {
-                    await DisplayAlert("alert", "yaaa " + x.Price, "Ok");
-                    answer = x.Price;
-                    ProductPage.prices3.Add(x.Price);
-
+                    Prices3.Add(x.Price);
                 }
-
-             
             }
 
             catch (Exception er)
             {
-                await DisplayAlert("Alert", "da error: " + er, "Ok");
-               
-    
+                   await DisplayAlert("Alert", "da error: " + er, "Ok");
             }
         }
+
+
     }
 }

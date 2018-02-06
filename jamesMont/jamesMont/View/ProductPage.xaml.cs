@@ -12,18 +12,20 @@ using Xamarin.Forms.Xaml;
 
 namespace jamesMont.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ProductPage : ContentPage
-	{
-        public static ObservableCollection<float> prices3 { get; } = new ObservableCollection<float>();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ProductPage : ContentPage
+    {
+       // public static ObservableCollection<float> Prices3 { get; } = new ObservableCollection<float>();
         string productName, clientName;
         AzureService3 azureService;
         int number;
+        string gh;
         float price2;
         List<int> listz = new List<int>();
-        public ProductPage (string pName, string cName)
-		{
-			InitializeComponent ();
+        public ProductPage(string pName, string cName)
+        {
+            InitializeComponent();
+
             clientName = cName;
             listz.Add(1);
             listz.Add(2);
@@ -34,7 +36,7 @@ namespace jamesMont.View
             listz.Add(7);
             listz.Add(8);
 
-            boom.ItemsSource = listz; 
+            boom.ItemsSource = listz;
 
             productName = pName;
 
@@ -43,7 +45,7 @@ namespace jamesMont.View
             if (pName == "Gel")
             {
                 image.Source = "http://bit.ly/2iTDjO4";
-                
+
             }
             else if (pName == "Shampoo")
             {
@@ -59,20 +61,35 @@ namespace jamesMont.View
             }
             try
             {
-                getPrice();
+                GetPrice();
+                DisplayPrice();
             }
             catch (Exception er)
             {
-                DisplayAlert("", "error: "+ er.Message, "Ok");
+                DisplayAlert("Alert", "error: " + er.Message, "Ok");
             }
+        }
 
-
-            foreach (var item in prices3)
+        public void DisplayPrice()
+        {
+            try
             {
-                DisplayAlert("Alert", "yup: ", "Ok");
-               // DisplayAlert("Alert", "Price: " + item.ToString(), "Ok");
+                //Prices3.Add(16);
+               
+                foreach (var item in AzureService3.Prices3)
+                {
+
+                  
+                    price2 = item;
+                    // price2.ToString();
+                }
+
+                PriceLbl.Text = "Price: " + price2.ToString();
             }
-            PriceLbl.Text = "Price: "+price2.ToString();
+            catch (Exception er)
+            {
+                DisplayAlert("Alert", "error: "+er, "Ok");
+            }
         }
 
         async private void Buy_Product(object sender, EventArgs e)
@@ -95,7 +112,7 @@ namespace jamesMont.View
         }
 
         
-        async private void getPrice()
+        private void GetPrice()
         {
              azureService = new AzureService3();
              azureService.getPrice(productName);
