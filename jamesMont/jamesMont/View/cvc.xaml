@@ -22,6 +22,7 @@
                 </StackLayout >
             </Grid>
 
+            <Label x:Name="totallbl" FontSize="Large" />
             <Button Text="Confirm Payment"  Clicked="SendPayment"  HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Start"/>
                

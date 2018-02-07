@@ -20,8 +20,7 @@ namespace jamesMont.View
         string productName, clientName;
         AzureService3 azureService;
         int number;
-        string gh;
-        float price2;
+        double test;
         List<int> listz = new List<int>();
         public ProductPage(string pName, string cName)
         {
@@ -62,60 +61,59 @@ namespace jamesMont.View
             }
             try
             {
-                GetPrice();
-               
+              
+             GetPrice();
+
+
             }
             catch (Exception er)
             {
                 DisplayAlert("Alert", "error: " + er.Message, "Ok");
             }
 
-          
-
-          
         }
-
         
 
         async private void Buy_Product(object sender, EventArgs e)
         {
-            var selectedValue = boom.Items[boom.SelectedIndex];
-
-            number = Convert.ToInt32(selectedValue);
+            
 
             // AzureService3 azureService;
             // azureService = new AzureService3();
             try
             {
+                var selectedValue = boom.Items[boom.SelectedIndex];
+
+                number = Convert.ToInt32(selectedValue);
                 // azureService.BuyProducts(productName, number );
-                await Navigation.PushAsync(new CreditCard(productName, number, clientName, number));
+                await Navigation.PushAsync(new CreditCard(productName, clientName, number));
             }
             catch (Exception er)
             {
-                await DisplayAlert("Alert", "ERror: " + er, "Ok");
+                await DisplayAlert("Alert", "Please select a quantity", "Ok");
             }
         }
 
         
-        private async void GetPrice()
+        private async Task <double> GetPrice()
         {
              azureService = new AzureService3();
 
             try
             {
-                labelxx.Text = await azureService.GetPrice(productName);
+                test = await azureService.GetPrice(productName);
+
+                labelxx.Text = "€"+test.ToString(); ;
+                return test;
             }
 
             catch (Exception ex)
             {
                 await DisplayAlert("Alert", "error: "+ex.Message, "Ok");
+                return test;
+               
             }
 
-           // labelxx.Text =  azureService.GetPrice(productName).Result;
-
-           // string g = x.ToString();
-
-           // DisplayAlert("Alert", "Pricse: " + x.ToString(), "Ok");
         }
     }
 }

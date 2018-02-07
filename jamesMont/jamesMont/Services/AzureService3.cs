@@ -187,14 +187,14 @@ namespace jamesMont.Services
 
 
         //  public async void getPrice(string pname)
-        public async Task<string> GetPrice(string pname)
+        public async Task<double> GetPrice(string pname)
         {
             await Initialize2();
             await SyncBookings2();
             Prices3.Clear();
             string productname;
             float price4;
-            string answer = "false";
+            double answer = 0;
 
             productname = pname;
 
@@ -214,8 +214,8 @@ namespace jamesMont.Services
 
                 foreach (var x in Prices3)
                 {
-                    ProductPage.JOhn.Clear();
-                    answer = "€" + x.ToString();
+
+                    answer = Convert.ToDouble(x);
                    // ProductPage.JOhn.Add(g);
                 }
             }
