@@ -80,7 +80,7 @@ namespace jamesMont.Services
                  CategoriesPage.ListViewItems2.Clear();
                  foreach (var x in item)
                  {
-                    Shop_Two one = new Shop_Two( x.ProductName);
+                    Shop_Two one = new Shop_Two( x.ProductName, x.Price);
                     Shop.ListViewItems2.Add(one);
 
                      answer = "true";
@@ -215,8 +215,8 @@ namespace jamesMont.Services
                 foreach (var x in Prices3)
                 {
                     ProductPage.JOhn.Clear();
-                    string g = "£"+x.ToString();
-                    ProductPage.JOhn.Add(g);
+                    answer = "€" + x.ToString();
+                   // ProductPage.JOhn.Add(g);
                 }
             }
 

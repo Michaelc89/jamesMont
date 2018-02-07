@@ -3,6 +3,7 @@ using jamesMont.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,7 @@ namespace jamesMont.View
                 DisplayAlert("Alert", "error: " + er.Message, "Ok");
             }
 
-            Blah.ItemsSource = JOhn;
+          
 
           
         }
@@ -96,14 +97,25 @@ namespace jamesMont.View
         }
 
         
-        private void GetPrice()
+        private async void GetPrice()
         {
              azureService = new AzureService3();
-        
-           azureService.GetPrice(productName);
 
-          
-            
+            try
+            {
+                labelxx.Text = await azureService.GetPrice(productName);
+            }
+
+            catch (Exception ex)
+            {
+                await DisplayAlert("Alert", "error: "+ex.Message, "Ok");
+            }
+
+           // labelxx.Text =  azureService.GetPrice(productName).Result;
+
+           // string g = x.ToString();
+
+           // DisplayAlert("Alert", "Pricse: " + x.ToString(), "Ok");
         }
     }
 }

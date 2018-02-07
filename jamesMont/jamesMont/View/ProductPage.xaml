@@ -10,9 +10,10 @@
               <Image x:Name="image"/>
 
             <Picker Title="Select a Quantity" x:Name="boom" />
-            <ListView x:Name="Blah" BackgroundColor="White"/>
+
+            <Label x:Name="labelxx" TextColor="Blue" FontSize="Large"/>
             <Button Text="Buy me" Clicked="Buy_Product"/>
-           
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

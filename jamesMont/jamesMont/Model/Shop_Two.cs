@@ -22,9 +22,10 @@ namespace jamesMont.Model
         {
 
         }
-        public Shop_Two(string prod)
+        public Shop_Two(string prod, float price)
         {
             this.ProductName = prod;
+            this.Price = price;
         }
     }
 }
