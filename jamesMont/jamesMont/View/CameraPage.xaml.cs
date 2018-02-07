@@ -57,7 +57,7 @@ namespace jamesMont.View
 
                 //var DefCamera = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 //{
-                //    DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front
+                //     DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front
 
                 //});
 

@@ -17,34 +17,26 @@ namespace jamesMont.View
 
         string productN, clientName;
         int numb, quan;
-        double total;
-        public cvc(string productName, int number, string name, int quantity, double price)
+        public cvc(string productName, int number, string name, int quantity)
         {
             InitializeComponent();
-            double x;
-
-            x = price;
             clientName = name;
             productN = productName;
             numb = number;
             quan = quantity;
+            DisplayAlert("ALert","number: "+quan,"Ok");
 
-            total = quantity * x;
-
-
-            totallbl.Text = "Total: €"+total;
         }
          async void SendPayment(object sender, System.EventArgs e)
         {
             try
             {
-
                 StripeConfiguration.SetApiKey("sk_test_BEPrGyKARA5fbK1rcLbAixdd");
 
                 var chargeOptions = new StripeChargeCreateOptions()
                 {
-                    Amount = Convert.ToInt32(total)*100,
-                    Currency = "eur",
+                    Amount = 2000,
+                    Currency = "gbp",
                     SourceTokenOrExistingSourceId = "tok_visa",
                     Description = "Thank you and enjoy your new "+productN,
                     ReceiptEmail ="s00164997@mail.itsligo.ie",
@@ -58,7 +50,7 @@ namespace jamesMont.View
                 var chargeService = new StripeChargeService();
                 StripeCharge charge = chargeService.Create(chargeOptions);
 
-                await DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
+                DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
 
                 await Navigation.PushAsync(new MenuPage(clientName));
 
