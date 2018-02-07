@@ -21,6 +21,7 @@ namespace jamesMont.View
         AzureService3 azureService;
         int number;
         double test;
+        string image2;
         List<int> listz = new List<int>();
         public ProductPage(string pName, string cName)
         {
@@ -102,8 +103,9 @@ namespace jamesMont.View
             try
             {
                 test = await azureService.GetPrice(productName);
-
-                labelxx.Text = "€"+test.ToString(); ;
+                image2 = await azureService.GetImage(productName);
+                labelxx.Text = "€"+test.ToString();
+                image.Source = image2;
                 return test;
             }
 

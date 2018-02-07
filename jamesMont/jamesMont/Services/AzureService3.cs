@@ -15,7 +15,9 @@ namespace jamesMont.Services
 {
     public class AzureService3:ContentPage
     {
+
         public static ObservableCollection<float> Prices3 { get; } = new ObservableCollection<float>();
+        public static ObservableCollection<string> images{ get; } = new ObservableCollection<string>();
         public MobileServiceClient client { get; set; } = null;
 
         IMobileServiceSyncTable<Shop_Two> shopz;
@@ -201,7 +203,7 @@ namespace jamesMont.Services
             try
             {
 
-               
+
                 List<Shop_Two> item = await shopz
              .Where(todoItem => todoItem.ProductName == productname)
              .ToListAsync();
@@ -216,7 +218,7 @@ namespace jamesMont.Services
                 {
 
                     answer = Convert.ToDouble(x);
-                   // ProductPage.JOhn.Add(g);
+                    // ProductPage.JOhn.Add(g);
                 }
             }
 
@@ -224,7 +226,46 @@ namespace jamesMont.Services
             catch (Exception er)
             {
                 await DisplayAlert("Alert", "da error: " + er, "Ok");
-               
+
+            }
+            return answer;
+        }
+
+
+        public async Task<string> GetImage(string pname)
+        {
+            await Initialize2();
+            await SyncBookings2();
+            Prices3.Clear();
+            string productname;
+           
+            string answer ="False";
+
+            productname = pname;
+
+            try
+            {
+                List<Shop_Two> item = await shopz
+             .Where(todoItem => todoItem.ProductName == productname)
+             .ToListAsync();
+
+                images.Clear();
+                foreach (var y in item)
+                {
+                    images.Add(y.imageURL);
+                }
+
+                foreach (var x in images)
+                {
+                   answer = x;
+                }
+            }
+
+
+            catch (Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+
             }
             return answer;
         }
@@ -232,7 +273,7 @@ namespace jamesMont.Services
 
 
 
-      
+
 
 
     }
