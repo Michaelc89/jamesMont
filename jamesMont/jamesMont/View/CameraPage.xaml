@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jamesMont.View.CameraPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Label x:Name="aboutUs" Text=".COMM" TextColor="#4169e1" Font="Bold,50" HorizontalTextAlignment="Center" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image x:Name="PhotoImage" />
+                <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" Clicked="CameraButton_Clicked"/>
+                <Button x:Name="SendImage" Text="Send Image" Grid.Row="2" Clicked="Select_Image" />
+                <Button x:Name="Exit" Text="Exit" Grid.Row="3" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

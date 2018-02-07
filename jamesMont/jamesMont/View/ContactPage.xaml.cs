@@ -38,8 +38,22 @@ namespace jamesMont.View
         private void CallUs(object sender, EventArgs e)
         {
 
-            Device.OpenUri(new Uri("tel:0861948974"));
+            Device.OpenUri(new Uri("tel:0861948974")); 
 
         }
+
+        async void TakeAPicture(object sender, System.EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new CameraPage());
+            }
+            catch (System.Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+            }
+        }
+
+
     }
 }

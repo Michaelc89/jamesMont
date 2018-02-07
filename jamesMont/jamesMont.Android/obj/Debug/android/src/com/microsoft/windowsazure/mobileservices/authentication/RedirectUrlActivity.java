@@ -16,7 +16,7 @@ public class RedirectUrlActivity
 	}
 
 
-	public RedirectUrlActivity ()
+	public RedirectUrlActivity () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == RedirectUrlActivity.class)

@@ -38,13 +38,6 @@ public class MonoPackageManager {
 				String cacheDir     = context.getCacheDir ().getAbsolutePath ();
 				String dataDir      = getNativeLibraryPath (context);
 				ClassLoader loader  = context.getClassLoader ();
-				java.io.File external0 = android.os.Environment.getExternalStorageDirectory ();
-				String externalDir = new java.io.File (
-							external0,
-							"Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath ();
-				String externalLegacyDir = new java.io.File (
-							external0,
-							"../legacy/Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath ();
 
 				Runtime.init (
 						language,
@@ -56,10 +49,9 @@ public class MonoPackageManager {
 							dataDir,
 						},
 						loader,
-						new String[] {
-							externalDir,
-							externalLegacyDir
-						},
+						new java.io.File (
+							android.os.Environment.getExternalStorageDirectory (),
+							"Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath (),
 						MonoPackageManager_Resources.Assemblies,
 						context.getPackageName ());
 				
@@ -110,6 +102,10 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Microsoft.Azure.Mobile.Client.dll",
 		"Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
+		"Microsoft.Azure.Storage.Common.dll",
+		"Microsoft.Data.Edm.dll",
+		"Microsoft.Data.OData.dll",
+		"Microsoft.WindowsAzure.Storage.dll",
 		"MvvmHelpers.Android.dll",
 		"MvvmHelpers.Bootstrap.dll",
 		"MvvmHelpers.Core.dll",
@@ -120,12 +116,18 @@ class MonoPackageManager_Resources {
 		"PInvoke.Kernel32.dll",
 		"PInvoke.NCrypt.dll",
 		"PInvoke.Windows.Core.dll",
+		"Plugin.CurrentActivity.dll",
+		"Plugin.Media.Abstractions.dll",
+		"Plugin.Media.dll",
+		"Plugin.Permissions.Abstractions.dll",
+		"Plugin.Permissions.dll",
 		"SQLitePCLRaw.batteries_green.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",
 		"SQLitePCLRaw.lib.e_sqlite3.dll",
 		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"Stripe.net.dll",
+		"System.Spatial.dll",
 		"Validation.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Annotations.dll",

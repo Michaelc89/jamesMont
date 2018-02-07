@@ -21,7 +21,7 @@ public class WebAuthenticatorNativeBrowserActivity
 	}
 
 
-	public WebAuthenticatorNativeBrowserActivity ()
+	public WebAuthenticatorNativeBrowserActivity () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == WebAuthenticatorNativeBrowserActivity.class)
