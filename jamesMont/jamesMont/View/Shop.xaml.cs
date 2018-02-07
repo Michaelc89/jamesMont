@@ -14,21 +14,23 @@ using System.Collections.ObjectModel;
 
 namespace jamesMont.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Shop : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Shop : ContentPage
+    {
 
         public static ObservableCollection<Shop_Two> ListViewItems2 { get; } = new ObservableCollection<Shop_Two>();
         string clientName;
-        public Shop (string Name)
-		{
-			InitializeComponent ();
+        public Shop(string Name)
+        {
+            InitializeComponent();
             clientName = Name;
             ListViewItems2.Clear();
             loadCategories();
 
-            DisplayAlert("alert", "name: " + clientName, "Ok");
+
+
             listView.ItemsSource = ListViewItems2;
+
         }
 
         public void loadCategories()
@@ -38,6 +40,7 @@ namespace jamesMont.View
             try
             {
                 azureService.LoadCategories();
+
             }
             catch (Exception er)
             {
@@ -45,6 +48,9 @@ namespace jamesMont.View
             }
 
         }
+
+
+
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)

@@ -1,6 +1,9 @@
-﻿using jamesMont.Services;
+﻿using jamesMont.Model;
+using jamesMont.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +13,19 @@ using Xamarin.Forms.Xaml;
 
 namespace jamesMont.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ProductPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ProductPage : ContentPage
+    {
+        public static ObservableCollection<string> JOhn { get; } = new ObservableCollection<string>();
         string productName, clientName;
+        AzureService3 azureService;
         int number;
+        double test;
         List<int> listz = new List<int>();
-        public ProductPage (string pName, string cName)
-		{
-			InitializeComponent ();
+        public ProductPage(string pName, string cName)
+        {
+            InitializeComponent();
+
             clientName = cName;
             listz.Add(1);
             listz.Add(2);
@@ -29,15 +36,16 @@ namespace jamesMont.View
             listz.Add(7);
             listz.Add(8);
 
-            boom.ItemsSource = listz; 
+            boom.ItemsSource = listz;
 
             productName = pName;
 
             product.Text = productName;
 
             if (pName == "Gel")
-            {  //d
+            {
                 image.Source = "http://bit.ly/2iTDjO4";
+
             }
             else if (pName == "Shampoo")
             {
@@ -51,25 +59,61 @@ namespace jamesMont.View
             {
                 image.Source = "http://bit.ly/2ygy5ky";
             }
-        }
-        
-        async private void Buy_Product(object sender, EventArgs e)
-        {
-            var selectedValue = boom.Items[boom.SelectedIndex];
-
-            number = Convert.ToInt32(selectedValue);
-            
-           // AzureService3 azureService;
-           // azureService = new AzureService3();
             try
             {
-                // azureService.BuyProducts(productName, number );
-                await Navigation.PushAsync(new CreditCard(productName, number, clientName, number));
+
+                GetPrice();
+
+
             }
             catch (Exception er)
             {
-                await DisplayAlert("Alert", "ERror: "+er, "Ok");
+                DisplayAlert("Alert", "error: " + er.Message, "Ok");
             }
+
+        }
+
+
+        async private void Buy_Product(object sender, EventArgs e)
+        {
+
+
+            // AzureService3 azureService;
+            // azureService = new AzureService3();
+            try
+            {
+                var selectedValue = boom.Items[boom.SelectedIndex];
+
+                number = Convert.ToInt32(selectedValue);
+                // azureService.BuyProducts(productName, number );
+                await Navigation.PushAsync(new CreditCard(productName, clientName, number));
+            }
+            catch (Exception er)
+            {
+                await DisplayAlert("Alert", "Please select a quantity", "Ok");
+            }
+        }
+
+
+        private async Task<double> GetPrice()
+        {
+            azureService = new AzureService3();
+
+            try
+            {
+                test = await azureService.GetPrice(productName);
+
+                labelxx.Text = "€" + test.ToString(); ;
+                return test;
+            }
+
+            catch (Exception ex)
+            {
+                await DisplayAlert("Alert", "error: " + ex.Message, "Ok");
+                return test;
+
+            }
+
         }
     }
 }
