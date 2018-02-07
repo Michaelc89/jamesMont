@@ -15,7 +15,7 @@ public class CustomTabActivityHelper
 	}
 
 
-	public CustomTabActivityHelper ()
+	public CustomTabActivityHelper () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == CustomTabActivityHelper.class)

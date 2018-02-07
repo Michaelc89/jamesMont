@@ -5,10 +5,10 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Button Text="Send Email"  Clicked="SendEmail"/>
-            <Button Text="Open Map"    Clicked="OpenMap"/>
-            <Button Text="Call Us"      Clicked="CallUs"/>
-           
+            <Button Text="Send Email"       Clicked="SendEmail"/>
+            <Button Text="Open Map"         Clicked="OpenMap"/>
+            <Button Text="Call Us"          Clicked="CallUs"/>
+            <Button Text="Take A Picture"   Clicked="TakeAPicture"/>
 
         </StackLayout>
     </ContentPage.Content>

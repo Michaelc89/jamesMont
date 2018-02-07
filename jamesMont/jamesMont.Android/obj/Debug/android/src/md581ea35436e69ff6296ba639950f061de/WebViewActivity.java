@@ -17,7 +17,7 @@ public class WebViewActivity
 	}
 
 
-	public WebViewActivity ()
+	public WebViewActivity () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == WebViewActivity.class)

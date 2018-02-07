@@ -4,19 +4,14 @@
              x:Class="jamesMont.View.ProductPage">
     <ContentPage.Content>
         <StackLayout>
-
-            <Image x:Name="image"/>
-            
             <Label  x:Name="product" Text=""
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-              
+              <Image x:Name="image"/>
 
             <Picker Title="Select a Quantity" x:Name="boom" />
 
-            <Label x:Name="labelxx" TextColor="Blue" FontSize="Large"/>
             <Button Text="Buy me" Clicked="Buy_Product"/>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

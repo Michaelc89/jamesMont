@@ -2,6 +2,10 @@ jamesMont.Droid.MainActivity, jamesMont.Android;md53bacf147dacb4588f0e4026f6178b
 jamesMont.Droid.MainActivity, jamesMont.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md53bacf147dacb4588f0e4026f6178b0c4.MainActivity
 jamesMont.Droid.MainActivity;md53bacf147dacb4588f0e4026f6178b0c4.MainActivity
 jamesmont.droid.MainActivity;md53bacf147dacb4588f0e4026f6178b0c4.MainActivity
+jamesMont.Droid.MainApplication, jamesMont.Android;md53bacf147dacb4588f0e4026f6178b0c4.MainApplication
+jamesMont.Droid.MainApplication, jamesMont.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md53bacf147dacb4588f0e4026f6178b0c4.MainApplication
+jamesMont.Droid.MainApplication;md53bacf147dacb4588f0e4026f6178b0c4.MainApplication
+jamesmont.droid.MainApplication;md53bacf147dacb4588f0e4026f6178b0c4.MainApplication
 Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices.CustomTabActivityHelper, Microsoft.Azure.Mobile.Client;md54c4b48a882a4c6b363ccb67bdb21d5b2.CustomTabActivityHelper
 Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices.CustomTabActivityHelper, Microsoft.Azure.Mobile.Client, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md54c4b48a882a4c6b363ccb67bdb21d5b2.CustomTabActivityHelper
 Android.Support.CustomTabs.Chromium.SharedUtilities._MobileServices.CustomTabActivityHelper;md54c4b48a882a4c6b363ccb67bdb21d5b2.CustomTabActivityHelper
@@ -54,6 +58,10 @@ Microsoft.WindowsAzure.MobileServices.RedirectUrlActivity, Microsoft.Azure.Mobil
 Microsoft.WindowsAzure.MobileServices.RedirectUrlActivity, Microsoft.Azure.Mobile.Client, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity
 Microsoft.WindowsAzure.MobileServices.RedirectUrlActivity;com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity
 com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity;com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity
+Plugin.Media.MediaPickerActivity, Plugin.Media;md5dff1bed22da39876f271fd39214b8f60.MediaPickerActivity
+Plugin.Media.MediaPickerActivity, Plugin.Media, Version=3.1.3.0, Culture=neutral, PublicKeyToken=null;md5dff1bed22da39876f271fd39214b8f60.MediaPickerActivity
+Plugin.Media.MediaPickerActivity;md5dff1bed22da39876f271fd39214b8f60.MediaPickerActivity
+plugin.media.MediaPickerActivity;md5dff1bed22da39876f271fd39214b8f60.MediaPickerActivity
 Android.Support.V4.Widget.SearchViewCompat/IOnCloseListenerImplementor, Xamarin.Android.Support.Compat;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor
 Android.Support.V4.Widget.SearchViewCompat+IOnCloseListenerImplementor, Xamarin.Android.Support.Compat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor
 Android.Support.V4.Widget.SearchViewCompat.IOnCloseListenerImplementor;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor

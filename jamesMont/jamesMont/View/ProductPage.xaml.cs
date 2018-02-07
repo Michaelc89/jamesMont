@@ -1,9 +1,6 @@
-﻿using jamesMont.Model;
-using jamesMont.Services;
+﻿using jamesMont.Services;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,20 +10,15 @@ using Xamarin.Forms.Xaml;
 
 namespace jamesMont.View
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductPage : ContentPage
-    {
-        public static ObservableCollection<string> JOhn { get; } = new ObservableCollection<string>();
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class ProductPage : ContentPage
+	{
         string productName, clientName;
-        AzureService3 azureService;
         int number;
-        double test;
-        string image2;
         List<int> listz = new List<int>();
-        public ProductPage(string pName, string cName)
-        {
-            InitializeComponent();
-
+        public ProductPage (string pName, string cName)
+		{
+			InitializeComponent ();
             clientName = cName;
             listz.Add(1);
             listz.Add(2);
@@ -37,69 +29,47 @@ namespace jamesMont.View
             listz.Add(7);
             listz.Add(8);
 
-            boom.ItemsSource = listz;
+            boom.ItemsSource = listz; 
 
             productName = pName;
 
             product.Text = productName;
 
-       
-            try
-            {
-              
-             GetPrice();
-
-
+            if (pName == "Gel")
+            {  //d
+                image.Source = "http://bit.ly/2iTDjO4";
             }
-            catch (Exception er)
+            else if (pName == "Shampoo")
             {
-                DisplayAlert("Alert", "error: " + er.Message, "Ok");
+                image.Source = "http://bit.ly/2B6rnCA";
             }
-
+            else if (pName == "Highlights")
+            {
+                image.Source = "http://bit.ly/2l13Mxn";
+            }
+            else
+            {
+                image.Source = "http://bit.ly/2ygy5ky";
+            }
         }
         
-
         async private void Buy_Product(object sender, EventArgs e)
         {
-            
+            var selectedValue = boom.Items[boom.SelectedIndex];
 
-            // AzureService3 azureService;
-            // azureService = new AzureService3();
+            number = Convert.ToInt32(selectedValue);
+            
+           // AzureService3 azureService;
+           // azureService = new AzureService3();
             try
             {
-                var selectedValue = boom.Items[boom.SelectedIndex];
-
-                number = Convert.ToInt32(selectedValue);
                 // azureService.BuyProducts(productName, number );
-                await Navigation.PushAsync(new CreditCard(productName, clientName, number));
+                await Navigation.PushAsync(new CreditCard(productName, number, clientName, number));
             }
             catch (Exception er)
             {
-                await DisplayAlert("Alert", "Please select a quantity", "Ok");
+                await DisplayAlert("Alert", "ERror: "+er, "Ok");
             }
-        }
-
-        
-        private async Task <double> GetPrice()
-        {
-             azureService = new AzureService3();
-
-            try
-            {
-                test = await azureService.GetPrice(productName);
-                image2 = await azureService.GetImage(productName);
-                labelxx.Text = "€"+test.ToString();
-                image.Source = image2;
-                return test;
-            }
-
-            catch (Exception ex)
-            {
-                await DisplayAlert("Alert", "error: "+ex.Message, "Ok");
-                return test;
-               
-            }
-
         }
     }
 }

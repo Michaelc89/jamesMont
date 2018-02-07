@@ -1,5 +1,4 @@
-﻿using jamesMont.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -16,13 +15,12 @@ namespace jamesMont.View
 	{
         string productN, clientName;
         int numb, quan;
-        double test;
-        AzureService3 azureService;
-        public CreditCard (string productName, string name, int quantity)
+		public CreditCard (string productName, int number, string name, int quantity)
 		{
 			InitializeComponent ();
             clientName = name;
             productN = productName;
+            numb = number;
             quan = quantity;
 
 		}
@@ -31,12 +29,7 @@ namespace jamesMont.View
         {
             try
             {
-                azureService = new AzureService3();
-
-               
-                test = await azureService.GetPrice(productN);
-                
-                await Navigation.PushAsync(new cvc(productN, numb, clientName, quan, test));
+                await Navigation.PushAsync(new cvc(productN, numb, clientName, quan));
             }
             catch (System.Exception er)
             {
