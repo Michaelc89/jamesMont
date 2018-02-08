@@ -5,8 +5,11 @@
 
 
     <StackLayout BackgroundColor="#3897f0">
+        <Picker TextColor="White"  x:Name="boom" />
         <DatePicker x:Name="datez" DateSelected="DatePicker_DateSelected"  TextColor="White"/>
         <Label x:Name="MainLable" Text="Choose date" HorizontalOptions="Center" FontSize="40" TextColor="White"></Label>
         <Image x:Name="image" HeightRequest="100" WidthRequest="100"/>
+
+       
     </StackLayout>
 </ContentPage>

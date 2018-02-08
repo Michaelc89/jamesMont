@@ -43,23 +43,7 @@ namespace jamesMont.View
 
             product.Text = productName;
 
-            if (pName == "Gel")
-            {
-                image.Source = "http://bit.ly/2iTDjO4";
-
-            }
-            else if (pName == "Shampoo")
-            {
-                image.Source = "http://bit.ly/2B6rnCA";
-            }
-            else if (pName == "Highlights")
-            {
-                image.Source = "http://bit.ly/2l13Mxn";
-            }
-            else
-            {
-                image.Source = "http://bit.ly/2ygy5ky";
-            }
+           
             try
             {
 

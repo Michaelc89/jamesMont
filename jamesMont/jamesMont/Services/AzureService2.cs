@@ -82,7 +82,7 @@ namespace jamesMont.Services
                 }
 
                 AvailableSlots.Clear();
-                for (int i = 1; i <= 9; i++)
+                for (int i = 1; i <= 18; i++)
                 {
                     if (!(TakenSlots.Contains(i)))
                     {
@@ -98,40 +98,77 @@ namespace jamesMont.Services
                        }
                        else if (xy == 2)
                        {
-                           TimesPage.Holder.Add("10AM");
+                           TimesPage.Holder.Add("9:30AM");
                        }
                        else if (xy == 3)
                        {
-                           TimesPage.Holder.Add("11AM");
+                           TimesPage.Holder.Add("10AM");
                        }
                        else if (xy == 4)
                        {
-                           TimesPage.Holder.Add("12PM");
+                           TimesPage.Holder.Add("10:30AM");
                        }
                        else if (xy == 5)
                        {
-                           TimesPage.Holder.Add("1PM");
+                           TimesPage.Holder.Add("11AM");
                        }
 
                        else if (xy == 6)
                        {
-                           TimesPage.Holder.Add("2PM");
+                           TimesPage.Holder.Add("11:30AM");
                            
                        }
                        else if (xy == 7)
                        {
-                           TimesPage.Holder.Add("3PM");
+                           TimesPage.Holder.Add("12PM");
                            
                        }
                        else if (xy == 8)
                        {
-                           TimesPage.Holder.Add("4PM");
+                           TimesPage.Holder.Add("12:30PM");
                        }
-                       else if (xy == 9)
-                       {
-                           TimesPage.Holder.Add("5PM");
-                       }
-                       else
+                    else if (xy == 9)
+                    {
+                        TimesPage.Holder.Add("1PM");
+                    }
+                    else if (xy == 10)
+                    {
+                        TimesPage.Holder.Add("1:30PM");
+                    }
+                    else if (xy == 11)
+                    {
+                        TimesPage.Holder.Add("2PM");
+                    }
+                    else if (xy == 12)
+                    {
+                        TimesPage.Holder.Add("2:30PM");
+                    }
+                    else if (xy == 13)
+                    {
+                        TimesPage.Holder.Add("3PM");
+                    }
+                    else if (xy == 14)
+                    {
+                        TimesPage.Holder.Add("3:30PM");
+                    }
+                    else if (xy == 15)
+                    {
+                        TimesPage.Holder.Add("4PM");
+                    }
+                    else if (xy == 16)
+                    {
+                        TimesPage.Holder.Add("4:30PM");
+                    }
+                    else if (xy == 17)
+                    {
+                        TimesPage.Holder.Add("5PM");
+                    }
+                    else if (xy == 18)
+                    {
+                        TimesPage.Holder.Add("5:30PM");
+                    }
+
+                    else
                        {
                            TimesPage.Holder.Add("Sorry, No times are available for this date.");
                        }

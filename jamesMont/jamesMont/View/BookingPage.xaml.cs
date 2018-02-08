@@ -19,6 +19,19 @@ namespace jamesMont.View
         public BookingPage (string category, string clientName)
 		{
 			InitializeComponent ();
+
+
+
+            boom.Items.Add("Select a stylist");
+            boom.Items.Add("Christie");
+            boom.Items.Add("Chrystal");
+            boom.Items.Add("Owen");
+            boom.Items.Add("Conor");
+            boom.TextColor = Color.White;
+            boom.SelectedIndex = 0;
+            
+            
+
             procedure = category;
             clientName3 = clientName;
             //loadBookings();
@@ -40,15 +53,26 @@ namespace jamesMont.View
 
             try
             {
-                
-                azureService2.LoadBookings(picked);
-                
-                Navigation.PushAsync(new TimesPage(styler, clientName3, picked,procedure));
+                var selectedValue = boom.Items[boom.SelectedIndex];
+                string stylist;
+                stylist = selectedValue.ToString();
+                if (stylist != "Select a stylist")
+                {
+                    azureService2.LoadBookings(picked);
+
+                    Navigation.PushAsync(new TimesPage(styler, clientName3, picked, procedure));
+                }
+               else if (stylist == "Select a stylist")
+                {
+                    DisplayAlert("Alert", "Please select a stylist", "Ok");
+                }
 
             }
-            catch (Exception er)
+            catch (Exception )
             {
-                DisplayAlert("Alert", "Could not load bookings" + er, "Ok");
+                    DisplayAlert("Alert", "Please select a stylist", "Ok");
+
+                
             }
             
         }
