@@ -4,18 +4,17 @@
              x:Class="jamesMont.View.TimesPage"
              Title="Choose Time">
     <ContentPage.Content>
-       
 
-      
 
-        <ListView x:Name="listView2" BackgroundColor="">
+
+
+
+        <ListView x:Name="listView2" BackgroundColor="#3897f0" SeparatorColor="White"  ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell TextColor="Black" Text="{Binding Path=Holder}" />
+                    <TextCell TextColor="White" Text="{Binding Time}"  />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
     </ContentPage.Content>
 </ContentPage>

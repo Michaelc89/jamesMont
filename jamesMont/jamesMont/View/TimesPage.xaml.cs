@@ -24,18 +24,12 @@ namespace jamesMont.View
         public TimesPage (string stylist, string clientName, DateTime p, string pro)
 		{
             InitializeComponent ();
-
-            foreach (var item in Holder)
-            {
-                string x = item;
-
-               // times.Add(x);
-            }
+          
             picked = p;
             clientName4 = clientName;
             procedure = pro;
-            listView2.ItemsSource = Holder;
-           // listView2. = Color.White;
+            listView2.ItemsSource = times;
+            times.Clear();
             Holder.Clear();
         }
         
@@ -43,7 +37,9 @@ namespace jamesMont.View
         {
             if (e.SelectedItem != null)
             {
-                var selection = e.SelectedItem as string;
+                TimesClass tc = new TimesClass(e.SelectedItem.ToString());
+                
+                var selection = tc.Time.ToString() as string;
                 int slot;
                 if (selection == "9AM")
                 {

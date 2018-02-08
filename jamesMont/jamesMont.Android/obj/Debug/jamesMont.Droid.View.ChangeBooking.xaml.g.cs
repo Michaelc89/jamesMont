@@ -11,7 +11,7 @@
 namespace jamesMont.View {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\MichaelC\\Source\\Repos\\JamesFeb\\jamesMont\\jamesMont\\View\\ChangeBooking.xa" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Owner\\Source\\Repos\\jamesMont17\\jamesMont\\jamesMont\\View\\ChangeBooking.xa" +
         "ml")]
     public partial class ChangeBooking : global::Xamarin.Forms.ContentPage {
         

@@ -92,86 +92,127 @@ namespace jamesMont.Services
 
                 foreach (var xy in AvailableSlots)
                 {
-                     if (xy == 1)
+                    TimesClass t = new TimesClass();
+                    
+                  
+                    if (xy == 1)
                        {
                            TimesPage.Holder.Add("9AM");
+                        t.Time = "9AM";
+                           TimesPage.times.Add(t);
                        }
                        else if (xy == 2)
                        {
                            TimesPage.Holder.Add("9:30AM");
-                       }
+                        t.Time = "9:30AM";
+                        TimesPage.times.Add(t);
+                    }
                        else if (xy == 3)
                        {
                            TimesPage.Holder.Add("10AM");
-                       }
+                        t.Time = "10AM";
+                        TimesPage.times.Add(t);
+                    }
                        else if (xy == 4)
                        {
                            TimesPage.Holder.Add("10:30AM");
-                       }
+                        t.Time = "10:30AM";
+                        TimesPage.times.Add(t);
+                    }
                        else if (xy == 5)
                        {
                            TimesPage.Holder.Add("11AM");
-                       }
+                        t.Time = "11AM";
+                        TimesPage.times.Add(t);
+                    }
 
                        else if (xy == 6)
                        {
                            TimesPage.Holder.Add("11:30AM");
-                           
-                       }
+                        t.Time = "11:30AM";
+                        TimesPage.times.Add(t);
+
+                    }
                        else if (xy == 7)
                        {
                            TimesPage.Holder.Add("12PM");
-                           
-                       }
+                        t.Time = "12PM";
+                        TimesPage.times.Add(t);
+
+                    }
                        else if (xy == 8)
                        {
                            TimesPage.Holder.Add("12:30PM");
-                       }
+                        t.Time = "12:30PM";
+                        TimesPage.times.Add(t);
+                    }
                     else if (xy == 9)
                     {
                         TimesPage.Holder.Add("1PM");
+                        t.Time = "1PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 10)
                     {
                         TimesPage.Holder.Add("1:30PM");
+                        t.Time = "1:30PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 11)
                     {
                         TimesPage.Holder.Add("2PM");
+                        t.Time = "2PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 12)
                     {
                         TimesPage.Holder.Add("2:30PM");
+                        t.Time = "2:30PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 13)
                     {
                         TimesPage.Holder.Add("3PM");
+                        t.Time = "3PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 14)
                     {
                         TimesPage.Holder.Add("3:30PM");
+                        t.Time = "3:30PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 15)
                     {
                         TimesPage.Holder.Add("4PM");
+                        t.Time = "4PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 16)
                     {
                         TimesPage.Holder.Add("4:30PM");
+                        t.Time = "4:30PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 17)
                     {
                         TimesPage.Holder.Add("5PM");
+                        t.Time = "5PM";
+                        TimesPage.times.Add(t);
                     }
                     else if (xy == 18)
                     {
                         TimesPage.Holder.Add("5:30PM");
+                        t.Time = "5:30PM";
+                        TimesPage.times.Add(t);
                     }
 
                     else
                        {
                            TimesPage.Holder.Add("Sorry, No times are available for this date.");
-                       }
+                        t.Time = "Sorry, No times are available for this date.";
+                        TimesPage.times.Add(t);
+                    }
                        
                 }
 

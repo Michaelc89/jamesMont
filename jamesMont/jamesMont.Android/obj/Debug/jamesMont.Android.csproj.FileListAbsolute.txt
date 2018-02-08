@@ -1062,12 +1062,6 @@ C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\re
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\res\drawable\cvc.png
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\R.cs.flag
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\uploadflags.txt
-C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\jamesMont.Android.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\MichaelC\Source\Repos\JamesFeb\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.config
 C:\Users\MichaelC\Source\Repos\JamesFeb\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll
 C:\Users\MichaelC\Source\Repos\JamesFeb\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.pdb
@@ -1289,7 +1283,13 @@ C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\zh
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\zh-Hant\System.Spatial.resources.dll
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Droid.View.CameraPage.xaml.g.cs
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\res\xml\file_paths.xml
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\jamesMont.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Microsoft.Azure.Storage.Common.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Microsoft.WindowsAzure.Storage.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Plugin.Media.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Plugin.Permissions.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
