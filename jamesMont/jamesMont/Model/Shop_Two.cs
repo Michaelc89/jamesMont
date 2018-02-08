@@ -18,6 +18,9 @@ namespace jamesMont.Model
         [Newtonsoft.Json.JsonProperty("Price")]
         public float Price { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("imageURL")]
+        public string imageURL { get; set; }
+
         public Shop_Two()
         {
 
