@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Categories.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Shop_Two.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TheBookingTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\TimesClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\BookingConfirm.xaml.cs">
