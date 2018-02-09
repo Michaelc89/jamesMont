@@ -14,7 +14,7 @@
                 <Image x:Name="PhotoImage" />
                 <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" Clicked="CameraButton_Clicked"/>
                 <Button x:Name="SendImage" Text="Send Image" Grid.Row="2" Clicked="Select_Image" />
-                <Button x:Name="Exit" Text="Exit" Grid.Row="3" />
+                <Button x:Name="Exit" Text="Exit" Grid.Row="3" Clicked="Exit_Clicked" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>

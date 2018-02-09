@@ -12,59 +12,58 @@ using Android.App;
 using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.Azure;
 using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Blob.Protocol;
-
+using System.Configuration;
+using Android.Content;
+using System.IO;
 
 namespace jamesMont.View
 {
-    
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CameraPage : ContentPage
-	{
-        
-		public CameraPage ()
-		{
-			InitializeComponent ();
-		}
-        
-        
+    public partial class CameraPage : ContentPage
+    {
+
+        static string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=commblob2;AccountKey=fU7XsTmlYv6VgnFvYlPxWEcT8KBAineKA5JO+iMoBzAo0x5cB0ELj/m5clUl8X8OhrsVoYXCo4ELyhillPyPIA==;EndpointSuffix=core.windows.net";
+        //  DefaultEndpointsProtocol=https;AccountName=commblob2;AccountKey=fU7XsTmlYv6VgnFvYlPxWEcT8KBAineKA5JO+iMoBzAo0x5cB0ELj/m5clUl8X8OhrsVoYXCo4ELyhillPyPIA==;EndpointSuffix=core.windows.net
+        private Android.Net.Uri photo;//image uri android
+        static CloudBlobClient blobClient;
+        const string blobContainerName = "webappstoragedotnet-imagecontainer";
+        static CloudBlobContainer blobContainer;
+        public byte[] memoryStream;
+        string address;
+
+        public CameraPage()
+        {
+            InitializeComponent();
+        }
+
+
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
             try
             {
 
-            
-             var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync
-                (new Plugin.Media.Abstractions.StoreCameraMediaOptions()
-                { Directory = "CommDir",SaveToAlbum = true, /*Name = "Comm",*/ DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front, CompressionQuality = 92, });
-                
+
+                var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync
+                   (new Plugin.Media.Abstractions.StoreCameraMediaOptions()
+                   { Directory = "CommDir", SaveToAlbum = true, /*Name = "Comm",*/ DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front, CompressionQuality = 92, });
+
+
+                address = photo.Path;
 
                 if (photo != null)
-                PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });//displays on page
+                {
 
-                
-                //var files = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-                //{
-                //    SaveToAlbum = true
-                //});
+                     PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });//displays on page
 
-                //Get the public album path
-                //var aPpath = files.AlbumPath;
+                }
 
 
 
 
-                //var DefCamera = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-                //{
-                //     DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front
-
-                //});
-
-                //var CompressPic = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-                //{
-                //    CompressionQuality = 92,
-                //});
 
                 //Get the public album path
                 var aPpath = photo.AlbumPath;
@@ -73,7 +72,7 @@ namespace jamesMont.View
                 //Get private path
                 var path = photo.Path;
 
-                DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
+                await DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
 
                 //await Navigation.PushAsync(new ContactPage());
             }
@@ -87,72 +86,113 @@ namespace jamesMont.View
 
         private async void Select_Image(object sender, EventArgs e)
         {
-            if (CrossMedia.Current.IsPickPhotoSupported)
-                 await CrossMedia.Current.PickPhotoAsync();
-            var SaveImage = CrossMedia.Current.PickPhotoAsync();//save the image
+            try
+            {
 
-            /******************************************/
-            //container for blob 
-            // Parse the connection string and return a reference to the storage account.
-            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            //    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-            // Retrieve storage account from connection string.
-            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=commblob2;AccountKey=fU7XsTmlYv6VgnFvYlPxWEcT8KBAineKA5JO+iMoBzAo0x5cB0ELj/m5clUl8X8OhrsVoYXCo4ELyhillPyPIA==;EndpointSuffix=core.windows.net");
 
-            //// Create the blob client.
-            //CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                // Microsoft.Azure.Storage.CloudStorageAccount account = Microsoft.Azure.Storage.CloudStorageAccount.Parse(storageConnectionString);
+               
+                Microsoft.WindowsAzure.Storage.CloudStorageAccount account2 = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(storageConnectionString);
             
-            ////storageAccount.
-            
+                //var SaveImage = CrossMedia.Current.PickPhotoAsync();
 
-            //// Retrieve reference to a previously created container.
-            //CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-            //// Create the container if it doesn't already exist.
-            //await container.CreateIfNotExistsAsync();
+                // Create the blob client.
+                CloudBlobClient blobClient = account2.CreateCloudBlobClient();
 
-            //// Retrieve reference to a blob named "myblob".
-            //CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
+                // Retrieve reference to a previously created container.
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
 
-            //// Create the "myblob" blob with the text "Hello, world!"
-            //await blockBlob.UploadTextAsync("Hello, world!");
+                await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+
+                // Create the container if it doesn't already exist.
+                await container.CreateIfNotExistsAsync();
+
+                // Retrieve reference to a blob named "myblob".
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.jpg");
+
+                // Create the "myblob" blob with the text "Hello, world!"
+                //await blockBlob.UploadTextAsync("Hello, world!");
+                //  MediaFile j = await CrossMedia.Current.PickPhotoAsync();
+                // await blockBlob.UploadFromFileAsync(j);
+                // j.cop
+                await DisplayAlert("Alert", address, "OK");
+                await blockBlob.UploadFromFileAsync(address);//needs to be path
+            }
+            catch (Exception a)
+            {
+                System.Diagnostics.Debug.WriteLine("   Code: " + a.Data);
+                System.Diagnostics.Debug.WriteLine("Message: " + a.Message);
+                System.Diagnostics.Debug.WriteLine("Source: " + a.StackTrace);
+                throw;
+            }
         }
+
 
         private async void Exit_Clicked(object sender, EventArgs e)
         {
-            
+            try
+            {
+
+
+
+                // Microsoft.Azure.Storage.CloudStorageAccount account = Microsoft.Azure.Storage.CloudStorageAccount.Parse(storageConnectionString);
+                await DisplayAlert("Alert", "Image present1", "OK");
+                Microsoft.WindowsAzure.Storage.CloudStorageAccount account2 = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(storageConnectionString);
+                await DisplayAlert("Alert", "Image present2", "OK");
+                //var SaveImage = CrossMedia.Current.PickPhotoAsync();
+
+
+                // Create the blob client.
+                CloudBlobClient blobClient = account2.CreateCloudBlobClient();
+
+                // Retrieve reference to a previously created container.
+                CloudBlobContainer container = blobClient.GetContainerReference("images");
+
+                await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+
+                // Create the container if it doesn't already exist.
+                await container.CreateIfNotExistsAsync();
+
+                // Retrieve reference to a blob named "myblob".
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.jpg");
+
+                // Create the "myblob" blob with the text "Hello, world!"
+                //await blockBlob.UploadTextAsync("Hello, world!");
+                MediaFile j = await CrossMedia.Current.PickPhotoAsync();
+                // await blockBlob.UploadFromFileAsync(j);
+                // j.cop
+                await blockBlob.UploadFromFileAsync(j.Path);
+                //using (var memoryStream = new MemoryStream())
+                //{
+                //    j.GetStream().CopyTo(memoryStream);
+                //    j.Dispose();
+                //    memoryStream.ToArray();
+                //    //create blob with image
+                //   // await blockBlob.UploadFromByteArrayAsync(memoryStream, 1, memoryStream.Length);
+                //   // await blockBlob.UploadFromByteArrayAsync(memoryStream);
+                //}
+                //options.AccessCondition = AccessCondition.None;
+                //create blob with image
+                //await blockBlob.UploadFromByteArrayAsync(memoryStream, 0, memoryStream.Length);
+                //await blockBlob.UploadFromStreamAsync();
+
+                await DisplayAlert("Alert", "Connection Successful! Thank You", "Close");
+
+                await Navigation.PushAsync(new CameraPage());
+            }
+            catch (Exception a)
+            {
+                System.Diagnostics.Debug.WriteLine("   Code: " + a.Data);
+                System.Diagnostics.Debug.WriteLine("Message: " + a.Message);
+                System.Diagnostics.Debug.WriteLine("Source: " + a.StackTrace);
+                throw;
+            }
         }
-        //private void CreateDirectoryForPictures()
-        //{// pathToNewFolder was a var
-        //    string pathToNewFolder = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/AppPictures";
-        //    Directory.CreateDirectory(pathToNewFolder);
-        //    if (!pathToNewFolder.Contains(null))
-        //    {//if doesnt exist make one
-        //        pathToNewFolder.();
-
-        //    }
-        //}
-
-        //private void CreateDirectoryForPictures2()
-        //{
-        //    App._dir = new File(
-        //        Environment.GetExternalStoragePublicDirectory(
-        //            Environment.DirectoryPictures), "CameraAppDemo");
-        //    if (!App._dir.Exists())
-        //    {
-        //        App._dir.Mkdirs();
-        //    }
-        //}
 
 
-        //private void CreateDirectory()
-        //{
-        //      String appDirectoryName = "XYZ";
-        //     File imageRoot = new File(Environment.getExternalStoragePublicDirectory(
-        //            Environment.DIRECTORY_PICTURES), appDirectoryName);
-        //    //https://stackoverflow.com/questions/20523658/how-to-create-application-specific-folder-in-android-gallery/20523934
-        //}
+     
 
     }
 }
