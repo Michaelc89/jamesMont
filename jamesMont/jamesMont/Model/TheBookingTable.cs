@@ -17,5 +17,8 @@ namespace jamesMont.Model
 
         [Newtonsoft.Json.JsonProperty("Slot")]
         public int Slot { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("Length")]
+        public float Length { get; set; }
     }
 }

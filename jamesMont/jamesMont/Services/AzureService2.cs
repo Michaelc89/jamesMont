@@ -25,6 +25,9 @@ namespace jamesMont.Services
         public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
         public static ObservableCollection<int> AvailableSlots { get; } = new ObservableCollection<int>();
         public static ObservableCollection<string> Bookings3 { get; } = new ObservableCollection<string>();
+        public static ObservableCollection<int> initalSlot { get; } = new ObservableCollection<int>();
+        public static ObservableCollection<float> length { get; } = new ObservableCollection<float>();
+        public static ObservableCollection<int> testg { get; } = new ObservableCollection<int>();
 
         public async Task Initialize()
         {
@@ -57,7 +60,7 @@ namespace jamesMont.Services
 
        
 
-        public async Task<string> LoadBookings(DateTime xyz)
+        public async Task<string> LoadBookings(DateTime xyz, float len)
         {
             await Initialize();
             await SyncBookings();
@@ -73,15 +76,34 @@ namespace jamesMont.Services
                .Where(todoItem => todoItem.Date == xyz)
                   .ToListAsync();
 
-
-
                 TakenSlots.Clear();
+                initalSlot.Clear();
+                AvailableSlots.Clear();
+                //how many slots needed?????
+
                 foreach (var x in item)
                 {
-                    TakenSlots.Add(x.Slot);
+                    //add the inital slot into collection
+                    initalSlot.Add(x.Slot);
+                    length.Add(x.Length);
                 }
 
-                AvailableSlots.Clear();
+                int z = 1;
+                for (int i = 0; i < initalSlot.Count; i++)
+                {
+                    int test = initalSlot[i] +z;
+                    await DisplayAlert("Alert", "Slot: "+ test +" Length"+length[i], "Ok");
+                    z++;
+                    testg.Add(test);
+                }
+
+                foreach (var y in testg)
+                {
+
+                    await DisplayAlert("Alert", "Test: " + y, "Ok");
+                }
+              
+                
                 for (int i = 1; i <= 18; i++)
                 {
                     if (!(TakenSlots.Contains(i)))

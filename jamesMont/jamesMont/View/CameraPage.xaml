@@ -8,13 +8,15 @@
                 <Label x:Name="aboutUs" Text=".COMM" TextColor="#4169e1" Font="Bold,50" HorizontalTextAlignment="Center" />
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200" />
-                    <RowDefinition Height="Auto" />
+
                 </Grid.RowDefinitions>
+
 
                 <Image x:Name="PhotoImage" />
                 <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" Clicked="CameraButton_Clicked"/>
-                <Button x:Name="SendImage" Text="Send Image" Grid.Row="2" Clicked="Select_Image" />
-                <Button x:Name="Exit" Text="Exit" Grid.Row="3" Clicked="Exit_Clicked" />
+                <Button x:Name="SendImage" Text="Send Chosen Image" Grid.Row="2" Clicked="Select_Image" />
+                <Button x:Name="Exit" Text="Choose Image and Send " Grid.Row="3" Clicked="Exit_Clicked" />
+                <Button x:Name="DetectFace" Text="Detect Face " Grid.Row="3" Clicked="Detect_Face" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>

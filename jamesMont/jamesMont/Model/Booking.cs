@@ -23,5 +23,8 @@ namespace jamesMont.Model
 
         [Newtonsoft.Json.JsonProperty("Email")]
         public string Email { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("Length")]
+        public float Length { get; set; }
     }
 }

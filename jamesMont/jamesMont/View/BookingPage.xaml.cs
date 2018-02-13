@@ -15,12 +15,13 @@ namespace jamesMont.View
 	public partial class BookingPage : ContentPage
 	{
         string clientName3, procedure;
+        float len;
         public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
-        public BookingPage (string category, string clientName)
+        public BookingPage (string category, string clientName, float length)
 		{
 			InitializeComponent ();
 
-
+            len = length;
 
             boom.Items.Add("Select a stylist");
             boom.Items.Add("Christie");
@@ -58,7 +59,7 @@ namespace jamesMont.View
                 stylist = selectedValue.ToString();
                 if (stylist != "Select a stylist")
                 {
-                    azureService2.LoadBookings(picked);
+                    azureService2.LoadBookings(picked, len);
 
                     Navigation.PushAsync(new TimesPage(styler, clientName3, picked, procedure));
                 }

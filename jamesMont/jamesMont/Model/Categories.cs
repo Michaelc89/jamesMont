@@ -12,14 +12,18 @@ namespace jamesMont.Model
         [Newtonsoft.Json.JsonProperty("CategoryName")]
         public string CategoryName { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("Length")]
+        public float Length { get; set; }
+
         public Categories()
         {
 
         }
-        public Categories(string id, string category)
+        public Categories(string id, string category, float len)
         {
             this.Id = id;
             this.CategoryName = category;
+            this.Length = len;
         }
     }
 }

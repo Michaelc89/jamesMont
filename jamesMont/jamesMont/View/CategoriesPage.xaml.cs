@@ -13,14 +13,17 @@ namespace jamesMont
     public partial class CategoriesPage : ContentPage
     {
         string clientName2;
+        
         public static ObservableCollection<Categories> ListViewItems2 { get; } = new ObservableCollection<Categories>();
         public CategoriesPage(string clientName)
         {
             InitializeComponent();
             clientName2 = clientName;
+            
             loadCategories();
             
             listView.ItemsSource = ListViewItems2;
+
             
         }
 
@@ -29,8 +32,7 @@ namespace jamesMont
             if (e.SelectedItem != null)
             {
                 var selection = e.SelectedItem as Categories;
-               
-                await Navigation.PushAsync(new BookingPage(selection.CategoryName, clientName2));
+                await Navigation.PushAsync(new BookingPage(selection.CategoryName, clientName2,selection.Length));
             }
         }
 

@@ -19,7 +19,7 @@ namespace jamesMont.Services
         public MobileServiceClient MobileService { get; set; } = null;
 
         IMobileServiceSyncTable<User> coffeeTable;
-        IMobileServiceSyncTable<Categories> CategoriesTable;
+        IMobileServiceSyncTable<Categories> CategoriesTable2;
        
 
         // ObservableRangeCollection<Categories> Categories {get;} = new ObservableRangeCollection<Categories>();
@@ -56,7 +56,7 @@ namespace jamesMont.Services
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
             coffeeTable = MobileService.GetSyncTable<User>();
-            CategoriesTable = MobileService.GetSyncTable<Categories>();
+            CategoriesTable2 = MobileService.GetSyncTable<Categories>();
            // BookTable = MobileService.GetSyncTable<TheBookingTable>();
 
             isInitialised = true;
@@ -227,15 +227,15 @@ namespace jamesMont.Services
 
             try
             {
-                List<Categories> item = await CategoriesTable
+                List<Categories> item = await CategoriesTable2
              .Where(todoItem => todoItem.CategoryName != null)
              .ToListAsync();
                 CategoriesPage.ListViewItems2.Clear();
                 foreach (var x in item)
                 {
-                    Categories one = new Categories(x.Id, x.CategoryName);
+                    Categories one = new Categories(x.Id, x.CategoryName, x.Length);
                     CategoriesPage.ListViewItems2.Add(one);
-                   
+                    
                     answer = "true";
                 }
 
@@ -298,11 +298,8 @@ namespace jamesMont.Services
 
         }
         */
-
-
-
-
-        /*****************************************************************
+        
+        /****************************************************************
             *METHOD TO SYNC THE DATABSE TO THE APP
         ****************************************************************/
         public async Task SyncCoffee()
@@ -321,7 +318,7 @@ namespace jamesMont.Services
         {
             try
             {
-                await CategoriesTable.PullAsync("allusers", CategoriesTable.CreateQuery());
+                await CategoriesTable2.PullAsync("allusers", CategoriesTable2.CreateQuery());
                 await MobileService.SyncContext.PushAsync();
             }
             catch (Exception ex)

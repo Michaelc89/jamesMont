@@ -33,7 +33,7 @@ namespace jamesMont.View
             try
             {
 
-                azureService2.LoadBookings(picked);
+               // azureService2.LoadBookings(picked);
 
                 Navigation.PushAsync(new TimesPage(styler, clientName, picked, procedure));
 
