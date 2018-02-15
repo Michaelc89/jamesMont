@@ -18,8 +18,9 @@ namespace jamesMont.Services
     {
         MobileServiceClient client = null;
         public MobileServiceClient MobileService { get; set; } = null;
-   
+
         IMobileServiceSyncTable<Booking> BookingsTable2;
+        IMobileServiceSyncTable<Categories> Categories;
         bool isInitialised;
         public ObservableCollection<int> TakenSlots { get; } = new ObservableCollection<int>();
         public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
@@ -48,19 +49,52 @@ namespace jamesMont.Services
 
 
             store.DefineTable<Booking>();
+            store.DefineTable<Categories>();
             //store.DefineTable<ShoppingCategory>();
 
             await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
             BookingsTable2 = this.client.GetSyncTable<Booking>();
+            Categories = this.client.GetSyncTable<Categories>();
             // ShopList = this.client.GetSyncTable<ShoppingCategory>();
 
             isInitialised = true;
         }
 
-       
+        public async Task<float> loadLength(string procedure)
+        {
+            await Initialize();
+            await SyncBookings();
 
-        public async Task<string> LoadBookings(DateTime xyz, string stylist)
+            float answer =0 ;
+
+            try
+            {
+                List<Categories> item = new List<Categories>();
+                //item.Clear();
+
+                item = await Categories
+              .Where(todoItem => todoItem.CategoryName == procedure)
+                 .ToListAsync();
+
+                foreach (var x  in item)
+                {
+                   answer =  x.Length;
+                }
+                await DisplayAlert("Alert", "Length: "+ answer, "Ok");
+
+                return answer;
+                
+            }
+            catch (Exception )
+            {
+                await DisplayAlert("Alert", "Something went wrong, please try again later", "Ok");
+                return answer;
+            }
+           
+            }
+
+                public async Task<string> LoadBookings(DateTime xyz, string stylist)
         {
             await Initialize();
             await SyncBookings();
@@ -105,10 +139,7 @@ namespace jamesMont.Services
                     }
                 }
 
-                foreach (var y in TakenSlots)
-                {
-                    await DisplayAlert("Alert", "Taken slot: "+y, "Ok");
-                }
+            
               
                 
                 for (int i = 1; i <= 18; i++)
@@ -260,6 +291,9 @@ namespace jamesMont.Services
         public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email, float length, string style)
         {
             await Initialize();
+
+
+
             Random rnd = new Random();
             int Id = rnd.Next(1, 10000);
 
