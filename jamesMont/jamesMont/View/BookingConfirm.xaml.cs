@@ -37,7 +37,8 @@ namespace jamesMont.View
         async private void book_method(object sender, EventArgs e)
         {
             azureService = new AzureService2();
-            await azureService.AddBooking(clientName5, slots, picked, procedure, email);
+            float len = 2;
+            await azureService.AddBooking(clientName5, slots, picked, procedure, email, len);
 
             await Navigation.PushAsync(new MenuPage(clientName5));
         }

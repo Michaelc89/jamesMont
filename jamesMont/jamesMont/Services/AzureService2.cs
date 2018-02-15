@@ -79,28 +79,34 @@ namespace jamesMont.Services
                 TakenSlots.Clear();
                 initalSlot.Clear();
                 AvailableSlots.Clear();
-                //how many slots needed?????
-
+                //how many slots are needed?????
+               
                 foreach (var x in item)
                 {
                     //add the inital slot into collection
-                    initalSlot.Add(x.Slot);
-                    length.Add(x.Length);
+                    int slots;
+                    float lengths;
+                    //take the slot and length numbers
+
+                    slots = x.Slot ;
+                    lengths = x.Length;
+
+                    TakenSlots.Add(slots);
+                    //add the length individually to the taken slots 
+                    int z = 1;
+                    for (int i = 0; i < lengths-1; i++)
+                    {   
+                        if (z <= lengths)
+                        {
+                            TakenSlots.Add(slots+z);
+                        }
+                        z++;
+                    }
                 }
 
-                int z = 1;
-                for (int i = 0; i < initalSlot.Count; i++)
+                foreach (var y in TakenSlots)
                 {
-                    int test = initalSlot[i] +z;
-                    await DisplayAlert("Alert", "Slot: "+ test +" Length"+length[i], "Ok");
-                    z++;
-                    testg.Add(test);
-                }
-
-                foreach (var y in testg)
-                {
-
-                    await DisplayAlert("Alert", "Test: " + y, "Ok");
+                    await DisplayAlert("Alert", "Taken slot: "+y, "Ok");
                 }
               
                 
@@ -250,7 +256,7 @@ namespace jamesMont.Services
             }
         }
 
-        public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email)
+        public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email, float length)
         {
             await Initialize();
             Random rnd = new Random();
@@ -263,7 +269,8 @@ namespace jamesMont.Services
                 Date = picked,
                 Slot = slot,
                 Procedure = pro,
-                Email = email
+                Email = email,
+                Length =  length
             };
 
 
