@@ -18,7 +18,7 @@ namespace jamesMont.View
         public static ObservableCollection<string> Holder { get; } = new ObservableCollection<string>();
         public static ObservableCollection<TimesClass> times { get; } = new ObservableCollection<TimesClass>();
         public static ObservableCollection<string> TimesAvailable { get; } = new ObservableCollection<string>();
-        string clientName4, procedure;
+        string clientName4, procedure, styler;
         DateTime picked;
 
         public TimesPage (string stylist, string clientName, DateTime p, string pro)
@@ -26,6 +26,7 @@ namespace jamesMont.View
             InitializeComponent ();
           
             picked = p;
+            styler = stylist;
             clientName4 = clientName;
             procedure = pro;
             listView2.ItemsSource = times;
@@ -115,7 +116,7 @@ namespace jamesMont.View
                     slot = 18;
                 }
                 
-                await Navigation.PushAsync(new BookingConfirm(selection, clientName4, slot, picked, procedure));
+                await Navigation.PushAsync(new BookingConfirm(selection, clientName4, slot, picked, procedure, styler));
             }
         }
     }

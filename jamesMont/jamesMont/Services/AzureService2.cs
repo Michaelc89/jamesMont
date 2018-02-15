@@ -60,7 +60,7 @@ namespace jamesMont.Services
 
        
 
-        public async Task<string> LoadBookings(DateTime xyz, float len)
+        public async Task<string> LoadBookings(DateTime xyz, string stylist)
         {
             await Initialize();
             await SyncBookings();
@@ -74,6 +74,7 @@ namespace jamesMont.Services
 
                  item =  await BookingsTable2
                .Where(todoItem => todoItem.Date == xyz)
+                .Where(todoItem => todoItem.Stylist == stylist)
                   .ToListAsync();
 
                 TakenSlots.Clear();
@@ -256,7 +257,7 @@ namespace jamesMont.Services
             }
         }
 
-        public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email, float length)
+        public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email, float length, string style)
         {
             await Initialize();
             Random rnd = new Random();
@@ -270,7 +271,8 @@ namespace jamesMont.Services
                 Slot = slot,
                 Procedure = pro,
                 Email = email,
-                Length =  length
+                Length =  length,
+                Stylist = style
             };
 
 

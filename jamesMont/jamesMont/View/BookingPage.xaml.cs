@@ -50,7 +50,7 @@ namespace jamesMont.View
             picked = e.NewDate;
             AzureService2 azureService2;
             azureService2 = new AzureService2();
-            string styler = "Amber";
+          
 
             try
             {
@@ -59,9 +59,9 @@ namespace jamesMont.View
                 stylist = selectedValue.ToString();
                 if (stylist != "Select a stylist")
                 {
-                    azureService2.LoadBookings(picked, len);
+                    azureService2.LoadBookings(picked, stylist);
 
-                    Navigation.PushAsync(new TimesPage(styler, clientName3, picked, procedure));
+                    Navigation.PushAsync(new TimesPage(stylist, clientName3, picked, procedure));
                 }
                else if (stylist == "Select a stylist")
                 {

@@ -26,5 +26,8 @@ namespace jamesMont.Model
 
         [Newtonsoft.Json.JsonProperty("Length")]
         public float Length { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("Stylist")]
+        public string Stylist { get; set; }
     }
 }

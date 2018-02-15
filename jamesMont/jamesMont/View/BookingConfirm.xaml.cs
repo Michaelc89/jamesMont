@@ -13,14 +13,15 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookingConfirm : ContentPage
 	{
-        string clientName5, procedure, email;
+        string clientName5, procedure, email, styler;
         int slots;
         DateTime picked;
 
-		public BookingConfirm ( string bookingTime, string clientName, int slot, DateTime p, string pro)
+		public BookingConfirm ( string bookingTime, string clientName, int slot, DateTime p, string pro, string stylist)
 		{
 			InitializeComponent ();
             clientName5 = clientName;
+            styler = stylist;
             picked = p;
             slots = slot;
             procedure = pro;
@@ -38,7 +39,7 @@ namespace jamesMont.View
         {
             azureService = new AzureService2();
             float len = 2;
-            await azureService.AddBooking(clientName5, slots, picked, procedure, email, len);
+            await azureService.AddBooking(clientName5, slots, picked, procedure, email, len, styler);
 
             await Navigation.PushAsync(new MenuPage(clientName5));
         }
