@@ -7,6 +7,7 @@ using Stripe;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using jamesMont.Services;
 
 namespace jamesMont.View
 {
@@ -15,14 +16,15 @@ namespace jamesMont.View
     {
 
 
-        string productN, clientName;
-        int numb, quan;
+        string productN="Test", clientName;
+        int numb, quan=0;
         double total;
+        AzureService3 azureService;
         public cvc(string productName, int number, string name, int quantity, double price)
         {
             InitializeComponent();
             double x;
-
+         
             x = price;
             clientName = name;
             productN = productName;
@@ -30,15 +32,15 @@ namespace jamesMont.View
             quan = quantity;
 
             total = quantity * x;
-
-
+            
             totallbl.Text = "Total: €" + total;
         }
         async void SendPayment(object sender, System.EventArgs e)
         {
+           
             try
             {
-
+                reduceStock();
                 StripeConfiguration.SetApiKey("sk_test_BEPrGyKARA5fbK1rcLbAixdd");
 
                 var chargeOptions = new StripeChargeCreateOptions()
@@ -99,6 +101,21 @@ namespace jamesMont.View
                         // Unknown Error Type
                         break;
                 }
+            }
+        }
+
+        public void reduceStock()
+        {
+            AzureService3 azureService;
+            azureService = new AzureService3();
+            try
+            {
+                
+                azureService.BuyProducts(productN, quan);
+            }
+            catch (Exception er)
+            {
+                DisplayAlert("Alert", "Error: "+er, "Ok");
             }
         }
 

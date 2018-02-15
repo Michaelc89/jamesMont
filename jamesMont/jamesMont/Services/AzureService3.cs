@@ -131,7 +131,6 @@ namespace jamesMont.Services
 
                         await shopz.UpdateAsync(x);
                         await SyncBookings();
-                        await DisplayAlert("Alert", "Done", "Ok");
                     }
                 }
 
