@@ -12,7 +12,7 @@
         <Grid BackgroundColor="#3897f0">
 
 
-            <Image x:Name="image" HeightRequest="400" WidthRequest="100"/>
+            <Image x:Name="image"  HeightRequest="300"/>
             <Grid Grid.Row="1" Margin="20,0,20,50">
 
                 <Grid.RowDefinitions>

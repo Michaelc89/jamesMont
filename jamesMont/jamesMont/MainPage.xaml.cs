@@ -15,6 +15,18 @@ namespace jamesMont
         public MainPage()
         {
             InitializeComponent();
+
+
+            email.Completed += (object sender, EventArgs e) => {
+                pass.Focus();
+
+            };
+
+            pass.Completed += (object sender, EventArgs e) => {
+                ExecuteLoadCoffeesCommandAsync();
+            };
+
+
             email.Text = "";
             pass.Text = "";
             UserEmail.Clear();

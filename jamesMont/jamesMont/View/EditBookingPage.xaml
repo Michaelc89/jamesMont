@@ -2,12 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jamesMont.View.EditBookingPage">
+    
+    
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="BookingsList" ItemSelected="OnItemSelected">
+            <ListView x:Name="BookingsList" ItemSelected="OnItemSelected" SeparatorColor="White" BackgroundColor="#3897f0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell  TextColor="Blue"  Text="{Binding .}"/>
+                        <TextCell  TextColor="White"  Text="{Binding .}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

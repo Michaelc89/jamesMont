@@ -31,12 +31,16 @@ namespace jamesMont.View
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
-            {
+            { 
+               
 
                 try
                 {
+                  
+                      
+                        
 
-                string boom;
+                        string boom;
                 string[] words;
                 string[] words2;
                 string IdNumber="";
