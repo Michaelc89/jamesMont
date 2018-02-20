@@ -141,8 +141,6 @@ namespace jamesMont.Services
                         await SyncBookings();
                     }
                 }
-                await DisplayAlert("Alert", "ID: " + theID, "Ok");
-                await DisplayAlert("Alert", "quantity: " + number, "Ok");
 
                 string x = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
                 var coffee = new OrderTBL()

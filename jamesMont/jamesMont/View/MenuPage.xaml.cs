@@ -14,10 +14,10 @@ namespace jamesMont.View
         {
             InitializeComponent();
             clientName = Name;
-            string email="";
+           
             foreach (var item in MainPage.UserEmail)
             {
-                email = item;
+                TheEmail = item;
             }
           
             HiLabel.Text = "Hi, "+Name;

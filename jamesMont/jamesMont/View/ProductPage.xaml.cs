@@ -30,6 +30,7 @@ namespace jamesMont.View
             InitializeComponent();
             theEmail = email;
             clientName = cName;
+
             listz.Add(1);
             listz.Add(2);
             listz.Add(3);
@@ -40,20 +41,13 @@ namespace jamesMont.View
             listz.Add(8);
 
             boom.ItemsSource = listz;
-
             productName = pName;
-
             product.Text = productName;
-
             theID = id;
-
-           
+            
             try
             {
-
                 GetPrice();
-
-
             }
             catch (Exception er)
             {
@@ -65,16 +59,11 @@ namespace jamesMont.View
 
         async private void Buy_Product(object sender, EventArgs e)
         {
-
-
-            // AzureService3 azureService;
-            // azureService = new AzureService3();
             try
             {
                 var selectedValue = boom.Items[boom.SelectedIndex];
 
                 number = Convert.ToInt32(selectedValue);
-                // azureService.BuyProducts(productName, number );
                 await Navigation.PushAsync(new CreditCard(productName, clientName, number, theID, theEmail));
             }
             catch (Exception er)
