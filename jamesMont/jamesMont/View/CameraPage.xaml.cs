@@ -26,15 +26,15 @@ using jamesMont.Model;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using JulMar.Serialization;
-//using Microsoft.ProjectOxford.Face;
+//notifications
+using Android.Util;
 
 namespace jamesMont.View
 {
-
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CameraPage : ContentPage
     {
-
+        string clientName;
         static string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=commblob2;AccountKey=fU7XsTmlYv6VgnFvYlPxWEcT8KBAineKA5JO+iMoBzAo0x5cB0ELj/m5clUl8X8OhrsVoYXCo4ELyhillPyPIA==;EndpointSuffix=core.windows.net";
         //  DefaultEndpointsProtocol=https;AccountName=commblob2;AccountKey=fU7XsTmlYv6VgnFvYlPxWEcT8KBAineKA5JO+iMoBzAo0x5cB0ELj/m5clUl8X8OhrsVoYXCo4ELyhillPyPIA==;EndpointSuffix=core.windows.net
         private Android.Net.Uri photo;//image uri android
@@ -44,20 +44,17 @@ namespace jamesMont.View
         public byte[] memoryStream;
         string address;
         string age;
-        private static  string gender;
-        private static double beard;
-        private static  string glasses;
-
-        //IEnumerable<FaceAttributeType> faceAttributes =
-        //new FaceAttributeType[] { FaceAttributeType.Gender, FaceAttributeType.Age, FaceAttributeType.Smile, FaceAttributeType.Emotion, FaceAttributeType.Glasses, FaceAttributeType.Hair };
-
+        private static string gender;
+        //private static string hair;
+        public static string hair;
+        private static string glasses2;
+        private static string nameForBlob;
 
         // *** Update or verify the following values. ***
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key for face API.
         const string subscriptionKey = " 687d47c1dd3144d39d484310a391b73f";
-
         // Replace or verify the region.
         //
         // You must use the same region in your REST API call as you used to obtain your subscription keys.
@@ -68,23 +65,24 @@ namespace jamesMont.View
         // a free trial subscription key, you should not need to change this region.
         const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
-        public CameraPage()
+        public CameraPage(string Name)
         {
             InitializeComponent();
+            genderLabel.Text = "We think you are a: " + gender;
+            clientName = Name;
+            HiLabel.Text = "Hi, " + Name;
+            HiLabel.FontSize = 20;
+            nameForBlob = Name;
+            // genderLabel.IsVisible = true;
         }
-
-
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
             try
             {
-
-
                 var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync
                    (new Plugin.Media.Abstractions.StoreCameraMediaOptions()
                    { Directory = "CommDir", SaveToAlbum = true, /*Name = "Comm",*/ DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front, CompressionQuality = 92, });
-
 
                 address = photo.Path;
 
@@ -95,20 +93,17 @@ namespace jamesMont.View
 
                 }
 
-
-
-
-
                 //Get the public album path
                 var aPpath = photo.AlbumPath;
-                await DisplayAlert("File Location", photo.Path, "OK");
+                //await DisplayAlert("File Location", photo.Path, "OK");
 
                 //Get private path
                 var path = photo.Path;
 
-                await DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
+                // await DisplayAlert("Alert", "Payment Successful! Thank You", "Ok");
 
                 //await Navigation.PushAsync(new ContactPage());
+
             }
             catch (Exception ex)
             {
@@ -122,39 +117,16 @@ namespace jamesMont.View
         {
             try
             {
+                if (address == null)
+                {
+                    await DisplayAlert("Alert", "Please take a Picture or choose one from your gallery", "OK");
+                }
+                else
+                {
+                    sendToBlob(address);
+                    await DisplayAlert("Alert", "Image successfully sent to your stylist", "OK");
+                }
 
-
-
-                // Microsoft.Azure.Storage.CloudStorageAccount account = Microsoft.Azure.Storage.CloudStorageAccount.Parse(storageConnectionString);
-
-                Microsoft.WindowsAzure.Storage.CloudStorageAccount account2 = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(storageConnectionString);
-
-                //var SaveImage = CrossMedia.Current.PickPhotoAsync();
-
-
-                // Create the blob client.
-                CloudBlobClient blobClient = account2.CreateCloudBlobClient();
-
-                // Retrieve reference to a previously created container.
-                CloudBlobContainer container = blobClient.GetContainerReference("images");
-
-                await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
-
-                // Create the container if it doesn't already exist.
-                await container.CreateIfNotExistsAsync();
-
-                DateTime dt = DateTime.Now;
-
-                // Retrieve reference to a blob named "myblob".
-                CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob" + dt + ".jpg");
-
-                // Create the "myblob" blob with the text "Hello, world!"
-                //await blockBlob.UploadTextAsync("Hello, world!");
-                //  MediaFile j = await CrossMedia.Current.PickPhotoAsync();
-                // await blockBlob.UploadFromFileAsync(j);
-                // j.cop
-                await DisplayAlert("Alert", address, "OK");
-                await blockBlob.UploadFromFileAsync(address);//needs to be path
             }
             catch (Exception a)
             {
@@ -165,58 +137,42 @@ namespace jamesMont.View
             }
         }
 
-
-        private async void Exit_Clicked(object sender, EventArgs e)
+        private async void Choose_Image_and_Send_Clicked(object sender, EventArgs e)
         {
             try
             {
-                DateTime dT = DateTime.Now;
+                //DateTime dT = DateTime.Now;
 
+                //// Microsoft.Azure.Storage.CloudStorageAccount account = Microsoft.Azure.Storage.CloudStorageAccount.Parse(storageConnectionString);
 
-                // Microsoft.Azure.Storage.CloudStorageAccount account = Microsoft.Azure.Storage.CloudStorageAccount.Parse(storageConnectionString);
-                await DisplayAlert("Alert", "Image present1", "OK");
-                Microsoft.WindowsAzure.Storage.CloudStorageAccount account2 = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(storageConnectionString);
-                await DisplayAlert("Alert", "Image present2", "OK");
-                //var SaveImage = CrossMedia.Current.PickPhotoAsync();
+                //Microsoft.WindowsAzure.Storage.CloudStorageAccount account2 = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(storageConnectionString);
 
+                ////var SaveImage = CrossMedia.Current.PickPhotoAsync();
 
-                // Create the blob client.
-                CloudBlobClient blobClient = account2.CreateCloudBlobClient();
+                //// Create the blob client.
+                //CloudBlobClient blobClient = account2.CreateCloudBlobClient();
 
-                // Retrieve reference to a previously created container.
-                CloudBlobContainer container = blobClient.GetContainerReference("images");
+                //// Retrieve reference to a previously created container.
+                //CloudBlobContainer container = blobClient.GetContainerReference("images");
 
-                await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+                //await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-                // Create the container if it doesn't already exist.
-                await container.CreateIfNotExistsAsync();
+                //// Create the container if it doesn't already exist.
+                //await container.CreateIfNotExistsAsync();
 
-                // Retrieve reference to a blob named "myblob".
-                CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.jpg");
-                // CloudBlockBlob blockBlob = container.GetBlockBlobReference(dT + "myblob.jpg");
-                // Create the "myblob" blob with the text "Hello, world!"
-                //await blockBlob.UploadTextAsync("Hello, world!");
+                //// Retrieve reference to a blob named "myblob".
+                //CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.jpg");
+
+                //// Create the "myblob" blob with the text "Hello, world!"
+                ////await blockBlob.UploadTextAsync("Hello, world!");
                 MediaFile j = await CrossMedia.Current.PickPhotoAsync();
                 // await blockBlob.UploadFromFileAsync(j);
                 // j.cop
-                await blockBlob.UploadFromFileAsync(j.Path);
-                //using (var memoryStream = new MemoryStream())
-                //{
-                //    j.GetStream().CopyTo(memoryStream);
-                //    j.Dispose();
-                //    memoryStream.ToArray();
-                //    //create blob with image
-                //   // await blockBlob.UploadFromByteArrayAsync(memoryStream, 1, memoryStream.Length);
-                //   // await blockBlob.UploadFromByteArrayAsync(memoryStream);
-                //}
-                //options.AccessCondition = AccessCondition.None;
-                //create blob with image
-                //await blockBlob.UploadFromByteArrayAsync(memoryStream, 0, memoryStream.Length);
-                //await blockBlob.UploadFromStreamAsync();
+                //await blockBlob.UploadFromFileAsync(j.Path);
+                sendToBlob(j.Path);
+                PhotoImage.Source = ImageSource.FromStream(() => { return j.GetStream(); });
+                await DisplayAlert("Alert", "Image successfully sent to your stylist", "OK");
 
-                await DisplayAlert("Alert", "Connection Successful! Thank You", "Close");
-
-                await Navigation.PushAsync(new CameraPage());
             }
             catch (Exception a)
             {
@@ -226,7 +182,6 @@ namespace jamesMont.View
                 throw;
             }
         }
-
 
         private async void Detect_Face(object sender, EventArgs e)
         {
@@ -255,18 +210,19 @@ namespace jamesMont.View
                 //upload the blob with j
                 await blockBlob.UploadFromFileAsync(j.Path);
 
-
                 string imageFilePath = j.Path;
+                PhotoImage.Source = ImageSource.FromStream(() => { return j.GetStream(); });
 
                 // Execute the REST API call.
                 MakeAnalysisRequest(imageFilePath);
 
+                await Task.Delay(3000);
 
 
-                //await DisplayAlert("Alert", "Connection Successful! Thank You", "Close");
-                await DisplayAlert("Alert", "Glasses: " + glasses, "Close");
-                await DisplayAlert("Alert", "Beard: " + beard, "Close");
-                await DisplayAlert("Alert", "Gender: " + gender, "Close");
+                //await DisplayAlert("Alert", "Glasses: " + glasses, "Close");
+                //await DisplayAlert("Alert", "Beard: " + beard, "Close");
+                //await DisplayAlert("Alert", "Gender: " + gender, "Close");
+                //await DisplayAlert("Alert", "I Said Bitch " + gender, "Close");
                 //  await Navigation.PushAsync(new CameraPage());
 
 
@@ -282,9 +238,10 @@ namespace jamesMont.View
 
         }
 
-        static async void MakeAnalysisRequest(string imageFilePath)
+        async void MakeAnalysisRequest(string imageFilePath)
         {
             string boom;
+            string Gender;
             try
             {
 
@@ -314,124 +271,44 @@ namespace jamesMont.View
                     // This example uses content type "application/octet-stream".
                     // The other content types you can use are "application/json" and "multipart/form-data".
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-
                     // Execute the REST API call.
                     response = await client.PostAsync(uri, content);
-
-
                     // Get the JSON response.
                     var contentString = await response.Content.ReadAsStringAsync();
+                    if (!contentString.Contains("face"))
+                    {
+                        await DisplayAlert("No face detected", "No face Detected in Image", "OK");
 
-                    // Face face1 = Newtonsoft.Json.JsonConvert.DeserializeObject<jamesMont.Model.Face>(contentString);
-                    // var results = JsonConvert.DeserializeObject<Face>(contentString);
-                    var myobjList = Json.Deserialize<List<Face>>(contentString);
-                    var myObj = myobjList[0];
-                    // Debug.WriteLine(results.faceAttributes.age);
-                    Debug.WriteLine("Glasses: " + myObj.faceAttributes.glasses);
-                    Debug.WriteLine("beard: " + myObj.faceAttributes.facialHair.beard);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("json back: " + contentString);
+                        // Face face1 = Newtonsoft.Json.JsonConvert.DeserializeObject<jamesMont.Model.Face>(contentString);
+                        // var results = JsonConvert.DeserializeObject<Face>(contentString);
+                        var myobjList = Json.Deserialize<List<Face>>(contentString);
+                        var myObj = myobjList[0];
+                        // Debug.WriteLine(results.faceAttributes.age);
+                        Debug.WriteLine("Glasses: " + myObj.faceAttributes.glasses);
+                        Debug.WriteLine("beard: " + myObj.faceAttributes.facialHair.beard);
+                        Debug.WriteLine("Gender: " + myObj.faceAttributes.gender);
+                        //fill var to display on page
+                        glasses2 = myObj.faceAttributes.glasses;
+                        gender = myObj.faceAttributes.gender;
 
-                    Debug.WriteLine("Gender: " + myObj.faceAttributes.gender);
+                      
+                       hair = myObj.faceAttributes.hair.hairColor[0].color;
+                         
+                        this.genderLabel.IsVisible = true;
+                        // this.genderLabel.Text = "We think you are : " + gender;
+                        this.genderLabel.Text = "We think you have : " + hair;
+                        this.genderLabel.FontSize = 22;
 
-                   /* glasses = myObj.faceAttributes.glasses;
-                    beard = myObj.faceAttributes.facialHair.beard;
-                    glasses = myObj.faceAttributes.gender;
-                    */
-                    boom = myObj.faceAttributes.glasses;
-                    
-
-                    //used for creating people
-                    //FaceServiceClient fsc = new FaceServiceClient("687d47c1dd3144d39d484310a391b73f");
-
-                    //using (Stream s = File.OpenRead(imageFilePath))
-                    //{
-                    //    var j = await fsc.DetectAsync(s, true, true);
-
-                    //    foreach (var face in faces)
-                    //    {
-                    //        var rect = face.FaceRectangle;
-                    //        var landmarks = face.FaceLandmarks;
-                    //    }
-                    //}
-
-
-                    //        var requiredFaceAttributes = new FaceAttributeType[] {
-                    //    FaceAttributeType.Age,
-                    //    FaceAttributeType.Gender,
-                    //    FaceAttributeType.Smile,
-                    //    FaceAttributeType.FacialHair,
-                    //    FaceAttributeType.HeadPose,
-                    //    FaceAttributeType.Glasses
-                    //};
-                    //        var faces = await fsc.DetectAsync(imageFilePath,
-                    //            returnFaceLandmarks: true,
-                    //            returnFaceAttributes: requiredFaceAttributes);
-
-                    //        foreach (var f in face)
-                    //        {
-                    //            var id = face.FaceId;
-                    //            var attributes = face.FaceAttributes;
-                    //            var age = attributes.Age;
-                    //            var gender = attributes.Gender;
-                    //            var smile = attributes.Smile;
-                    //            var facialHair = attributes.FacialHair;
-                    //            var headPose = attributes.HeadPose;
-                    //            var glasses = attributes.Glasses;
-                    //        }
-
-
-                    //foreach (var face in faces)
-                    //{
-                    //    var id = face.FaceId;
-                    //    var attributes = face.FaceAttributes;
-                    //    var age = attributes.Age;
-                    //    var gender = attributes.Gender;
-                    //    var smile = attributes.Smile;
-                    //    var facialHair = attributes.FacialHair;
-                    //    var headPose = attributes.HeadPose;
-                    //    var glasses = attributes.Glasses;
-                    //}
-
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-                    //System.Diagnostics.Debug.WriteLine("gender: " + contentString);
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-
-
-
-                    //   var results = JsonConvert.DeserializeObject<List<face>>(contentString);
-                    //   Debug.WriteLine("Blahhhh "+results.FaceAttributes.age);
-
-
-                    //dynamic obj = JsonConvert.DeserializeObject(contentString);
-                    // System.Diagnostics.Debug.WriteLine(obj.faceId.faceAttributes.gender);
-                    //"faceAttributes": {
-                    //       "gender": "male"
-
-                    //find keys in json
-                    // string gender = json.gender;
-                    //string hairColour = stuff.hair.hairColor;
-                    ////string gender = obj.faceAttributes.gender;
-                    //    System.Diagnostics.Debug.WriteLine("===========================");
-                    //System.Diagnostics.Debug.WriteLine("gender: "+ gender);
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-                    //System.Diagnostics.Debug.WriteLine("   michael is : " + hairColour);
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-
-                    ////string gender = imageResult["gender"].ToString();
-                    //// string timeZone = data["Atlantic/Canary"].Value<string>();
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-                    //System.Diagnostics.Debug.WriteLine("   age is : " + imageResult);
-                    //System.Diagnostics.Debug.WriteLine("===========================");
-                    // Display the JSON response.
-                    // Console.WriteLine("\nResponse:\n");
-                    // Console.WriteLine(JsonPrettyPrint(contentString));
+                        this.glassesLabel.IsVisible = true;
+                        this.glassesLabel.Text = "You Have " + glasses2 + " on your face";
+                        this.glassesLabel.FontSize = 22;
+                    }
                 }
-
-               
             }
-           
-            
             catch (Exception analysis)
             {
                 System.Diagnostics.Debug.WriteLine("   Code: " + analysis.Data);
@@ -439,23 +316,6 @@ namespace jamesMont.View
                 System.Diagnostics.Debug.WriteLine("Source: " + analysis.StackTrace);
                 throw;
             }
-
-            glasses = boom;
-            
-
-            //var requiredFaceAttributes = new FaceAttributeType[] {
-            //    FaceAttributeType.Age,
-            //    FaceAttributeType.Gender,
-            //    FaceAttributeType.Smile,
-            //    FaceAttributeType.FacialHair,
-            //    FaceAttributeType.HeadPose,
-            //    FaceAttributeType.Glasses
-            //};
-            //var faces = await faceServiceClient.DetectAsync(imageUrl,
-            //    returnFaceLandmarks: true,
-            //    returnFaceAttributes: requiredFaceAttributes);
-
-
         }
 
 
@@ -539,5 +399,33 @@ namespace jamesMont.View
             return sb.ToString().Trim();
         }
 
+        async static void sendToBlob(string address)
+        {
+            // Microsoft.Azure.Storage.CloudStorageAccount account = Microsoft.Azure.Storage.CloudStorageAccount.Parse(storageConnectionString);
+
+            Microsoft.WindowsAzure.Storage.CloudStorageAccount account2 = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(storageConnectionString);
+
+            //var SaveImage = CrossMedia.Current.PickPhotoAsync();
+
+            // Create the blob client.
+            CloudBlobClient blobClient = account2.CreateCloudBlobClient();
+
+            // Retrieve reference to a previously created container.
+            CloudBlobContainer container = blobClient.GetContainerReference("images");
+
+            await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+
+            // Create the container if it doesn't already exist.
+            await container.CreateIfNotExistsAsync();
+
+            DateTime dt = DateTime.Now;
+
+            // Retrieve reference to a blob named "myblob".
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(nameForBlob + dt.ToString() + ".jpg");
+
+            //await DisplayAlert("Alert", address, "OK");
+            await blockBlob.UploadFromFileAsync(address);//needs to be path
+
+        }
     }
 }

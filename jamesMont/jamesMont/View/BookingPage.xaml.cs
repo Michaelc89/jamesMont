@@ -17,28 +17,50 @@ namespace jamesMont.View
         string clientName3, procedure;
         float len;
         public static ObservableCollection<int> Holder { get; } = new ObservableCollection<int>();
+        public static ObservableCollection<string> ListViewItems2 { get; } = new ObservableCollection<string>();
         public BookingPage (string category, string clientName, float length)
 		{
 			InitializeComponent ();
-
+           // loadStylists();
             len = length;
 
-            boom.Items.Add("Select a stylist");
-            boom.Items.Add("Christie");
-            boom.Items.Add("Chrystal");
-            boom.Items.Add("Owen");
-            boom.Items.Add("Conor");
-            boom.TextColor = Color.White;
-            boom.SelectedIndex = 0;
-            
-            
+             boom.Items.Add("Select a stylist");
+             boom.Items.Add("Christie");
+             boom.Items.Add("Chrystal");
+             boom.Items.Add("Owen");
+             boom.Items.Add("Conor");
+             boom.TextColor = Color.White;
+             boom.SelectedIndex = 0;
+             
 
+           /* foreach (var item in ListViewItems2)
+            {
+                DisplayAlert("", "Name: "+item, "Ok");
+            }*/
+
+       //     boom.ItemsSource = ListViewItems2;
             procedure = category;
             clientName3 = clientName;
             //loadBookings();
             Title = category;
             datez.MinimumDate = DateTime.Now;
             image.Source = "calandar.png";
+
+        }
+
+        public async void loadStylists()
+        {
+            AzureService3 azureService;
+            azureService = new AzureService3();
+            try
+            {
+               await  azureService.LoadStylists();
+
+            }
+            catch (Exception er)
+            {
+                DisplayAlert("Alert", "Could not load categories" + er, "Ok");
+            }
 
         }
 

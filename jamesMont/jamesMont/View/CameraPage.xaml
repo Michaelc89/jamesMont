@@ -3,21 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jamesMont.View.CameraPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid>
-                <Label x:Name="aboutUs" Text=".COMM" TextColor="#4169e1" Font="Bold,50" HorizontalTextAlignment="Center" />
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="200" />
+        <ScrollView>
+            <StackLayout  BackgroundColor="#3897f0">
 
-                </Grid.RowDefinitions>
-
-
-                <Image x:Name="PhotoImage" />
+                <Label  x:Name="HiLabel" HorizontalOptions="End" TextColor="White" FontFamily=""/>
+                <StackLayout>
+                    <Image x:Name="PhotoImage" HeightRequest="350" />
+                </StackLayout>
                 <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" Clicked="CameraButton_Clicked"/>
                 <Button x:Name="SendImage" Text="Send Chosen Image" Grid.Row="2" Clicked="Select_Image" />
-                <Button x:Name="Exit" Text="Choose Image and Send " Grid.Row="3" Clicked="Exit_Clicked" />
-                <Button x:Name="DetectFace" Text="Detect Face " Grid.Row="3" Clicked="Detect_Face" />
-            </Grid>
-        </StackLayout>
+                <Button x:Name="Exit" Text="Choose Image and Send " Grid.Row="3" Clicked="Choose_Image_and_Send_Clicked" />
+                <Button x:Name="DetectFace" Text="Detect Face " Grid.Row="4" Clicked="Detect_Face" />
+                <Label  x:Name="genderLabel" HorizontalOptions="Center" TextColor="Red" FontFamily="" IsVisible="False" Grid.Row="5"/>
+                <Label  x:Name="glassesLabel" HorizontalOptions="Center" TextColor="Red" FontFamily="" IsVisible="False" Grid.Row="6"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

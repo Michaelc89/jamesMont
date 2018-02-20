@@ -63,7 +63,7 @@ namespace jamesMont.View
         {
             try
             {
-                await Navigation.PushAsync(new ContactPage());
+                await Navigation.PushAsync(new ContactPage(clientName));
             }
             catch (System.Exception er)
             {

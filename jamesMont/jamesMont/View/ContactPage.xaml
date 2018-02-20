@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jamesMont.View.ContactPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout  BackgroundColor="#3897f0">
+            <Label  x:Name="HiLabel" HorizontalOptions="End" TextColor="White" FontFamily=""/>
 
             <Button Text="Send Email"       Clicked="SendEmail"/>
             <Button Text="Open Map"         Clicked="OpenMap"/>

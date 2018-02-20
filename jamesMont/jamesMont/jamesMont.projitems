@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Face.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\OrderTBL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Shop_Two.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Stylists.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TheBookingTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\TimesClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService2.cs" />

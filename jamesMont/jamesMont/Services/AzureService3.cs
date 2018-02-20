@@ -23,6 +23,7 @@ namespace jamesMont.Services
         IMobileServiceSyncTable<Shop_Two> shopz;
 
         IMobileServiceSyncTable<OrderTBL> orders;
+        IMobileServiceSyncTable<Stylists> stylists;
 
         bool isInitialised;
 
@@ -326,5 +327,80 @@ namespace jamesMont.Services
                 Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
             }
         }
+
+
+        public async Task<string> LoadStylists()
+        {
+            await Initialize3();
+            await SyncStylists();
+            string answer = "false";
+           
+            try
+            {
+             List<Stylists> item = await stylists
+             .Where(todoItem => todoItem.id != null)
+             .ToListAsync();
+
+                await DisplayAlert("Alert", "Made it", "Ok");
+                //   BookingPage.ListViewItems2.Clear();
+                foreach (var x in item)
+                {
+                    Stylists one = new Stylists( x.StylistName);
+                    await DisplayAlert("", "Stylist naem: "+x.StylistName, "Ok");
+                    BookingPage.ListViewItems2.Add(x.StylistName);
+
+                    answer = "true";
+                }
+
+                return answer;
+            }
+
+            catch (Exception er)
+            {
+                await DisplayAlert("Alert", "da error: " + er, "Ok");
+                return answer;
+
+            }
+        }
+
+        public async Task Initialize3()
+        {
+            if (isInitialised)
+            {
+                return;
+            }
+
+            this.client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
+            MobileServiceClient client = new MobileServiceClient("http://commtest1996.azurewebsites.net");
+
+            const string path = "user.db";
+
+            var store = new MobileServiceSQLiteStore(path);
+            
+            store.DefineTable<Stylists>();
+            
+            await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+
+           
+            stylists = this.client.GetSyncTable<Stylists>();
+            isInitialised = true;
+        }
+
+        public async Task SyncStylists()
+        {
+            try
+            {
+                await stylists.PullAsync("allusers", stylists.CreateQuery());
+                await client.SyncContext.PushAsync();
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
+            }
+        }
+
+
+
     }
 }

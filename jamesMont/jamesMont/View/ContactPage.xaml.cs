@@ -12,10 +12,15 @@ namespace jamesMont.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ContactPage : ContentPage
 	{
-		public ContactPage ()
-		{
-			InitializeComponent ();
-		}
+        string clientName;
+
+        public ContactPage(string Name)
+        {
+            InitializeComponent();
+            clientName = Name;
+            HiLabel.Text = "Hi, " + Name;
+            HiLabel.FontSize = 20;
+        }
 
         private void SendEmail(object sender, EventArgs e)
         {
@@ -46,7 +51,7 @@ namespace jamesMont.View
         {
             try
             {
-                await Navigation.PushAsync(new CameraPage());
+                await Navigation.PushAsync(new CameraPage(clientName));
             }
             catch (System.Exception er)
             {
