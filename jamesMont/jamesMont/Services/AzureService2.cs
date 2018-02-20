@@ -112,7 +112,7 @@ namespace jamesMont.Services
                   .ToListAsync();
 
                 TakenSlots.Clear();
-                initalSlot.Clear();
+               
                 AvailableSlots.Clear();
                 //how many slots are needed?????
                
@@ -383,6 +383,7 @@ namespace jamesMont.Services
 
                 foreach (var x in item)
                 {
+
                     EditBookingPage.Bookings2.Add(x.Date.ToString(x.Id + " " + "dd/MM/yyyy") + "\t\t\t" + x.Procedure);
                    // EditBookingPage.BookingID.Add(x.Id);
                 }

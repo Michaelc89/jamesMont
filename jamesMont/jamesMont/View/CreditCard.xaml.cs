@@ -17,13 +17,17 @@ namespace jamesMont.View
         string productN, clientName;
         int numb, quan;
         double test;
+        string theID;
+        string theEmail;
         AzureService3 azureService;
-        public CreditCard(string productName, string name, int quantity)
+        public CreditCard(string productName, string name, int quantity, string id, string email)
         {
             InitializeComponent();
+            theEmail = email;
             clientName = name;
             productN = productName;
             quan = quantity;
+            theID = id;
 
         }
 
@@ -36,7 +40,7 @@ namespace jamesMont.View
 
                 test = await azureService.GetPrice(productN);
 
-                await Navigation.PushAsync(new cvc(productN, numb, clientName, quan, test));
+                await Navigation.PushAsync(new cvc(productN, numb, clientName, quan, test, theID, theEmail));
             }
             catch (System.Exception er)
             {

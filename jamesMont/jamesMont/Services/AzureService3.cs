@@ -16,10 +16,13 @@ namespace jamesMont.Services
     public class AzureService3 : ContentPage
     {
         public static ObservableCollection<float> Prices3 { get; } = new ObservableCollection<float>();
+        public static ObservableCollection<string> ids { get; } = new ObservableCollection<string>();
         public static ObservableCollection<string> images { get; } = new ObservableCollection<string>();
         public MobileServiceClient client { get; set; } = null;
 
         IMobileServiceSyncTable<Shop_Two> shopz;
+
+        IMobileServiceSyncTable<OrderTBL> orders;
 
         bool isInitialised;
 
@@ -39,10 +42,13 @@ namespace jamesMont.Services
 
 
             store.DefineTable<Shop_Two>();
+            store.DefineTable<OrderTBL>();
+
 
             await this.client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
             shopz = this.client.GetSyncTable<Shop_Two>();
+            orders = this.client.GetSyncTable<OrderTBL>();
             isInitialised = true;
         }
 
@@ -81,7 +87,7 @@ namespace jamesMont.Services
                 CategoriesPage.ListViewItems2.Clear();
                 foreach (var x in item)
                 {
-                    Shop_Two one = new Shop_Two(x.ProductName, x.Price);
+                    Shop_Two one = new Shop_Two(x.ProductName, x.Price, x.Id);
                     Shop.ListViewItems2.Add(one);
 
                     answer = "true";
@@ -102,9 +108,11 @@ namespace jamesMont.Services
 
 
 
-        public async void BuyProducts(string Pname, int numb)
+        public async void BuyProducts(string Pname, int numb, string id, string email)
         {
+            string theEmail = email;
             string productname = Pname;
+            string theID = id;
             int number = numb;
             float stock;
             await Initialize();
@@ -116,9 +124,9 @@ namespace jamesMont.Services
 
                .ToListAsync();
 
-                foreach (var x in item)
+                foreach (var xy in item)
                 {
-                    stock = x.Quantity;
+                    stock = xy.Quantity;
                     if (stock <= 0 || stock - number < 0)
                     {
                         await DisplayAlert("Alert", "Not enough stock", "Ok");
@@ -127,12 +135,31 @@ namespace jamesMont.Services
                     else
                     {
                         stock = stock - number;
-                        x.Quantity = stock;
+                        xy.Quantity = stock;
 
-                        await shopz.UpdateAsync(x);
+                        await shopz.UpdateAsync(xy);
                         await SyncBookings();
                     }
                 }
+                await DisplayAlert("Alert", "ID: " + theID, "Ok");
+                await DisplayAlert("Alert", "quantity: " + number, "Ok");
+
+                string x = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+                var coffee = new OrderTBL()
+                {
+                    id = x,
+                    OrderDate = DateTime.Now,
+                    ProductID = theID,
+                    Quantity = number,
+                    //email
+                    UserID = theEmail
+
+                };
+                
+                await orders.InsertAsync(coffee);
+
+                await SyncOrders();
+               
 
             }
             catch (Exception er)
@@ -228,6 +255,7 @@ namespace jamesMont.Services
             }
             return answer;
         }
+        
 
         public async Task<string> GetImage(string pname)
         {
@@ -266,14 +294,19 @@ namespace jamesMont.Services
             }
             return answer;
         }
+        
+        public async Task SyncOrders()
+        {
+            try
+            {
+                await orders.PullAsync("allusers", orders.CreateQuery());
+                await client.SyncContext.PushAsync();
+            }
 
-
-
-
-
-
-
-
-
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to sync coffees, that is alright as we have offline capabilities: " + ex);
+            }
+        }
     }
 }

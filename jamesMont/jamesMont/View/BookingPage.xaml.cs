@@ -51,7 +51,6 @@ namespace jamesMont.View
             AzureService2 azureService2;
             azureService2 = new AzureService2();
           
-
             try
             {
                 var selectedValue = boom.Items[boom.SelectedIndex];

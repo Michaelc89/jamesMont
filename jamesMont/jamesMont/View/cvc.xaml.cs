@@ -8,6 +8,7 @@ using Stripe;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using jamesMont.Services;
+using System.Diagnostics;
 
 namespace jamesMont.View
 {
@@ -19,17 +20,20 @@ namespace jamesMont.View
         string productN="Test", clientName;
         int numb, quan=0;
         double total;
+        string theID;
+        string theEmail;
         AzureService3 azureService;
-        public cvc(string productName, int number, string name, int quantity, double price)
+        public cvc(string productName, int number, string name, int quantity, double price, string id, string email)
         {
             InitializeComponent();
             double x;
-         
+            theEmail = email;
             x = price;
             clientName = name;
             productN = productName;
             numb = number;
             quan = quantity;
+            theID = id;
 
             total = quantity * x;
             
@@ -42,7 +46,7 @@ namespace jamesMont.View
             {
                 reduceStock();
                 StripeConfiguration.SetApiKey("sk_test_BEPrGyKARA5fbK1rcLbAixdd");
-
+              
                 var chargeOptions = new StripeChargeCreateOptions()
                 {
                     Amount = Convert.ToInt32(total) * 100,
@@ -104,20 +108,24 @@ namespace jamesMont.View
             }
         }
 
-        public void reduceStock()
+        public async void reduceStock()
         {
             AzureService3 azureService;
             azureService = new AzureService3();
             try
             {
-                
-                azureService.BuyProducts(productN, quan);
+
+                azureService.BuyProducts(productN, quan, theID, theEmail);
+               
             }
             catch (Exception er)
             {
-                DisplayAlert("Alert", "Error: "+er, "Ok");
+                Debug.WriteLine("ERROR: " + er);
             }
+
+          
         }
+
 
     }
 

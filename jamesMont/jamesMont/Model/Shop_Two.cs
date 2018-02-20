@@ -25,10 +25,17 @@ namespace jamesMont.Model
         {
 
         }
-        public Shop_Two(string prod, float price)
+        public Shop_Two(string prod, float price, string id)
         {
             this.ProductName = prod;
             this.Price = price;
+            this.Id = id;
         }
+
+     /*   public Shop_Two(string prod, float price)
+        {
+            this.ProductName = prod;
+            this.Price = price;
+        }*/
     }
 }

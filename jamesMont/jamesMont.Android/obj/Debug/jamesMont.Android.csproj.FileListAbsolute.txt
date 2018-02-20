@@ -1293,3 +1293,11 @@ C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\an
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.Abstractions.dll
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.dll
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.pdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.xml
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.Abstractions.pdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.Abstractions.xml
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\bin\Debug\Plugin.Messaging.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont17\jamesMont\jamesMont.Android\obj\Debug\android\assets\Plugin.Messaging.dll.mdb

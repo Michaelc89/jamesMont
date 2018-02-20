@@ -9,10 +9,17 @@ namespace jamesMont.View
     public partial class MenuPage : ContentPage
     {
         string clientName;
+        string TheEmail;
         public MenuPage(string Name)
         {
             InitializeComponent();
             clientName = Name;
+            string email="";
+            foreach (var item in MainPage.UserEmail)
+            {
+                email = item;
+            }
+          
             HiLabel.Text = "Hi, "+Name;
             HiLabel.FontSize =20;
             icon2.Image = "http://www.clker.com/cliparts/n/5/p/D/9/H/glossy-black-icon-button-hi.png";
@@ -45,7 +52,7 @@ namespace jamesMont.View
         {
             try
             {
-                await Navigation.PushAsync(new Shop(clientName));
+                await Navigation.PushAsync(new Shop(clientName, TheEmail));
             }
             catch (System.Exception er)
             {

@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,25 +31,19 @@ namespace jamesMont.View
         {
             if (e.SelectedItem != null)
             { 
-               
-
                 try
                 {
-                  
-                      
-                        
+                    string boom;
+                    string[] words;
+                    string[] words2;
+                    string IdNumber="";
+                    string pro = "";
 
-                        string boom;
-                string[] words;
-                string[] words2;
-                string IdNumber="";
-                string pro = "";
+                    boom = e.SelectedItem.ToString();
 
-                boom = e.SelectedItem.ToString();
+                    words = boom.Split(' ');
 
-                words = boom.Split(' ');
-
-                IdNumber = words[0].ToString();
+                    IdNumber = words[0].ToString();
                     pro = words[1].ToString();
 
                     

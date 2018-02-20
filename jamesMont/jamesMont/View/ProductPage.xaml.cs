@@ -21,12 +21,14 @@ namespace jamesMont.View
         AzureService3 azureService;
         int number;
         double test;
+        string theID;
         string image2;
+        string theEmail;
         List<int> listz = new List<int>();
-        public ProductPage(string pName, string cName)
+        public ProductPage(string pName, string cName, string id, string email)
         {
             InitializeComponent();
-
+            theEmail = email;
             clientName = cName;
             listz.Add(1);
             listz.Add(2);
@@ -42,6 +44,8 @@ namespace jamesMont.View
             productName = pName;
 
             product.Text = productName;
+
+            theID = id;
 
            
             try
@@ -71,7 +75,7 @@ namespace jamesMont.View
 
                 number = Convert.ToInt32(selectedValue);
                 // azureService.BuyProducts(productName, number );
-                await Navigation.PushAsync(new CreditCard(productName, clientName, number));
+                await Navigation.PushAsync(new CreditCard(productName, clientName, number, theID, theEmail));
             }
             catch (Exception er)
             {
@@ -88,6 +92,7 @@ namespace jamesMont.View
             {
                 test = await azureService.GetPrice(productName);
                 image2 = await azureService.GetImage(productName);
+               
 
                 image.Source = image2;
                 labelxx.Text = "€" + test.ToString(); ;
