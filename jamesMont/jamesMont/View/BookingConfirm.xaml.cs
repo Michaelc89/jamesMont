@@ -48,6 +48,8 @@ namespace jamesMont.View
             await azureService.AddBooking(clientName5, slots, picked, procedure, email, len, styler);
 
 
+            await azureService.CheckDiscount();
+
             var fromAddress = new MailAddress("commBooking@gmail.com", ".Comm");
             var toAddress = new MailAddress("mikeychristie@gmail.com", clientName5);
             const string fromPassword = "ShaneBanks";

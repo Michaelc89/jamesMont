@@ -170,7 +170,7 @@ namespace jamesMont.View
         {
             try
             {
-
+                await DisplayAlert("Alert", "Please Wait while we process the image: ", "Ok");
                 HttpClient client = new HttpClient();
 
                 // Request headers.
@@ -221,11 +221,6 @@ namespace jamesMont.View
 
 
                         hair = myObj.faceAttributes.hair.hairColor[0].color;
-
-                        await DisplayAlert("Alert", "Hair: " + hair, "Ok");
-                        await DisplayAlert("Alert", "Gender: " + gender, "Ok");
-
-
                     }
                 }
             }

@@ -286,12 +286,55 @@ namespace jamesMont.Services
             }
         }
 
-        public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email, float length, string style)
+
+
+        public async Task<string> CheckDiscount()
         {
             await Initialize();
+            await SyncBookings();
+
+            string answer = "false";
+
+            try
+            {
+                List<Booking> item = new List<Booking>();
+               
+
+                item = await BookingsTable2
+                .Where(todoItem => todoItem.Email == "k" )
+                .ToListAsync();
+
+                int counter = 0;
+
+                foreach (var x in item)
+                {
+                    counter++;
+                }
+
+                if (counter % 5 == 0)
+                {
+                    await DisplayAlert("Alert","You will recieve a 10% discount on this booking", "ok");
+                }
+                else
+                {
+                    await DisplayAlert("Alert", "nope", "Ok");
+                }
 
 
+                return answer;
+            }
+            
+            catch (Exception er)
+            {
+                await DisplayAlert("Alert", "Error: " + er, "Ok");
+                return answer;
+            }
+        }
 
+                public async Task<Booking> AddBooking(string clientName, int slot, DateTime picked, string pro, string email, float length, string style)
+        {
+            await Initialize();
+            
             Random rnd = new Random();
             int Id = rnd.Next(1, 10000);
 
