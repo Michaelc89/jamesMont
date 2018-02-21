@@ -81,16 +81,23 @@ namespace jamesMont.View
                 exists = await azureService.CheckUser(em);
                 if (exists == false)
                 {
-                    if (pass == confirm)
+                    if (gender != null && hair != null)
                     {
-                        var coffee = await azureService.AddUser(first, second, em, pass, phone, hair, gender);
-                        Coffees.Add(coffee);
-                        await DisplayAlert("Alert", "Account Created", "Ok");
-                        await Navigation.PushAsync(new MenuPage(first));
+                        if (pass == confirm)
+                        {
+                            var coffee = await azureService.AddUser(first, second, em, pass, phone, hair, gender);
+                            Coffees.Add(coffee);
+                            await DisplayAlert("Alert", "Account Created", "Ok");
+                            await Navigation.PushAsync(new MenuPage(first));
+                        }
+                        else
+                        {
+                            await DisplayAlert("Alert", "Passwords do not match!", "Ok");
+                        }
                     }
                     else
                     {
-                        await DisplayAlert("Alert", "Passwords do not match!", "Ok");
+                        await DisplayAlert("Alert", "Account cannot be created without a photo", "Ok");
                     }
                 }
             }
@@ -141,7 +148,7 @@ namespace jamesMont.View
                     CloudBlockBlob blockBlob = container.GetBlockBlobReference(nameForBlob+ ".jpg");
                     //await DisplayAlert("Alert", address, "OK");
                     await blockBlob.UploadFromFileAsync(address);//needs to be path
-                    await DisplayAlert("Alert", "7", "Ok");
+                   
 
                     string boom = "https://commblob2.blob.core.windows.net/images";
 
