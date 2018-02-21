@@ -18,8 +18,8 @@ namespace jamesMont.Model
         [Newtonsoft.Json.JsonProperty("Slot")]
         public int Slot { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("Procedure")]
-        public string Procedure { get; set; }
+        [Newtonsoft.Json.JsonProperty("Treatment")]
+        public string Treatment { get; set; }
 
         [Newtonsoft.Json.JsonProperty("Email")]
         public string Email { get; set; }

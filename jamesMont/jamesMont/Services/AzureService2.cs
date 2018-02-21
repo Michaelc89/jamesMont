@@ -32,8 +32,6 @@ namespace jamesMont.Services
 
         public async Task Initialize()
         {
-            // var mainPage = new MainPage();
-
             if (isInitialised)
             {
 
@@ -303,7 +301,7 @@ namespace jamesMont.Services
                 BookingName = clientName,
                 Date = picked,
                 Slot = slot,
-                Procedure = pro,
+                Treatment = pro,
                 Email = email,
                 Length =  length,
                 Stylist = style
@@ -384,7 +382,7 @@ namespace jamesMont.Services
                 foreach (var x in item)
                 {
 
-                    EditBookingPage.Bookings2.Add(x.Date.ToString(x.Id + " " + "dd/MM/yyyy") + "\t\t\t" + x.Procedure);
+                    EditBookingPage.Bookings2.Add(x.Date.ToString(x.Id + " " + "dd/MM/yyyy") + "\t\t\t" + x.Treatment);
                    // EditBookingPage.BookingID.Add(x.Id);
                 }
                

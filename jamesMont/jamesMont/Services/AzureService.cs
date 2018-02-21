@@ -155,7 +155,7 @@ namespace jamesMont.Services
         /*****************************************************************
          *METHOD TO ADD A USER
          ****************************************************************/
-        public async Task<User> AddUser(string first, string second, string email, string password, string phone)
+        public async Task<User> AddUser(string first, string second, string email, string password, string phone,string color, string gender)
         {
             await Initialize();
 
@@ -166,7 +166,9 @@ namespace jamesMont.Services
                 Surname = second,
                 Email = email,
                 Password = password,
-                Phone = phone
+                Phone = phone,
+                HairColor = color,
+                Gender = gender
 
             };
             

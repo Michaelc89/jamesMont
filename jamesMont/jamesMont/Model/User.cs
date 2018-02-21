@@ -24,6 +24,12 @@ namespace jamesMont.Model
         [Newtonsoft.Json.JsonProperty("Phone")]
         public string Phone { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("Gender")]
+        public string Gender { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("HairColor")]
+        public string HairColor { get; set; }
+
         public User()
         {
             
