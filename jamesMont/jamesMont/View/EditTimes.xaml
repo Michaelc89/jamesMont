@@ -4,8 +4,12 @@
              x:Class="jamesMont.View.EditTimes">
 
 
-    <StackLayout>
-        <DatePicker x:Name="datez" DateSelected="DatePicker_DateSelected" />
-        <Label x:Name="MainLable" Text="Choose date" HorizontalOptions="Center" FontSize="30" TextColor="Black"></Label>
+    <StackLayout BackgroundColor="#3897f0">
+        <Picker TextColor="White"  x:Name="boom" />
+        <DatePicker x:Name="datez" DateSelected="DatePicker_DateSelected"  TextColor="White"/>
+        <Label x:Name="MainLable" Text="Choose date" HorizontalOptions="Center" FontSize="40" TextColor="White"></Label>
+        <Image x:Name="image" HeightRequest="100" WidthRequest="100"/>
+
+
     </StackLayout>
 </ContentPage>

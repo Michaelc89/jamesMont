@@ -1,4 +1,7 @@
-﻿using jamesMont.Services;
+﻿using Android.App;
+using Android.Content;
+using Android.Provider;
+using jamesMont.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,8 +44,6 @@ namespace jamesMont.View
         {
             azureService = new AzureService2();
            
-
-
             float len;
             len = await azureService.loadLength(procedure);
             await azureService.AddBooking(clientName5, slots, picked, procedure, email, len, styler);
@@ -73,6 +74,35 @@ namespace jamesMont.View
             })
             {
                 smtp.Send(message);
+            }
+
+            Intent intent = new Intent(Intent.ActionInsert);
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.Title, "Booking");
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.Description, ".COMM Salon");
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS(2018, 02, 22, 15, 25));
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS(2018, 02, 22, 16, 0));
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.DisplayColor, "#3897f0");
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.AccountName, "michaelchrystal89@gmail.com");
+
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+            intent.PutExtra(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+            intent.SetData(CalendarContract.Events.ContentUri);
+            ((Activity)Forms.Context).StartActivity(intent);
+            //((Activity)Forms.Context).s(intent);
+
+
+            long GetDateTimeMS(int yr, int month, int day, int hr, int min)
+            {
+                Android.Icu.Util.Calendar c = Android.Icu.Util.Calendar.GetInstance(Android.Icu.Util.TimeZone.Default);
+                // Android.Icu.Util.Calendar c = Calendar.
+                c.Set(Android.Icu.Util.Calendar.DayOfMonth, day);
+                c.Set(Android.Icu.Util.Calendar.HourOfDay, hr);
+                c.Set(Android.Icu.Util.Calendar.Minute, min);
+                c.Set(Android.Icu.Util.Calendar.Month, Android.Icu.Util.Calendar.December);
+                c.Set(Android.Icu.Util.Calendar.Year, yr);
+
+
+                return c.TimeInMillis;
             }
 
 

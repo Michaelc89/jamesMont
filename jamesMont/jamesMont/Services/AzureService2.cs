@@ -292,14 +292,12 @@ namespace jamesMont.Services
         {
             await Initialize();
             await SyncBookings();
-
             string answer = "false";
 
             try
             {
                 List<Booking> item = new List<Booking>();
                
-
                 item = await BookingsTable2
                 .Where(todoItem => todoItem.Email == "k" )
                 .ToListAsync();
@@ -310,16 +308,10 @@ namespace jamesMont.Services
                 {
                     counter++;
                 }
-
                 if (counter % 5 == 0)
                 {
                     await DisplayAlert("Alert","You will recieve a 10% discount on this booking", "ok");
                 }
-                else
-                {
-                    await DisplayAlert("Alert", "nope", "Ok");
-                }
-
 
                 return answer;
             }

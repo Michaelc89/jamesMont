@@ -21,12 +21,6 @@ namespace jamesMont.Services
         IMobileServiceSyncTable<User> coffeeTable;
         IMobileServiceSyncTable<Categories> CategoriesTable2;
        
-
-        // ObservableRangeCollection<Categories> Categories {get;} = new ObservableRangeCollection<Categories>();
-
-        //public ObservableCollection<string> ListViewItems { get; } = new ObservableCollection<string>();
-        //public ObservableCollection<Booking> Bookings { get; } = new ObservableCollection<Booking>();
-
         bool isInitialised;
 
         /*****************************************************************
@@ -50,11 +44,9 @@ namespace jamesMont.Services
 
             store.DefineTable<User>();
             store.DefineTable<Categories>();
-            //store.DefineTable<TheBookingTable>();
             
-
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
-
+           
             coffeeTable = MobileService.GetSyncTable<User>();
             CategoriesTable2 = MobileService.GetSyncTable<Categories>();
            // BookTable = MobileService.GetSyncTable<TheBookingTable>();

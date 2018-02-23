@@ -35,7 +35,7 @@ namespace jamesMont.View
 
 
             //54.2786970, -8.4600899 It sligo co-ordinates
-            Device.OpenUri(new Uri("https://www.google.com/maps/dir/?api=1&query=54.2786970, -8.4600899&query_place_id=ChIJN0v7807oXkgRefuF2SFba8c"));
+            Device.OpenUri(new Uri("https://www.google.com/maps/dir/?api=1&destination=it+sligo&travelmode=driving"));
             //https://www.google.com/maps/dir/?api=1&parameters
 
         }
