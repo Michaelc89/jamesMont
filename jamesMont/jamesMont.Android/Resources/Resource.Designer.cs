@@ -3907,8 +3907,8 @@ namespace jamesMont.Droid
 			// aapt resource value: 0x7f0c0170
 			public const int Animation_Design_BottomSheetDialog = 2131493232;
 			
-			// aapt resource value: 0x7f0c018b
-			public const int AppCompatDialogStyle = 2131493259;
+			// aapt resource value: 0x7f0c018c
+			public const int AppCompatDialogStyle = 2131493260;
 			
 			// aapt resource value: 0x7f0c00b2
 			public const int Base_AlertDialog_AppCompat = 2131493042;
@@ -4384,11 +4384,11 @@ namespace jamesMont.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int CardView_Light = 2131492878;
 			
-			// aapt resource value: 0x7f0c0189
-			public const int MainTheme = 2131493257;
-			
 			// aapt resource value: 0x7f0c018a
-			public const int MainTheme_Base = 2131493258;
+			public const int MainTheme = 2131493258;
+			
+			// aapt resource value: 0x7f0c018b
+			public const int MainTheme_Base = 2131493259;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int Platform_AppCompat = 2131492909;
@@ -4791,6 +4791,9 @@ namespace jamesMont.Droid
 			
 			// aapt resource value: 0x7f0c0006
 			public const int Theme_MediaRouter_LightControlPanel = 2131492870;
+			
+			// aapt resource value: 0x7f0c0189
+			public const int Theme_Splash = 2131493257;
 			
 			// aapt resource value: 0x7f0c011f
 			public const int ThemeOverlay_AppCompat = 2131493151;

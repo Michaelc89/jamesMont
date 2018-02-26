@@ -42,80 +42,81 @@ namespace jamesMont.View
                 
                 var selection = tc.Time.ToString() as string;
                 int slot;
-                if (selection == "9AM")
+                if (selection == "9:00")
                 {
                     slot = 1;
                 }
-                else if (selection == "9:30AM")
+                else if (selection == "9:30")
                 {
                     slot = 2;
                 }
-                else if(selection == "10AM")
+                else if (selection == "10:00")
                 {
                     slot = 3;
                 }
-                else if(selection == "10:30AM")
+                else if (selection == "10:30")
                 {
                     slot = 4;
                 }
-                else if(selection == "11AM")
+                else if (selection == "11:00")
                 {
                     slot = 5;
                 }
-                else if(selection == "11:30AM")
+                else if (selection == "11:30")
                 {
                     slot = 6;
                 }
-                else if(selection == "12PM")
+                else if (selection == "12:00")
                 {
                     slot = 7;
                 }
-                else if (selection == "12:30PM")
+                else if (selection == "12:30")
                 {
                     slot = 8;
                 }
-                else if (selection == "1PM")
+                else if (selection == "13:00")
                 {
                     slot = 9;
                 }
-                else if (selection == "1:30PM")
+                else if (selection == "13:30")
                 {
                     slot = 10;
                 }
-                else if (selection == "2PM")
+                else if (selection == "14:00")
                 {
                     slot = 11;
                 }
-                else if (selection == "2:30PM")
+                else if (selection == "14:30")
                 {
                     slot = 12;
                 }
-                else if (selection == "3PM")
+                else if (selection == "15:00")
                 {
                     slot = 13;
                 }
-                else if (selection == "3:30PM")
+                else if (selection == "15:30")
                 {
                     slot = 14;
                 }
-                else if (selection == "4PM")
+                else if (selection == "16:00")
                 {
                     slot = 15;
                 }
-                else if (selection == "4:30PM")
+                else if (selection == "16:30")
                 {
                     slot = 16;
                 }
-                else if (selection == "5PM")
+                else if (selection == "17:00")
                 {
                     slot = 17;
                 }
-               
+
                 else
                 {
                     slot = 18;
                 }
-                
+
+
                 await Navigation.PushAsync(new BookingConfirm(selection, clientName4, slot, picked, procedure, styler));
             }
         }
