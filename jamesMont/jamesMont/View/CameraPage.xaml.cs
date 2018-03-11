@@ -50,11 +50,13 @@ namespace jamesMont.View
         private static string glasses2;
         private static string nameForBlob;
 
+
         // *** Update or verify the following values. ***
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key for face API.
-        const string subscriptionKey = " 687d47c1dd3144d39d484310a391b73f";
+        const string subscriptionKey = " 8ab035cf5d6a421d9c6a0ebfd399d5b7";
+        //687d47c1dd3144d39d484310a391b73f
         // Replace or verify the region.
         //
         // You must use the same region in your REST API call as you used to obtain your subscription keys.
@@ -64,6 +66,7 @@ namespace jamesMont.View
         // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
         // a free trial subscription key, you should not need to change this region.
         const string uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        //https://westcentralus.api.cognitive.microsoft.com/face/v1.0
 
         public CameraPage(string Name)
         {
@@ -73,6 +76,7 @@ namespace jamesMont.View
             HiLabel.Text = "Hi, " + Name;
             HiLabel.FontSize = 20;
             nameForBlob = Name;
+
             // genderLabel.IsVisible = true;
         }
 
@@ -295,17 +299,26 @@ namespace jamesMont.View
                         glasses2 = myObj.faceAttributes.glasses;
                         gender = myObj.faceAttributes.gender;
 
-                      
-                       hair = myObj.faceAttributes.hair.hairColor[0].color;
-                         
+
+                        hair = myObj.faceAttributes.hair.hairColor[0].color;
+
                         this.genderLabel.IsVisible = true;
                         // this.genderLabel.Text = "We think you are : " + gender;
-                        this.genderLabel.Text = "We think you have : " + hair;
+                        this.genderLabel.Text = "We think you are : " + gender;
                         this.genderLabel.FontSize = 22;
 
                         this.glassesLabel.IsVisible = true;
-                        this.glassesLabel.Text = "You Have " + glasses2 + " on your face";
+                        this.glassesLabel.Text = "You Have " + glasses2 + " on your face ";
                         this.glassesLabel.FontSize = 22;
+
+
+                        await DisplayAlert("", "You Have " + glasses2 + " on your face", "Ok");
+                        await DisplayAlert("", "We think you are : " + gender, "Ok");
+                        /*  this.hairColorLabel.IsVisible = true;
+                            this.hairColorLabel.Text = "You Have " + hair + " hair \n";
+                            this.hairColorLabel.FontSize = 22;
+                            */
+
                     }
                 }
             }
@@ -419,9 +432,9 @@ namespace jamesMont.View
             await container.CreateIfNotExistsAsync();
 
             DateTime dt = DateTime.Now;
-
+            string jpgName = nameForBlob.ToString() + dt.ToString();
             // Retrieve reference to a blob named "myblob".
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(nameForBlob + dt.ToString() + ".jpg");
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(jpgName + ".jpg");
 
             //await DisplayAlert("Alert", address, "OK");
             await blockBlob.UploadFromFileAsync(address);//needs to be path

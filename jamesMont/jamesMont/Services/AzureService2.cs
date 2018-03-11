@@ -213,7 +213,7 @@ namespace jamesMont.Services
                     else if (xy == 10)
                     {
                         TimesPage.Holder.Add("13:30");
-                        t.Time = "1:30PM";
+                        t.Time = "13:30";
                         TimesPage.times.Add(t);
                     }
                     else if (xy == 11)

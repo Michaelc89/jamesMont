@@ -36,7 +36,14 @@ namespace jamesMont.View
             theID = id;
 
             total = quantity * x;
-            
+
+
+          
+            // If you have a stream, such as:
+            // var file = await CrossMedia.Current.PickPhotoAsync(options);
+            // var originalImageStream = file.GetStream();
+          //  byte[] resizedImage = await CrossImageResizer.Current.ResizeImageWithAspectRatioAsync(originalImageStream, 500, 1000);
+
             totallbl.Text = "Total: €" + total;
         }
         async void SendPayment(object sender, System.EventArgs e)

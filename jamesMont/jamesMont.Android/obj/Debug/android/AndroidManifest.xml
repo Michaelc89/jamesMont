@@ -13,7 +13,7 @@
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
     </provider>
     <activity android:configChanges="orientation|screenSize" android:label="SplashScreen" android:theme="@style/MainTheme" android:name="md53bacf147dacb4588f0e4026f6178b0c4.MainActivity" />
-    <activity android:icon="@drawable/icon" android:noHistory="true" android:theme="@style/Theme.Splash" android:name="md53bacf147dacb4588f0e4026f6178b0c4.SplashActivity">
+    <activity android:configChanges="orientation|screenSize" android:label="Cut &amp; Die" android:theme="@style/SplashTheme" android:name="md53bacf147dacb4588f0e4026f6178b0c4.SplashActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

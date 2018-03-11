@@ -2,6 +2,6 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SelectedDevice>Vodafone VFD 700</SelectedDevice>
-    <DefaultDevice>VisualStudio_android-23_x86_phone</DefaultDevice>
+    <DefaultDevice>MichaelNexus</DefaultDevice>
   </PropertyGroup>
 </Project>

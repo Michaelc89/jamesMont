@@ -221,8 +221,7 @@ namespace jamesMont.View
 
 
                         hair = myObj.faceAttributes.hair.hairColor[0].color;
-
-
+                        
                         await DisplayAlert("Alert","You are a "+gender+" with "+hair+" hair,","OK");
                     }
                 }
