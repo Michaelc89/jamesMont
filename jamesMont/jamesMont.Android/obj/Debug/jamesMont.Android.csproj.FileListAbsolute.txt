@@ -1851,7 +1851,6 @@ C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\xml\file_paths.xml
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\values\colors.xml
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\splash.xml
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\blank_woman_placeholder.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\scissorscombmain1.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\phone.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\email.png
@@ -1877,3 +1876,4 @@ C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\change2.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\spanner.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\cancel.png
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\placeholder.png

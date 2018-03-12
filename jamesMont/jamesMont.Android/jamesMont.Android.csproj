@@ -295,7 +295,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Blank_woman_placeholder.png" />
+    <AndroidResource Include="Resources\Drawable\placeholder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\ScissorsCombMain1.png" />

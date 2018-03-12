@@ -76,6 +76,7 @@ namespace jamesMont.View
             HiLabel.Text = "Hi, " + Name;
             HiLabel.FontSize = 20;
             nameForBlob = Name;
+            PhotoImage.Source = "placeholder.png";
 
             // genderLabel.IsVisible = true;
         }
