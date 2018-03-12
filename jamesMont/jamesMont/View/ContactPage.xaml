@@ -6,11 +6,16 @@
         <StackLayout  BackgroundColor="#3897f0">
             <Label  x:Name="HiLabel" HorizontalOptions="End" TextColor="White" FontFamily=""/>
 
-            <Button Text="Send Email"       Clicked="SendEmail"/>
-            <Button Text="Open Map"         Clicked="OpenMap"/>
-            <Button Text="Call Us"          Clicked="CallUs"/>
-            <Button Text="Take A Picture"   Clicked="TakeAPicture"/>
 
+            
+
+
+
+                <Button Text="Send Email"        Image="email.png"  BorderRadius="20" BackgroundColor="HotPink" Clicked="SendEmail"     Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Open Map"          Image="Location.png"    Clicked="OpenMap"       Grid.Row="2" Grid.Column="0"/>
+                <Button Text="Call Us"           Image="ContactUs.png"    Clicked="CallUs"        Grid.Row="4" Grid.Column="0"/>
+                <Button Text="Take A Picture"    Image="camera.png"   Clicked="TakeAPicture"  Grid.Row="6" Grid.Column="0"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

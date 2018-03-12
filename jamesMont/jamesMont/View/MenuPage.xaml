@@ -9,10 +9,10 @@
             <Label  x:Name="HiLabel" HorizontalOptions="End" TextColor="White" FontFamily=""/>
             <Button Text="Log Out" HorizontalOptions="End" Clicked="logOut" />
 
-            <Button Text="Make A Booking" Clicked="MakeABooking" x:Name="icon2"/>
-            <Button Text="Edit A Booking" Clicked="EditABooking"/>
-            <Button Text="Shop" Clicked="Shop"/>
-            <Button Text="Contact" Clicked="contact"/>
+            <Button Text="Make A Booking" Clicked="MakeABooking"  Image="MakeBook.png" />
+            <Button Text="Edit A Booking" Clicked="EditABooking" Image="EditBook.png"/>
+            <Button Text="Shop" Clicked="Shop" Image="ShoppingCart.png"/>
+            <Button Text="Contact" Clicked="contact" Image="ContactUs.png"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

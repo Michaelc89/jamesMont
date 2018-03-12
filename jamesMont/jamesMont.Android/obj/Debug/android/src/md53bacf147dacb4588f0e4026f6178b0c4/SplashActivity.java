@@ -16,7 +16,7 @@ public class SplashActivity
 	}
 
 
-	public SplashActivity ()
+	public SplashActivity () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == SplashActivity.class)

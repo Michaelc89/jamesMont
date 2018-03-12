@@ -10,7 +10,7 @@
                 <StackLayout>
                     <Image x:Name="PhotoImage" HeightRequest="350" />
                 </StackLayout>
-                <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" Clicked="CameraButton_Clicked"/>
+                <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1"  Clicked="CameraButton_Clicked"/>
                 <Button x:Name="SendImage" Text="Send Chosen Image" Grid.Row="2" Clicked="Select_Image" />
                 <Button x:Name="Exit" Text="Choose Image and Send " Grid.Row="3" Clicked="Choose_Image_and_Send_Clicked" />
                 <Button x:Name="DetectFace" Text="Detect Face " Grid.Row="4" Clicked="Detect_Face" />
