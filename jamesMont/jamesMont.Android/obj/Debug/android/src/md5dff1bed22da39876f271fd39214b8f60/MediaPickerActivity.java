@@ -21,7 +21,7 @@ public class MediaPickerActivity
 	}
 
 
-	public MediaPickerActivity () throws java.lang.Throwable
+	public MediaPickerActivity ()
 	{
 		super ();
 		if (getClass () == MediaPickerActivity.class)

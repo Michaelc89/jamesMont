@@ -321,6 +321,18 @@
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\EditBook.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\change2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\spanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\cancel.png" />
+  </ItemGroup>
   <Import Project="..\jamesMont\jamesMont.projitems" Label="Shared" Condition="Exists('..\jamesMont\jamesMont.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />

@@ -18,6 +18,13 @@ namespace jamesMont.View
 		{
 			InitializeComponent ();
             clientName = name;
+            boom.Items.Add("Select a stylist");
+            boom.Items.Add("Christie");
+            boom.Items.Add("Chrystal");
+            boom.Items.Add("Owen");
+            boom.Items.Add("Conor");
+            boom.TextColor = Color.White;
+            boom.SelectedIndex = 0;
             procedure = pro;
 		}
 
@@ -33,9 +40,17 @@ namespace jamesMont.View
             try
             {
 
-               // azureService2.LoadBookings(picked);
+                // azureService2.LoadBookings(picked);
+                var selectedValue = boom.Items[boom.SelectedIndex];
+                string stylist;
+                stylist = selectedValue.ToString();
+                if (stylist != "Select a stylist")
+                {
+                     azureService2.LoadBookings(picked, stylist);
 
-                Navigation.PushAsync(new TimesPage(styler, clientName, picked, procedure));
+                   
+                    Navigation.PushAsync(new TimesPage(stylist, clientName, picked, procedure));
+                }
 
             }
             catch (Exception er)

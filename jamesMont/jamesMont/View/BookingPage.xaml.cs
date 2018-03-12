@@ -59,7 +59,7 @@ namespace jamesMont.View
             }
             catch (Exception er)
             {
-                DisplayAlert("Alert", "Could not load categories" + er, "Ok");
+               await  DisplayAlert("Alert", "Could not load categories" + er, "Ok");
             }
 
         }

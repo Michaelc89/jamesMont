@@ -17,10 +17,14 @@ namespace jamesMont.View
         string clientname, id, procedure;
         public ChangeBooking (string ID, string name, string pro)
 		{
-             id = ID;
+           
+
+            id = ID;
             clientname = name;
             procedure = pro;
 			InitializeComponent ();
+
+            image.Source = "change2.png";
             foreach (var x in MainPage.UserName)
             {
                 name = x;

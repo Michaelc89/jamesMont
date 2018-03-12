@@ -27,6 +27,7 @@ namespace jamesMont.View
         public BookingConfirm(string bookingTime, string clientName, int slot, DateTime p, string pro, string stylist)
         {
             InitializeComponent();
+            image.Source = "confirm.png";
             clientName5 = clientName;
             styler = stylist;
             picked = p;
