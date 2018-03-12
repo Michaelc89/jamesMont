@@ -4,7 +4,7 @@
              x:Class="jamesMont.View.ProductPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="image"/>
+            <Image x:Name="image" HeightRequest="350"/>
             <Label  x:Name="product" Text=""
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

@@ -13,7 +13,7 @@ using Android.Content.PM;
 
 namespace jamesMont.Droid
 {
-    [Activity(Label = "Cut & Die", Theme = "@style/SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Cut & Dye",Theme = "@style/SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 
     public class SplashActivity : Activity
     {

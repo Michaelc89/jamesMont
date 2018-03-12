@@ -1,5 +1,5 @@
-BundleAssemblies=False
-AotAssemblies=False
+BundleAssemblies=false
+AotAssemblies=false
 AndroidAotMode=
 ExplicitCrunch=False
 EnableProguard=
@@ -18,4 +18,4 @@ AndroidUseLatestPlatformSdk=false
 TargetFrameworkVersion=v7.1
 AndroidCreatePackagePerAbi=
 OS=Windows_NT
-DesignTimeBuild=
+DesignTimeBuild=true

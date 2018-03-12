@@ -1861,6 +1861,11 @@ C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\editbook.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\R.cs.flag
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\uploadflags.txt
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\confirm.png
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\change2.png
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\spanner.png
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\cancel.png
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\placeholder.png
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\jamesMont.Android.dll.mdb
@@ -1872,8 +1877,3 @@ C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\and
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\confirm.png
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\change2.png
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\spanner.png
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\cancel.png
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\res\drawable\placeholder.png
