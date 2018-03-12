@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace jamesMont.View
 {
@@ -22,7 +23,7 @@ namespace jamesMont.View
         private static string nameForBlob;
         public static string hair;
         public static string gender;
-
+        public static ObservableCollection<string> UserEmail { get; } = new ObservableCollection<string>();
         static string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=commblob2;AccountKey=fU7XsTmlYv6VgnFvYlPxWEcT8KBAineKA5JO+iMoBzAo0x5cB0ELj/m5clUl8X8OhrsVoYXCo4ELyhillPyPIA==;EndpointSuffix=core.windows.net";
         // *** Update or verify the following values. ***
         // **********************************************
@@ -47,6 +48,7 @@ namespace jamesMont.View
         public RegisterPage ()
 		{
 			InitializeComponent ();
+            UserEmail.Clear();
         }
 
         async void createAccount(object sender, System.EventArgs e)
@@ -58,7 +60,7 @@ namespace jamesMont.View
             else
             {
                 User userOne = new User(Fname.Text, Sname.Text, email.Text, pass.Text, phone.Text);
-
+                UserEmail.Add(email.Text);
                 await ExecuteAddCoffeeCommandAsync(userOne.FirstName, userOne.Surname, userOne.Email, userOne.Password, userOne.Phone);
             }
         }

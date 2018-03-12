@@ -79,7 +79,7 @@ namespace jamesMont.Services
                 {
                    answer =  x.Length;
                 }
-                await DisplayAlert("Alert", "Length: "+ answer, "Ok");
+           //     await DisplayAlert("Alert", "Length: "+ answer, "Ok");
 
                 return answer;
                 
@@ -402,6 +402,14 @@ namespace jamesMont.Services
             foreach (var item in MainPage.UserEmail)
             {
                 email = item;
+            }
+
+            if (email == null)
+            {
+                foreach (var item in RegisterPage.UserEmail)
+                {
+                    email = item;
+                }
             }
 
             try

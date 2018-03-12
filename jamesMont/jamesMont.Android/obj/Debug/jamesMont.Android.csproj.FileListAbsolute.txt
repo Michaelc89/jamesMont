@@ -1680,7 +1680,6 @@ C:\Users\MichaelC\Source\Repos\March1\jamesMont\jamesMont.Android\obj\Debug\res\
 C:\Users\MichaelC\Source\Repos\March1\jamesMont\jamesMont.Android\obj\Debug\res\drawable\makebook.png
 C:\Users\MichaelC\Source\Repos\March1\jamesMont\jamesMont.Android\obj\Debug\res\drawable\deletebook.png
 C:\Users\MichaelC\Source\Repos\March1\jamesMont\jamesMont.Android\obj\Debug\res\drawable\editbook.png
-C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.dll
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.pdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\bin\Debug\jamesMont.Android.dll.config
@@ -1877,3 +1876,4 @@ C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\and
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Owner\Source\Repos\jamesMont2\jamesMont\jamesMont.Android\obj\Debug\jamesMont.Android.csprojResolveAssemblyReference.cache

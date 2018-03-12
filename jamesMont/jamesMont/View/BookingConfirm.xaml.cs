@@ -40,6 +40,15 @@ namespace jamesMont.View
             {
                 email = item;
             }
+
+            if (email == null)
+            {
+                foreach (var item in RegisterPage.UserEmail)
+                {
+                    email = item;
+                }
+            }
+            
             LabelBook.Text = "Booking time: " + bookingTime;
             LabelBook2.Text = "Booking Date: " + p.ToString("dd/MM/yyyy");
 
